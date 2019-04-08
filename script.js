@@ -12,7 +12,9 @@ firebase.initializeApp(config);
 function onSave() {
   var values = {
     title: '',
+    creator: '',
     description: '',
+    timestamp: Date.now(),
     color: '',
     backButton: '',
     effectA: false,
