@@ -6,11 +6,11 @@ body {
 /*Gallery*/
 #gallery div {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   text-align: center;
-  padding: 20px;
-  margin: 20px;
+  padding: 10px;
+  margin: 10px;
 }
 
 /*'Discount Bootstrap' Responsive Grid (Mobile First)*/
