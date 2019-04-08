@@ -1,6 +1,18 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+
+/*Gallery*/
+#gallery div {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+}
+
 /*'Discount Bootstrap' Responsive Grid (Mobile First)*/
 .colorblock {
   background-color: #839DAF;
