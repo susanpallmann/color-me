@@ -8,9 +8,6 @@ var config = {
   messagingSenderId: "805764424713"
 };
 firebase.initializeApp(config);
-var bigOne = document.getElementById('bigOne');
-var dbRef = firebase.database().ref().child('text');
-dbRef.on('value', snap => bigOne.innerText = snap.val());
 
 function onSave() {
   var values = {
