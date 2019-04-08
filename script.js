@@ -34,7 +34,7 @@ function onSave() {
     grows: true,
     visibleInGallery: true
   };
-  
+  var perspID = newPerspective(values);
 }
 
 // Creates a new perspective and returns ID.
