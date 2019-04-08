@@ -2,7 +2,7 @@ function loadGallery() {
   var galleryHTML = "";
   firebase.database().ref('perspectives').orderByChild('title').limitToFirst(6).once('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
-      galleryHTML ++ "<span style='width: 200px; height: 200px; background-color: " + childSnapshot.val().color + "'>" + childSnapshot.val().title + "<br><small></small>by " + childSnapshot.val().creator + "</span>";
+      galleryHTML = galleryHTML + "<span style='width: 200px; height: 200px; background-color: " + childSnapshot.val().color + "'>" + childSnapshot.val().title + "<br><small></small>by " + childSnapshot.val().creator + "</span>";
     });
   });
   $("#gallery div div").html(galleryHTML);
