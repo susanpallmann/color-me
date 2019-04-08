@@ -12,29 +12,34 @@ var bigOne = document.getElementById('bigOne');
 var dbRef = firebase.database().ref().child('text');
 dbRef.on('value', snap => bigOne.innerText = snap.val());
 
+function onSave() {
+  var values = {
+    title: '',
+    description: '',
+    color: '',
+    backButton: '',
+    effectA: '',
+    effectB: '',
+    effectC: '',
+    effectD: '',
+    effectE: '',
+    effectF: '',
+    effectG: '',
+    effectH: '',
+    effectI: '',
+    effectJ: '',
+    effectK: '',
+    effectL: '',
+    effectM: '',
+    grows: '',
+    visibleInGallery: ''
+  };
+  
+}
+
 // Creates a new perspective and returns ID.
-function newPerspective(inputArray) {
-  var perspID = firebase.database().ref('perspectives/').push({
-    title: inputArray[0],
-    description: inputArray[1],
-    color: inputArray[2],
-    backButton: inputArray[3],
-    effectA: inputArray[4],
-    effectB: inputArray[5],
-    effectC: inputArray[6],
-    effectD: inputArray[7],
-    effectE: inputArray[8],
-    effectF: inputArray[9],
-    effectG: inputArray[10],
-    effectH: inputArray[11],
-    effectI: inputArray[12],
-    effectJ: inputArray[13],
-    effectK: inputArray[14],
-    effectL: inputArray[15],
-    effectM: inputArray[16],
-    grows: inputArray[17],
-    visibleInGallery: inputArray[18]
-  }).getKey();
+function newPerspective(values) {
+  var perspID = firebase.database().ref('perspectives/').push(values).getKey();
   loadPerspective(perspID);
   return perspID;
 }
