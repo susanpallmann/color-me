@@ -5,6 +5,6 @@ window.onload = function() {
     if ($("#gallery div").length >= maxThumbs) {
       $("#gallery div:last-child").remove();
     }
-    $("#gallery").prepend("<div style='display:inline-block; width: 200px; height: 200px; background-color: " + data.val().color + "'>Color me " + data.val().title + "<small>by " + data.val().creator + "</small></div>");
+    $("#gallery").prepend("<div style='background-color: " + data.val().color + "'><div>Color me " + data.val().title + "</div><small>by " + data.val().creator + "</small></div>");
   });
 };
