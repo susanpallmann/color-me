@@ -19,4 +19,4 @@ function loadPerspective(perspID) {
 window.onload = function() {
   var perspID = determinePerspective();
   loadPerspective();
-);
+};
