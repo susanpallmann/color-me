@@ -11,3 +11,40 @@ firebase.initializeApp(config);
 var bigOne = document.getElementById('bigOne');
 var dbRef = firebase.database().ref().child('text');
 dbRef.on('value', snap => bigOne.innerText = snap.val());
+
+// Creates a new perspective and returns ID.
+function newPerspective(inputArray) {
+  var perspID = firebase.database().ref('perspectives/').push({
+    title: inputArray[0],
+    description: inputArray[1],
+    color: inputArray[2],
+    backButton: inputArray[3],
+    effectA: inputArray[4],
+    effectB: inputArray[5],
+    effectC: inputArray[6],
+    effectD: inputArray[7],
+    effectE: inputArray[8],
+    effectF: inputArray[9],
+    effectG: inputArray[10],
+    effectH: inputArray[11],
+    effectI: inputArray[12],
+    effectJ: inputArray[13],
+    effectK: inputArray[14],
+    effectL: inputArray[15],
+    effectM: inputArray[16],
+    grows: inputArray[17],
+    visibleInGallery: inputArray[18]
+  }).getKey();
+  loadPerspective(perspID);
+  return perspID;
+}
+
+// Loads a perspective by its ID.
+function loadPerspective(perspID) {
+    firebase.database().ref('perspectives/' + perspID).once('value').then(function(snapshot) {
+        var data1 = snapshot.child('data1').val();
+        var data2 = snapshot.child('data2').val();
+        var data3 = snapshot.child('data3').val();
+        alert (perspID + " has values: " + data1 + ", " + data2 + ", " + data3);
+    });
+}
