@@ -32,7 +32,8 @@ function onSave() {
     effectL: false,
     effectM: false,
     grows: true,
-    visibleInGallery: true
+    visibleInGallery: true,
+    views: 0
   };
   var perspID = newPerspective(values);
 }
