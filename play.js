@@ -12,7 +12,7 @@ function loadPerspective(perspID) {
         var title = snapshot.child('title').val();
         var creator = snapshot.child('creator').val();
         var color = snapshot.child('color').val();
-        alert(title + " by " + creator + ", theme: " + color);
+        alert(perspID + ": " + title + " by " + creator + ", theme: " + color);
     });
 }
 
