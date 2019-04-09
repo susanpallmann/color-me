@@ -83,23 +83,23 @@ $(document).ready(function() {
 	if (randomNum < 0.1) {
 		randomCol = "#3D7199";
 	} else if (randomNum < 0.2) {
-		randomCol = #D65177";
+		randomCol = "#D65177";
 	} else if (randomNum < 0.3) {
-		randomCol = #DD9E6E";
+		randomCol = "#DD9E6E";
 	} else if (randomNum < 0.4) {
-		randomCol = #987FC6";
+		randomCol = "#987FC6";
 	} else if (randomNum < 0.5) {
-		randomCol = #59C14D";
+		randomCol = "#59C14D";
 	} else if (randomNum < 0.6) {
-		randomCol = #D69168";
+		randomCol = "#D69168";
 	} else if (randomNum < 0.7) {
-		randomCol = #43B785";
+		randomCol = "#43B785";
 	} else if (randomNum < 0.8) {
-		randomCol = #E5C319";
+		randomCol = "#E5C319";
 	} else if (randomNum < 0.9) {
-		randomCol = #FF6B6B";
+		randomCol = "#FF6B6B";
 	} else {
-		randomCol = #ADAFB1";
+		randomCol = "#ADAFB1";
 	}
 	$("header h1").css("color", randomCol);
 	$("#container-hamburger span").css("color", randomCol);
