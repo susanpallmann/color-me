@@ -45,7 +45,7 @@ span.hamburger-container {
   display: inline-block;
 }
 #container-hamburger span {
-  background-color: #E6EBF2;
+  background-color: #000;
   height: 8px;
   display: block;
   position: relative;
