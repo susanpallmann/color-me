@@ -13,6 +13,361 @@ body {
   margin: 10px;
 }
 
+
+/*Burger*/
+span.hamburger-container {
+  width: 64px;
+}
+#nav-hamburger {
+  cursor: pointer;
+}
+#container-hamburger {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  display: inline-block;
+}
+#container-hamburger span {
+  background-color: #E6EBF2;
+  height: 8px;
+  display: block;
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  margin: 4px;
+}
+#hamburgerTop {
+  top: 0;
+}
+#hamburgerMid {
+  top: 12px;
+}
+#hamburgerBottom {
+  top: 24px;
+}
+.animcomplete #hamburgerTop {
+  width: 100%;
+  transform: translate(0, 24px) rotate(45deg);
+}
+.animcomplete #hamburgerMid {
+  width: 0;
+  height: 0;
+  transform: translate(30px, 0);
+}
+.animcomplete #hamburgerBottom {
+  width: 100%;
+  transform: translate(0, -12px) rotate(-45deg);
+}
+.open #hamburgerTop {
+  animation: hamburgerTopBar 0.5s ease-in-out 0s infinite normal forwards;
+}
+.open #hamburgerMid {
+  animation: hamburgerMidBar 0.5s ease-in-out 0s infinite normal forwards;
+}
+.open #hamburgerBottom {
+  animation: hamburgerBottomBar 0.5s ease-in-out 0s infinite normal forwards;
+}
+.closed #hamburgerTop {
+  animation: hamburgerTopBar 0.5s ease-in-out 0s infinite reverse forwards;
+}
+.closed #hamburgerMid {
+  animation: hamburgerMidBar 0.5s ease-in-out 0s infinite reverse forwards;
+}
+.closed #hamburgerBottom {
+  animation: hamburgerBottomBar 0.5s ease-in-out 0s infinite reverse forwards;
+}
+
+/* Hamburger CSS Animation */
+@keyframes hamburgerTopBar {
+  0% {
+    width: 100%;
+    transform: translateY(0px);
+  }
+  10% {
+    width: 120%;
+    transform: translateX(-8px);
+  }
+  40% {
+    width: 8px;
+    transform: translateX(26px);
+  }
+  50% {
+    width: 6px;
+    transform: translate(26px, 8px);
+  }
+  60% {
+    width: 8px;
+    transform: translate(26px, 24px);
+  }
+  90% {
+    width: 120%;
+    transform: translate(-8px, 24px) rotate(60deg);
+  }
+  100% {
+    width: 100%;
+    transform: translate(0, 24px) rotate(45deg);
+  }
+}
+@keyframes hamburgerMidBar {
+  0% {
+    width: 100%;
+    height: 8px;
+    transform: translateY(0px);
+  }
+  10% {
+    width: 120%;
+    height: 8px;
+    transform: translateX(-8px);
+  }
+  40% {
+    width: 8px;
+    height: 8px;
+    transform: translateX(26px);
+  }
+  50% {
+    width: 6px;
+    height: 8px;
+    transform: translate(26px, 0);
+  }
+  60% {
+    width: 8px;
+    height: 8px;
+    transform: translate(26px, 0);
+  }
+  61% {
+    width: 0;
+    height: 0;
+    transform: translate(30px, 0);
+  }
+  100% {
+    width: 0;
+    height: 0;
+    transform: translate(30px, 0);
+  }
+}
+@keyframes hamburgerBottomBar {
+  0% {
+    width: 100%;
+    transform: translateY(0px);
+  }
+  10% {
+    width: 120%;
+    transform: translateX(-8px);
+  }
+  40% {
+    width: 8px;
+    transform: translateX(26px);
+  }
+  50% {
+    width: 8px;
+    transform: translate(26px, -8px);
+  }
+  60% {
+    width: 12px;
+    transform: translate(26px, -12px);
+  }
+  90% {
+    width: 120%;
+    transform: translate(-8px, -12px) rotate(-60deg);
+  }
+  100% {
+    width: 100%;
+    transform: translate(0, -12px) rotate(-45deg);
+  }
+}
+
+@media only screen and (min-width: 1200px), only screen and (max-width: 750px) {
+  /* for desktop */
+  main {
+    margin: auto;
+    margin-top: 128px;
+    margin-bottom: 128px;
+    border-radius: 24px;
+    max-width: 1200px;
+  }
+  header {
+    font-size: 16px;
+  }
+  header, footer {
+    height: 64px; 
+  }
+  header::after {
+    height: 16px;
+    top: 64px;
+  }
+  h1 span.highlight {
+    display: inline;
+  }
+  header span.logo-container .logo-small-desktop {
+    display: block;
+  }
+  header span.logo-container .logo-small {
+    display: none;
+  }
+  span.hamburger-container {
+    width: 32px;
+  }
+  #nav-hamburger {
+    cursor: pointer;
+  }
+  #container-hamburger {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  #container-hamburger span {
+    background-color: white;
+    height: 4px;
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 2px;
+    margin: 2px;
+  }
+  #hamburgerTop {
+    top: 0;
+  }
+  #hamburgerMid {
+    top: 6px;
+  }
+  #hamburgerBottom {
+    top: 12px;
+  }
+  .animcomplete #hamburgerTop {
+    width: 100%;
+    transform: translate(0, 12px) rotate(45deg);
+  }
+  .animcomplete #hamburgerMid {
+    width: 0;
+    height: 0;
+    transform: translate(15px, 0);
+  }
+  .animcomplete #hamburgerBottom {
+    width: 100%;
+    transform: translate(0, -6px) rotate(-45deg);
+  }
+  .open #hamburgerTop {
+    animation: hamburgerTopBar 0.5s ease-in-out 0s infinite normal forwards;
+  }
+  .open #hamburgerMid {
+    animation: hamburgerMidBar 0.5s ease-in-out 0s infinite normal forwards;
+  }
+  .open #hamburgerBottom {
+    animation: hamburgerBottomBar 0.5s ease-in-out 0s infinite normal forwards;
+  }
+  .closed #hamburgerTop {
+    animation: hamburgerTopBar 0.5s ease-in-out 0s infinite reverse forwards;
+  }
+  .closed #hamburgerMid {
+    animation: hamburgerMidBar 0.5s ease-in-out 0s infinite reverse forwards;
+  }
+  .closed #hamburgerBottom {
+    animation: hamburgerBottomBar 0.5s ease-in-out 0s infinite reverse forwards;
+  }
+
+  /* Hamburger CSS Animation */
+  @keyframes hamburgerTopBar {
+    0% {
+      width: 100%;
+      transform: translateY(0px);
+    }
+    10% {
+      width: 120%;
+      transform: translateX(-4px);
+    }
+    40% {
+      width: 4px;
+      transform: translateX(13px);
+    }
+    50% {
+      width: 3px;
+      transform: translate(13px, 4px);
+    }
+    60% {
+      width: 4px;
+      transform: translate(13px, 12px);
+    }
+    90% {
+      width: 120%;
+      transform: translate(-4px, 12px) rotate(60deg);
+    }
+    100% {
+      width: 100%;
+      transform: translate(0, 12px) rotate(45deg);
+    }
+  }
+  @keyframes hamburgerMidBar {
+    0% {
+      width: 100%;
+      height: 4px;
+      transform: translateY(0px);
+    }
+    10% {
+      width: 120%;
+      height: 4px;
+      transform: translateX(-4px);
+    }
+    40% {
+      width: 4px;
+      height: 4px;
+      transform: translateX(13px);
+    }
+    50% {
+      width: 3px;
+      height: 4px;
+      transform: translate(13px, 0);
+    }
+    60% {
+      width: 4px;
+      height: 4px;
+      transform: translate(13px, 0);
+    }
+    61% {
+      width: 0;
+      height: 0;
+      transform: translate(15px, 0);
+    }
+    100% {
+      width: 0;
+      height: 0;
+      transform: translate(15px, 0);
+    }
+  }
+  @keyframes hamburgerBottomBar {
+    0% {
+      width: 100%;
+      transform: translateY(0px);
+    }
+    10% {
+      width: 120%;
+      transform: translateX(-4px);
+    }
+    40% {
+      width: 4px;
+      transform: translateX(13px);
+    }
+    50% {
+      width: 3px;
+      transform: translate(13px, -4px);
+    }
+    60% {
+      width: 4px;
+      transform: translate(13px, -6px);
+    }
+    90% {
+      width: 120%;
+      transform: translate(-4px, -6px) rotate(-60deg);
+    }
+    100% {
+      width: 100%;
+      transform: translate(0, -6px) rotate(-45deg);
+    }
+  }
+}
+
+
+
 /*'Discount Bootstrap' Responsive Grid (Mobile First)*/
 .colorblock {
   background-color: #839DAF;
