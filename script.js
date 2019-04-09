@@ -87,5 +87,5 @@ $(document).ready(function() {
 	if (compCol > 360) {
 		compCol = compCol - 360;
 	}
-	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", 59%, 49%), hsl("  + compCol + ", 59%, 49%)");
+	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", 59%, 60%), hsl("  + compCol + ", 59%, 60%)");
 });
