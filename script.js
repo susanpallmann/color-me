@@ -101,6 +101,5 @@ $(document).ready(function() {
 	} else {
 		randomCol = "#ADAFB1";
 	}
-	$("header h1").css("color", randomCol);
-	$("#container-hamburger span").css("background-color", randomCol);
+	$("body").css("background-image", "linear-gradient(white, " + randomCol + ")");
 });
