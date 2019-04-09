@@ -101,5 +101,5 @@ $(document).ready(function() {
 	} else {
 		randomCol = "#ADAFB1";
 	}
-	$("body").css("background-image", "linear-gradient(white, " + randomCol + ")");
+	$("body").css("background-image", "linear-gradient(to bottom right, white, " + randomCol + ")");
 });
