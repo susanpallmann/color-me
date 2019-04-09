@@ -40,17 +40,21 @@ nav {
   margin: 0;
   display: none;
   position: absolute;
+  left: 0;
   right: 0;
+  bottom: 0;
+  display: block;
+  width: 1200px;
+  margin: auto;
+  text-align: right;
 }
 nav ul {
   text-decoration: none;
   text-transform: uppercase;
   width: fit-content;
+  width: 100%;
+  padding: 0;
   margin: 0;
-  padding-bottom: 36px;
-  padding-right: 72px;
-  padding-left: 48px;
-  padding-top: 0;
 }
 nav li {
   height: 0;
