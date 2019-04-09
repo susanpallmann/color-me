@@ -13,6 +13,10 @@ header .container {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+a {
+  text-decoration: none;
+  color: default;
+}
 
 /*Gallery*/
 #gallery div {
@@ -49,6 +53,7 @@ nav ul {
 nav li {
   list-style-type: none;
   padding-top: 10px;
+  transition: 0.5s;
 }
 nav a:hover {
   cursor: pointer;
