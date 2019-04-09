@@ -1,6 +1,14 @@
 body {
   font-family: 'Roboto Slab', sans-serif;
 }
+header h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+header .span6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 /*Gallery*/
 #gallery div {
@@ -11,7 +19,9 @@ body {
   padding: 10px;
   margin: 10px;
 }
-
+.right {
+  text-align: right;
+}
 
 /*Burger*/
 header span {
