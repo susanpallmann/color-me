@@ -63,14 +63,14 @@ $(document).ready(function() {
 			$(this).removeClass("animcomplete");
 			$(this).addClass("closed");
 			$("nav").css("opacity", "0");
-			$("nav").css("height", "0");
+			$("nav li").css("height", "0");
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("closed");
 			}, 500);
 		} else {
 		$(this).addClass("open");
 			$("nav").css("opacity", "1");
-			$("nav").css("height", "200px");
+			$("nav li").css("height", "32px");
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("open");
 				$("#nav-hamburger").addClass("animcomplete");
