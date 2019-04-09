@@ -83,9 +83,9 @@ $(document).ready(function() {
 	//Random color gen //
 	var randomNum = Math.random();
 	var randomCol = Math.round(randomNum * 360);
-	var compCol = randomCol + 20;
+	var compCol = randomCol + 40;
 	if (compCol > 360) {
 		compCol = compCol - 360;
 	}
-	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", 59%, 60%), hsl("  + compCol + ", 59%, 60%)");
+	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", 70%, 80%), hsl("  + compCol + ", 70%, 80%)");
 });
