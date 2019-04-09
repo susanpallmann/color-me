@@ -82,27 +82,10 @@ $(document).ready(function() {
 	
 	//Random color gen //
 	var randomNum = Math.random();
-	var randomCol = "black";
-	if (randomNum < 0.1) {
-		randomCol = "#3D7199";
-	} else if (randomNum < 0.2) {
-		randomCol = "#D65177";
-	} else if (randomNum < 0.3) {
-		randomCol = "#DD9E6E";
-	} else if (randomNum < 0.4) {
-		randomCol = "#987FC6";
-	} else if (randomNum < 0.5) {
-		randomCol = "#59C14D";
-	} else if (randomNum < 0.6) {
-		randomCol = "#D69168";
-	} else if (randomNum < 0.7) {
-		randomCol = "#43B785";
-	} else if (randomNum < 0.8) {
-		randomCol = "#E5C319";
-	} else if (randomNum < 0.9) {
-		randomCol = "#FF6B6B";
-	} else {
-		randomCol = "#ADAFB1";
+	var randomCol = Math.round(randomNum * 360);
+	var compCol = randomCol + 20;
+	if (compCol > 360) {
+		compCol = compCol - 360;
 	}
-	$("body").css("background-image", "linear-gradient(to bottom right, white, " + randomCol + ")");
+	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", 59%, 98%), hsl("  + compCol + ", 59%, 98%)");
 });
