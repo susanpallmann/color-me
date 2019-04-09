@@ -1,0 +1,153 @@
+/*Lifted from Portfolio redesign - not complete/final version of Discount Bootstrap*/
+/*'Discount Bootstrap' Responsive Grid (Mobile First)*/
+.colorblock {
+  background-color: #839DAF;
+  padding: 0.01px;
+  width: 620px;
+  position: absolute;
+  height: 390px;
+  z-index: 0;
+  top: 165px;
+  left: 200px;
+}
+.container {
+  max-width: 1000px;
+  margin:auto;
+  padding-top: 41.66px;
+  padding-bottom: 41.66px
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column {
+  width: 100%;
+  margin-top: 41.66px;
+  margin-bottom: 41.66px;
+}
+.column.hybridRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column.span8.static {
+  width: 66.67%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.column.span4.static {
+  width: 33.33%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+/*'Discount Bootstrap' Responsive Grid Media Queries*/
+/*Vertical Mobile*/
+@media only screen and (max-width: 600px) {
+}
+/*Horizontal Mobile & Tablets*/
+@media only screen and (min-width: 601px) and (max-width:1000px) {
+  .span1 {
+    width: 8.33%;
+  }
+  .span2 {
+    width: 16.66%;
+  }
+  .span3 {
+    width: 25%;
+  }
+  .span4 {
+    width: 33.33%
+  }
+  .span5 {
+    width: 41.66%
+  }
+  .span6 {
+    width: 50%;
+  }
+  .span7 {
+    width: 58.34%;
+  }
+  .span8 {
+    width: 66.67%;
+  }
+  .span9 {
+    width: 75%;
+  }
+  .span10 {
+    width: 83.34%;
+  }
+  .span11 {
+    width: 91.67%;
+  }
+  .span12 {
+    width: 100%;
+  }
+  .spacer {
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .column.span8.static {
+    width: 66.67%;
+  }
+  .column.span4.static {
+    width: 33.33%;
+  }
+}
+/*Desktop*/
+@media only screen and (min-width: 1001px) {
+  .span1 {
+    width: 8.33%;
+  }
+  .span2 {
+    width: 16.66%;
+  }
+  .span3 {
+    width: 25%;
+  }
+  .span4 {
+    width: 33.33%
+  }
+  .span5 {
+    width: 41.66%
+  }
+  .span6 {
+    width: 50%;
+  }
+  .span7 {
+    width: 58.34%;
+  }
+  .span8 {
+    width: 66.67%;
+  }
+  .span9 {
+    width: 75%;
+  }
+  .span10 {
+    width: 83.34%;
+  }
+  .span11 {
+    width: 91.67%;
+  }
+  .span12 {
+    width: 100%;
+  }
+  .spacer {
+    padding-right: 8.33%;
+    box-sizing: border-box;
+  }
+  .column.span8.static {
+    width: 66.67%;
+  }
+  .column.span4.static {
+    width: 33.33%;
+  }
+  p, h3, h2, h1 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .iconLarge {
+    padding-left: 0px;
+  }
+}
+.container#navbar {
+  max-width: 1200px;
+}
