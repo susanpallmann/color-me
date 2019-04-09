@@ -248,7 +248,6 @@ span.hamburger-container {
   }
 }
 
-@media only screen and (min-width: 1200px), only screen and (max-width: 750px) {
   /* for desktop */
   main {
     margin: auto;
@@ -436,7 +435,6 @@ span.hamburger-container {
       transform: translate(0, -6px) rotate(-45deg);
     }
   }
-}
 
 
 
