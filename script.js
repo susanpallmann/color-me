@@ -53,3 +53,27 @@ function loadPerspective(perspID) {
         alert (perspID + " has values: " + data1 + ", " + data2 + ", " + data3);
     });
 }
+
+//
+$(document).ready(function() {
+  // Hamburger menu
+	$("nav").css("right", (-1*$("nav").width()) + "px");
+	$("#nav-hamburger").click(function(){
+		if ($(this).hasClass("animcomplete")) {
+			$(this).removeClass("animcomplete");
+			$(this).addClass("closed");
+			$("nav").css("right", (-1*$("nav").width()) + "px");
+			setTimeout(function() {
+				$("#nav-hamburger").removeClass("closed");
+			}, 500);
+		} else {
+		$(this).addClass("open");
+			$("nav").css("right", "0");
+			setTimeout(function() {
+				$("#nav-hamburger").removeClass("open");
+				$("#nav-hamburger").addClass("animcomplete");
+			}, 500);
+		}
+	});
+	// End hamburger menu //
+});
