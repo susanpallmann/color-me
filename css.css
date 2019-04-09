@@ -29,14 +29,10 @@ header .container {
 
 
 /*Nav*/
-header {
-  position: fixed;
-}
 nav {
   font-size: 32px;
   top: 128px;
   padding: 0;
-  position: fixed;
   margin: 0;
   transition: 0.5s;
 }
