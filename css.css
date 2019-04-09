@@ -2,7 +2,6 @@ body {
   font-family: 'Roboto Slab', sans-serif;
 }
 
-
 /*Gallery*/
 #gallery div {
   display: inline-block;
@@ -534,4 +533,7 @@ span.hamburger-container {
   .iconLarge {
     padding-left: 0px;
   }
+}
+.container#navbar {
+  max-width: 1200px;
 }
