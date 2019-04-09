@@ -38,8 +38,7 @@ nav {
   top: 128px;
   padding: 0;
   margin: 0;
-  opacity: 0;
-  transition: 0.5s;
+  display: none;
 }
 nav ul {
   text-decoration: none;
@@ -55,6 +54,7 @@ nav li {
   height: 0;
   list-style-type: none;
   padding-top: 10px;
+  opacity: 0;
   transition: 0.5s;
 }
 nav a:hover {
