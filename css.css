@@ -15,6 +15,24 @@ body {
 
 
 /*Burger*/
+header span {
+  height: 100%;
+  vertical-align: middle;
+  display: table-cell;
+}
+header span span {
+  display: block;
+}
+header span.logo-container {
+  margin-left: 24px;
+  margin-right: 0;
+  width: 32px;
+  padding-left: 24px;
+  padding-right: 12px;
+}
+header span.hamburger-container {
+  font-size: 64px; 
+}
 span.hamburger-container {
   width: 64px;
 }
