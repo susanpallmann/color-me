@@ -57,7 +57,6 @@ function loadPerspective(perspID) {
 //
 $(document).ready(function() {
 	// Hamburger menu //
-	$("nav").css("right", (-1*$("nav").width()) + "px");
 	$("#nav-hamburger").click(function(){
 		if ($(this).hasClass("animcomplete")) {
 			$(this).removeClass("animcomplete");
