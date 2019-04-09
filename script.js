@@ -62,11 +62,11 @@ $(document).ready(function() {
 		if ($(this).hasClass("animcomplete")) {
 			$(this).removeClass("animcomplete");
 			$(this).addClass("closed");
-			$("nav").css("display", "none");
 			$("nav li").css("opacity", "0");
 			$("nav li").css("height", "0");
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("closed");
+				$("nav").css("display", "none");
 			}, 500);
 		} else {
 		$(this).addClass("open");
