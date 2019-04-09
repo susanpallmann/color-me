@@ -38,6 +38,7 @@ nav {
   top: 128px;
   padding: 0;
   margin: 0;
+  opacity: 0;
   transition: 0.5s;
 }
 nav ul {
@@ -51,6 +52,7 @@ nav ul {
   padding-top: 0;
 }
 nav li {
+  height: 0;
   list-style-type: none;
   padding-top: 10px;
   transition: 0.5s;
