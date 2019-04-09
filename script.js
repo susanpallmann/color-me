@@ -70,7 +70,7 @@ $(document).ready(function() {
 			}, 500);
 		} else {
 		$(this).addClass("open");
-			$("nav").css("block", "none");
+			$("nav").css("display", "block");
 			$("nav li").css("opacity", "1");
 			$("nav li").css("height", "32px");
 			setTimeout(function() {
