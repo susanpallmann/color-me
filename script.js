@@ -62,14 +62,16 @@ $(document).ready(function() {
 		if ($(this).hasClass("animcomplete")) {
 			$(this).removeClass("animcomplete");
 			$(this).addClass("closed");
-			$("nav").css("opacity", "0");
+			$("nav").css("display", "none");
+			$("nav li").css("opacity", "0");
 			$("nav li").css("height", "0");
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("closed");
 			}, 500);
 		} else {
 		$(this).addClass("open");
-			$("nav").css("opacity", "1");
+			$("nav").css("block", "none");
+			$("nav li").css("opacity", "1");
 			$("nav li").css("height", "32px");
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("open");
