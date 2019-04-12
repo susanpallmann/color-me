@@ -19,7 +19,7 @@ window.onload = function() {
     		}
 		$("#gallery").prepend("<div id='" + key + "' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>");
 		$("#gallery div#" + key).click(function() {
-			window.location = window.location + "/experience?id=" + key;
+			window.location.href = "/experience?id=" + key;
 		});
 	});
 	
