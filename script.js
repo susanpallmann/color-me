@@ -89,8 +89,8 @@ $(document).ready(function() {
 	var sat = Math.round(Math.random()*100);
 	var lgh = Math.round(Math.random()*100);
 	
-	// Gets complimentary color's HSL values
-	var compCol = getComplimentaryColor(hue, sat, lgh);
+	// Gets complementary color's HSL values
+	var compCol = getComplementaryColor(hue, sat, lgh);
 	var compHue = compCol[0];
 	var compSat = compCol[1];
 	var compLgh = compCol[2];
@@ -100,7 +100,7 @@ $(document).ready(function() {
 	var midSat = (sat + compSat)/2;
 	var midLgh = (lgh + compLgh)/2;
 	
-	// set background to gradient of random color and its compliment
+	// set background to gradient of random color and its complement
 	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl("  + compHue + ", " + compSat + "%, " + compLgh + "%)");
 	
 	// set text color to white if colors are dark, or black if colors are light
@@ -160,9 +160,9 @@ function getHSLFromString(hslString) {
 	return [hue, sat, lgh];
 }
 
-// returns an array with values [hue, saturation, lightness] representing a color complimentary to the input HSL values
-function getComplimentaryColor(hue, sat, lgh) {
-	// find a complimentary hue
+// returns an array with values [hue, saturation, lightness] representing a color complementary to the input HSL values
+function getComplementaryColor(hue, sat, lgh) {
+	// find a complementary hue
 	// if saturation is low, make the hue difference greater
 	// if lightness is extreme, make the hue difference greater
 	var compHue = hue + (50-sat*0.5) + (Math.abs(lgh-50)) + 20;
@@ -170,9 +170,9 @@ function getComplimentaryColor(hue, sat, lgh) {
 		compHue = compHue - 360;
 	}
 	
-	// find a complimentary saturation
-	// if saturation is very high, make the compliment slightly less saturated
-	// if saturation is very low, make the compliment slightly more saturated
+	// find a complementary saturation
+	// if saturation is very high, make the complement slightly less saturated
+	// if saturation is very low, make the complement slightly more saturated
 	var compSat = sat;
 	if (sat > 80) {
 		compSat = 160-sat;
@@ -180,8 +180,8 @@ function getComplimentaryColor(hue, sat, lgh) {
 		compSat = 40-sat;
 	}
 	
-	// find a complimentary lightness
-	// if lightness is very high, make the compliment slightly less
+	// find a complementary lightness
+	// if lightness is very high, make the complement slightly less
 	var compLgh = lgh;
 	if (lgh > 90) {
 		compLgh = 180-lgh;
@@ -189,6 +189,6 @@ function getComplimentaryColor(hue, sat, lgh) {
 		compLgh = 20-lgh;
 	}
 	
-	// returns complimentary hsl values
+	// returns complementary hsl values
 	return [compHue, compSat, compLgh];
 }
