@@ -8,6 +8,9 @@ $(document).ready(function() {
 		var compSat = compColor[1];
 		var compLgh = compColor[2];
 		var midHue = Math.round((Number(colorHue) + Number(compHue))/2);
+		if (midHue > 360) {
+			midHue = midHue - 360;
+		}
 		var midSat = Math.round((Number(colorSat) + Number(compSat))/2);
 		var midLgh = Math.round((Number(colorLgh) + Number(compLgh))/2);
 		if (isDarkColor(midHue, midSat, midLgh)) {
