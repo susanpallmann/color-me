@@ -90,20 +90,20 @@ $(document).ready(function() {
 	var midCol = (randomCol + compCol)/2;
 	var sat = Math.round(Math.random()*100);
 	var compSat = sat;
-	var midSat = (sat + compSat)/2;
-	var lgh = Math.round(Math.random()*100);
-	var compLgh = lgh;
-	var midLgh = (lgh + compLgh)/2;
 	if (sat*2 > 160) {
 		compSat = 160-sat;
 	} else if (sat*2 < 40) {
 		compSat = 40-sat;
 	}
+	var midSat = (sat + compSat)/2;
+	var lgh = Math.round(Math.random()*100);
+	var compLgh = lgh;
 	if (lgh*2 > 180) {
 		compLgh = 180-lgh;
 	} else if (lgh*2 < 20) {
 		compLgh = 20-lgh;
 	}
+	var midLgh = (lgh + compLgh)/2;
 	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", " + sat + "%, " + lgh + "%), hsl("  + compCol + ", " + compSat + "%, " + compLgh + "%)");
 	if (isDarkColor(midCol, midSat, midLgh)) {
 		$("body").css("color", "white");
