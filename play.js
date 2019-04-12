@@ -1,3 +1,4 @@
+var stage = 0;
 var title;
 var creator;
 var description;
@@ -56,10 +57,7 @@ window.onload = function() {
 
 
 // EFFECTS COMPILER //
-function compileEffects() {
-    // Get the current stage
-    var stage = 0;
-    
+function compileEffects() {    
     if (stage == 1) {
         if (effectA) {
             runEffectA_1();
