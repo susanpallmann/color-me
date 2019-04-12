@@ -117,8 +117,8 @@ function isDarkColor(hue, sat, lgh) {
   // determines cut-offs for whether a theme is dark or bright at every 60 degrees of hue
   // these values can be changed but the arrays must be the same length and have at least 2 values
   var colorStops = [0, 60, 120, 180, 240, 300, 360]; // must be between 0 and 360
-  var maxLghVals = [55, 40, 45, 40, 65, 50, 65]; // must be between 0 and 100
-  var maxLghValAtZeroSaturation = 50; // must be between 0 and 100
+  var maxLghVals = [65, 50, 55, 50, 75, 60, 75]; // must be between 0 and 100
+  var maxLghValAtZeroSaturation = 65; // must be between 0 and 100
   
   // sets starting values, to be changed following calculation
   var maxLgh = 50;
