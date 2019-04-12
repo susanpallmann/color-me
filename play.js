@@ -15,7 +15,8 @@ function loadPerspective(perspID) {
         var sat = snapshot.child('colorSat').val();
         var lgh = snapshot.child('colorLgh').val();
         var views = snapshot.child('views').val();
-        firebase.database().ref('perspectives/' + perspID).set({views: views + 1});
+        var newViews = Number(views + 1);
+        firebase.database().ref('perspectives/' + perspID).set({views: newViews});
         alert("This experience has " + (views + 1) + " views!");
         var compCol = getComplementaryColor(hue, sat, lgh);
         var compHue = compCol[0];
@@ -31,7 +32,7 @@ function loadPerspective(perspID) {
         else {
             $("body").css("color", "black");
         }
-        $("#viewCounter").html(Number(views + 1));
+        $("#viewCounter").html(newViews);
     });
 }
 
