@@ -16,7 +16,7 @@ function loadPerspective(perspID) {
         var lgh = snapshot.child('colorLgh').val();
         var views = snapshot.child('views').val();
         firebase.database().ref('perspectives/' + perspID).set({views: views + 1});
-        alert("This experience has " + views + 1 + " views!");
+        alert("This experience has " + (views + 1) + " views!");
         var compCol = getComplementaryColor(hue, sat, lgh);
         var compHue = compCol[0];
         var compSat = compCol[1];
