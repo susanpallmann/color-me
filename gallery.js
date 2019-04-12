@@ -5,16 +5,16 @@ window.onload = function() {
     if ($("#gallery div").length >= maxThumbs) {
       $("#gallery div:last-child").remove();
     }
-    var hsl = getHSLFromString(data.val().color);
-    console.log(hsl);
-    var compCol = getComplimentaryColor(hsl[0], hsl[1], hsl[2]);
-    console.log(compCol[0]);
+    var hue = data.val().colorHue;
+    var sat = data.val().colorSat;
+    var lgh = data.val().colorLgh;
+    var hslString = "hsl(" + hue + ", " + sat + "%, " + lgh + "%)";
+    var compCol = getComplimentaryColor(hue, sat, lgh);
     var compColStr = "hsl(" + compCol[0] + ", " + compCol[1] + "%, " + compCol[2] + "%)";
-    console.log(compColStr);
     var textCol = "black";
-    if (isDarkColor(hsl[0], hsl[1], hsl[2])) {
+    if (isDarkColor(hue, sat, lgh)) {
       textCol = "white";
     }
-    $("#gallery").prepend("<div style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + data.val().color + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>");
+    $("#gallery").prepend("<div style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>");
   });
 };
