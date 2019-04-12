@@ -31,8 +31,7 @@ function loadPerspective(perspID) {
         else {
             $("body").css("color", "black");
         }
-        $("#viewCounter").html(views + 1);
-        alert("This experience has " + views + 1 + " views!");
+        $("#viewCounter").html(Number(views + 1));
     });
 }
 
