@@ -94,7 +94,11 @@ $(document).ready(function() {
 	var sat = Math.round(Math.random()*100);
 	var lgh = Math.round(Math.random()*100);
 	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", " + sat + "%, " + lgh + "%), hsl("  + compCol + ", " + sat + "%, " + lgh + "%)");
-	alert("is this dark? " + isDarkColor(midCol + 10, sat, lgh));
+	if (isDarkColor(midCol + 10, sat, lgh)) {
+		$("body").css("color", "white");
+	} else {
+		$("body").css("color", "black");
+	};
 });
 
 
