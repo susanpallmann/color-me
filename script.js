@@ -110,6 +110,7 @@ function isDarkColor(hue, sat, lgh) {
       console.log(distanceFromPrev + ", " + distanceFromNext);
       // calculates a max lightness, weighted for the hues that the current color is closest to
       maxLgh = (Number(distanceFromPrev * maxLghVals[i]) + Number(distanceFromNext * maxLghVals[i-1]))/Number(distanceFromPrev + distanceFromNext);
+      i = leng;
     }
   }
   // recalculates max lightness, weighted for saturation
