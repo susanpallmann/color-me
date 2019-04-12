@@ -89,7 +89,7 @@ function isDarkColor(hue, sat, lgh) {
   // determines cut-offs for whether a theme is dark or bright at every 60 degrees of hue
   // these values can be changed but the arrays must be the same length and have at least 2 values
   var colorStops = [0, 60, 120, 180, 240, 300, 360]; // must be between 0 and 360
-  var maxLghVals = [65, 50, 55, 50, 75, 60, 75]; // must be between 0 and 100
+  var maxLghVals = [55, 45, 50, 55, 75, 70, 55]; // must be between 0 and 100
   var maxLghValAtZeroSaturation = 65; // must be between 0 and 100
   
   // sets starting values, to be changed following calculation
@@ -107,6 +107,7 @@ function isDarkColor(hue, sat, lgh) {
       distanceFromPrev = hue - colorStops[i-1];
       // calculates how far the color is from the hue at the end of the interval
       distanceFromNext = colorStops[i] - hue;
+      console.log(distanceFromPrev + ", " + distanceFromNext);
       // calculates a max lightness, weighted for the hues that the current color is closest to
       maxLgh = (Number(distanceFromPrev * maxLghVals[i]) + Number(distanceFromNext * maxLghVals[i-1]))/Number(distanceFromPrev + distanceFromNext);
     }
