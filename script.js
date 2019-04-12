@@ -84,16 +84,28 @@ $(document).ready(function() {
 	var randomNum = Math.random();
 	var randomCol = Math.round(randomNum * 360);
 	var sat = Math.round(Math.random()*100);
+	var compSat = sat;
 	var lgh = Math.round(Math.random()*100);
+	var compLgh = lgh;
 	var compCol = randomCol + (50-sat*0.5) + (Math.abs(lgh-50)) + 20;
 	var midCol = (randomCol + compCol)/2;
+	if (sat*2 > 160) {
+		compSat = 160-sat;
+	} else if (sat*2 < 40) {
+		compSat = 40-sat;
+	}
+	if (lgh*2 > 180) {
+		compLgh = 180-lgh;
+	} else if (lgh*2 < 20) {
+		compLgh = 20-lgh;
+	}
 	if (compCol > 360) {
 		compCol = compCol - 360;
 	}
 	if (midCol > 360) {
 		midCol = midCol - 360;
 	}
-	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", " + sat + "%, " + lgh + "%), hsl("  + compCol + ", " + sat + "%, " + lgh + "%)");
+	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", " + sat + "%, " + lgh + "%), hsl("  + compCol + ", " + compSat + "%, " + compLgh + "%)");
 	if (isDarkColor(midCol + 10, sat, lgh)) {
 		$("body").css("color", "white");
 	} else {
