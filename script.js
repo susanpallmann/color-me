@@ -107,7 +107,6 @@ function isDarkColor(hue, sat, lgh) {
       distanceFromPrev = hue - colorStops[i-1];
       // calculates how far the color is from the hue at the end of the interval
       distanceFromNext = colorStops[i] - hue;
-      console.log(distanceFromPrev + ", " + distanceFromNext);
       // calculates a max lightness, weighted for the hues that the current color is closest to
       maxLgh = (Number(distanceFromPrev * maxLghVals[i]) + Number(distanceFromNext * maxLghVals[i-1]))/Number(distanceFromPrev + distanceFromNext);
       i = leng;
