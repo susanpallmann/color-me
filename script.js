@@ -83,12 +83,17 @@ $(document).ready(function() {
 	//Random color gen //
 	var randomNum = Math.random();
 	var randomCol = Math.round(randomNum * 360);
+	var compCol = randomCol + (50-sat*0.5) + (Math.abs(lgh-50)) + 20;
+	if (compCol > 360) {
+		compCol = compCol - 360;
+	}
+	var midCol = (randomCol + compCol)/2;
 	var sat = Math.round(Math.random()*100);
 	var compSat = sat;
+	var midSat = (sat + compSat)/2;
 	var lgh = Math.round(Math.random()*100);
 	var compLgh = lgh;
-	var compCol = randomCol + (50-sat*0.5) + (Math.abs(lgh-50)) + 20;
-	var midCol = (randomCol + compCol)/2;
+	var midLgh = (lgh + compLgh)/2;
 	if (sat*2 > 160) {
 		compSat = 160-sat;
 	} else if (sat*2 < 40) {
@@ -99,14 +104,8 @@ $(document).ready(function() {
 	} else if (lgh*2 < 20) {
 		compLgh = 20-lgh;
 	}
-	if (compCol > 360) {
-		compCol = compCol - 360;
-	}
-	if (midCol > 360) {
-		midCol = midCol - 360;
-	}
 	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", " + sat + "%, " + lgh + "%), hsl("  + compCol + ", " + compSat + "%, " + compLgh + "%)");
-	if (isDarkColor(midCol + 10, sat, lgh)) {
+	if (isDarkColor(midCol, midSat, midLgh)) {
 		$("body").css("color", "white");
 	} else {
 		$("body").css("color", "black");
@@ -119,7 +118,7 @@ function isDarkColor(hue, sat, lgh) {
   // determines cut-offs for whether a theme is dark or bright at every 60 degrees of hue
   // these values can be changed but the arrays must be the same length and have at least 2 values
   var colorStops = [0, 60, 120, 180, 240, 300, 360]; // must be between 0 and 360
-  var maxLghVals = [65, 40, 45, 40, 65, 50, 65]; // must be between 0 and 100
+  var maxLghVals = [55, 40, 45, 40, 65, 50, 65]; // must be between 0 and 100
   var maxLghValAtZeroSaturation = 50; // must be between 0 and 100
   
   // sets starting values, to be changed following calculation
