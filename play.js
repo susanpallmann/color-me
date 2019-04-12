@@ -11,9 +11,13 @@ function loadPerspective(perspID) {
     firebase.database().ref('perspectives/' + perspID).once('value').then(function(snapshot) {
         var title = snapshot.child('title').val();
         var creator = snapshot.child('creator').val();
-        var color = snapshot.child('color').val();
-        alert(perspID + ": " + title + " by " + creator + ", theme: " + color);
+        var colorHue = snapshot.child('colorHue').val();
+        var colorSat = snapshot.child('colorSat').val();
+        var colorLgh = snapshot.child('colorLgh').val();
+        var views = snapshot.child('views').val();
     });
+    firebase.database().ref('perspectives/' + perspID).set({views: views + 1});
+    alert("This experience has " + views + 1 + " views!");
 }
 
 window.onload = function() {
