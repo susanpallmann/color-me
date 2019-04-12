@@ -1,7 +1,7 @@
 maxThumbs = 6;
 
 window.onload = function() {
-  firebase.database().ref('perspectives').orderByChild('timestamp').limitToLast(maxThumbs).on('child_added', function(data) {
+  firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs).on('child_added', function(data) {
     if ($("#gallery div").length >= maxThumbs) {
       $("#gallery div:last-child").remove();
     }
