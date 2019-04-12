@@ -102,13 +102,13 @@ function isDarkColor(hue, sat, lgh) {
   // determines which interval of hues the given color falls within
   for (i = 1; i < leng; i++) {
     // checks if the color is within the current hue range
-    if (hue <= colorStops[i]) {
+    if (Number(hue) <= colorStops[i]) {
       // calculates how far the color is from the hue at the start of the interval
-      distanceFromPrev = hue - colorStops[i-1];
+      distanceFromPrev = Number(hue) - colorStops[i-1];
       // calculates how far the color is from the hue at the end of the interval
-      distanceFromNext = colorStops[i] - hue;
+      distanceFromNext = colorStops[i] - Number(hue);
       // calculates a max lightness, weighted for the hues that the current color is closest to
-      maxLgh = ((distanceFromPrev * maxLghVals[i]) + (distanceFromNext * maxLghVals[i-1]))/(distanceFromPrev + distanceFromNext);
+      maxLgh = (Number(distanceFromPrev * maxLghVals[i]) + Number(distanceFromNext * maxLghVals[i-1]))/Number(distanceFromPrev + distanceFromNext);
     }
   }
   // recalculates max lightness, weighted for saturation
