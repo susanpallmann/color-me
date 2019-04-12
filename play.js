@@ -17,6 +17,7 @@ function loadPerspective(perspID) {
         var views = snapshot.child('views').val();
         var newViews = Number(views + 1);
         firebase.database().ref('perspectives/' + perspID).set({views: newViews});
+        alert(hue, sat, lgh);
         setBackgroundColor(hue, sat, lgh);
         $("#viewCounter").html(newViews);
     });
