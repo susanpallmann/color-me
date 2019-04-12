@@ -83,16 +83,16 @@ $(document).ready(function() {
 	//Random color gen //
 	var randomNum = Math.random();
 	var randomCol = Math.round(randomNum * 360);
-	var compCol = randomCol + 20;
-	var midCol = randomCol + 10;
+	var sat = Math.round(Math.random()*100);
+	var lgh = Math.round(Math.random()*100);
+	var compCol = randomCol + (50-sat*0.5) + (Math.abs(lgh-50)) + 20;
+	var midCol = (randomCol + compCol)/2;
 	if (compCol > 360) {
 		compCol = compCol - 360;
 	}
 	if (midCol > 360) {
 		midCol = midCol - 360;
 	}
-	var sat = Math.round(Math.random()*100);
-	var lgh = Math.round(Math.random()*100);
 	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", " + sat + "%, " + lgh + "%), hsl("  + compCol + ", " + sat + "%, " + lgh + "%)");
 	if (isDarkColor(midCol + 10, sat, lgh)) {
 		$("body").css("color", "white");
