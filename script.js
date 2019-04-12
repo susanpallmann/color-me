@@ -184,9 +184,9 @@ function setBackgroundColor(hue, sat, lgh) {
 	// set text color to white if colors are dark, or black if colors are light
 	if (isDarkColor(midHue, midSat, midLgh)) {
 		$("body").css("color", "white");
-		$("#container-hamburger span".css("background-color", "white");
+		$("#container-hamburger span").css("background-color", "white");
 	} else {
 		$("body").css("color", "black");
-		$("#container-hamburger span".css("background-color", "black");
+		$("#container-hamburger span").css("background-color", "black");
 	};
 }
