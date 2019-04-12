@@ -141,3 +141,10 @@ function isDarkColor(hue, sat, lgh) {
     return false;
   }
 }
+
+function getHSLFromString(hslString) {
+	var hue = hslString.split("hsl(")[1].split(",")[0];
+	var sat = hslString.split(",")[1].split("%")[0];
+	var lgh = hslString.split(",")[2].split("%")[0];
+	return [hue, sat, lgh];
+}
