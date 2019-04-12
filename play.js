@@ -21,7 +21,16 @@ function loadPerspective(perspID) {
         var compHue = compCol[0];
         var compSat = compCol[1];
         var compLgh = compCol[2];
+        var midHue = (hue + compHue)/2;
+        var midSat = (sat + compSat)/2;
+        var midLgh = (lgh + compLgh)/2;
         $("body").css("background-image", "linear-gradient(to bottom right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl("  + compHue + ", " + compSat + "%, " + compLgh + "%)");
+        if (isDarkColor(midHue, midSat, midLgh)) {
+            $("body").css("color", "white");
+        }
+        else {
+            $("body").css("color", "black");
+        }
         $("#viewCounter").html(views + 1);
         alert("This experience has " + views + 1 + " views!");
     });
