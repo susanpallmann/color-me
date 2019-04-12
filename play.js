@@ -1,3 +1,27 @@
+var title;
+var creator;
+var description;
+var timestamp;
+var hue;
+var sat;
+var lgh;
+var backButton;
+var effectA;
+var effectB;
+var effectC;
+var effectD;
+var effectE;
+var effectF;
+var effectG;
+var effectH;
+var effectI;
+var effectJ;
+var effectK;
+var effectL;
+var effectM;
+var grows;
+var views;
+
 function determinePerspective() {
   var perspID = "";
   var currentURL = window.location.href;
@@ -9,12 +33,12 @@ function determinePerspective() {
 
 function loadPerspective(perspID) {
     firebase.database().ref('perspectives/' + perspID).once('value').then(function(snapshot) {
-        var title = snapshot.child('title').val();
-        var creator = snapshot.child('creator').val();
-        var hue = snapshot.child('colorHue').val();
-        var sat = snapshot.child('colorSat').val();
-        var lgh = snapshot.child('colorLgh').val();
-        var views = snapshot.child('views').val();
+        title = snapshot.child('title').val();
+        creator = snapshot.child('creator').val();
+        hue = snapshot.child('colorHue').val();
+        sat = snapshot.child('colorSat').val();
+        lgh = snapshot.child('colorLgh').val();
+        views = snapshot.child('views').val();
         var newViews = Number(views + 1);
         firebase.database().ref('perspectives/' + perspID).child('views').set(newViews);
         setBackgroundColor(hue, sat, lgh);
