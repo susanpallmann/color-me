@@ -8,7 +8,7 @@ window.onload = function() {
     		var hue = data.val().colorHue;
     		var sat = data.val().colorSat;
     		var lgh = data.val().colorLgh;
-		var key = this.getKey();
+		var key = this.key;
 		console.log(key);
     		var hslString = "hsl(" + hue + ", " + sat + "%, " + lgh + "%)";
     		var compCol = getComplementaryColor(hue, sat, lgh);
