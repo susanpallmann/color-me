@@ -3,8 +3,8 @@ $(document).ready(function() {
 		var colorHue = $("input#value_colorHue").val();
         	var colorSat = $("input#value_colorSat").val();
         	var colorLgh = $("input#value_colorLgh").val();
-		alert(colorHue + colorSat + colorLgh);
 		var compColor = getComplementaryColor(colorHue, colorSat, colorLgh);
+		alert(colorHue + ", " + compColor[0]);
 		var compHue = compColor[0];
 		var compSat = compColor[1];
 		var compLgh = compColor[2];
