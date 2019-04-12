@@ -81,30 +81,49 @@ $(document).ready(function() {
 	// End hamburger menu //
 	
 	//Random color gen //
+	// Generate any random color from all possible HSL values
 	var randomNum = Math.random();
 	var randomCol = Math.round(randomNum * 360);
+	var sat = Math.round(Math.random()*100);
+	var lgh = Math.round(Math.random()*100);
+	
+	// find a complimentary hue
+	// if saturation is low, make the hue difference greater
+	// if lightness is extreme, make the hue difference greater
 	var compCol = randomCol + (50-sat*0.5) + (Math.abs(lgh-50)) + 20;
 	if (compCol > 360) {
 		compCol = compCol - 360;
 	}
+	// find the intermediate hue between the two calculated
 	var midCol = (randomCol + compCol)/2;
-	var sat = Math.round(Math.random()*100);
+	
+	// find a complimentary saturation
+	// if saturation is very high, make the compliment slightly less saturated
+	// if saturation is very low, make the compliment slightly more saturated
 	var compSat = sat;
-	if (sat*2 > 160) {
+	if (sat > 80) {
 		compSat = 160-sat;
-	} else if (sat*2 < 40) {
+	} else if (sat < 20) {
 		compSat = 40-sat;
 	}
+	// find the intermediate saturation between the two calculated
 	var midSat = (sat + compSat)/2;
-	var lgh = Math.round(Math.random()*100);
+	
+	// find a complimentary lightness
+	// if lightness is very high, make the compliment slightly less
 	var compLgh = lgh;
-	if (lgh*2 > 180) {
+	if (lgh > 90) {
 		compLgh = 180-lgh;
-	} else if (lgh*2 < 20) {
+	} else if (lgh < 10) {
 		compLgh = 20-lgh;
 	}
+	// find the intermediate lightness between the two calculated
 	var midLgh = (lgh + compLgh)/2;
+	
+	// set background to gradient of random color and its compliment
 	$("body").css("background-image", "linear-gradient(to bottom right, hsl(" + randomCol + ", " + sat + "%, " + lgh + "%), hsl("  + compCol + ", " + compSat + "%, " + compLgh + "%)");
+	
+	// set text color to white if colors are dark, or black if colors are light
 	if (isDarkColor(midCol, midSat, midLgh)) {
 		$("body").css("color", "white");
 	} else {
@@ -153,6 +172,7 @@ function isDarkColor(hue, sat, lgh) {
   }
 }
 
+// returns an array with values [hue, saturation, lightness] from a css hsl string in the form "hsl(XXX, XXX%, XXX%)"
 function getHSLFromString(hslString) {
 	var hue = hslString.split("hsl(")[1].split(",")[0];
 	var sat = hslString.split(",")[1].split("%")[0];
