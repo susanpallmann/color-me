@@ -37,13 +37,32 @@ function loadPerspective(perspID) {
     firebase.database().ref('perspectives/' + perspID).once('value').then(function(snapshot) {
         title = snapshot.child('title').val();
         creator = snapshot.child('creator').val();
+        description = snapshot.child('description').val();
+        timestamp = snapshot.child('timestamp').val();
         hue = snapshot.child('colorHue').val();
         sat = snapshot.child('colorSat').val();
         lgh = snapshot.child('colorLgh').val();
+        backButton = snapshot.child('backButton').val();
+        effectA = snapshot.child('effectA').val();
+        effectB = snapshot.child('effectB').val();
+        effectC = snapshot.child('effectC').val();
+        effectD = snapshot.child('effectD').val();
+        effectE = snapshot.child('effectE').val();
+        effectF = snapshot.child('effectF').val();
+        effectG = snapshot.child('effectG').val();
+        effectH = snapshot.child('effectH').val();
+        effectI = snapshot.child('effectI').val();
+        effectJ = snapshot.child('effectJ').val();
+        effectK = snapshot.child('effectK').val();
+        effectL = snapshot.child('effectL').val();
+        effectM = snapshot.child('effectM').val();
+        grows = snapshot.child('grows').val();
         views = snapshot.child('views').val();
         var newViews = Number(views + 1);
         firebase.database().ref('perspectives/' + perspID).child('views').set(newViews);
         setBackgroundColor(hue, sat, lgh);
+        $("title").html("Color Me " + title + " by " + creator);
+        $("div.textbox").html(description);
         $("#viewCounter").html(newViews);
     });
 }
