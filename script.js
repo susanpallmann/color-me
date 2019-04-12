@@ -152,9 +152,9 @@ function isDarkColor(hue, sat, lgh) {
 
 // returns an array with values [hue, saturation, lightness] from a css hsl string in the form "hsl(XXX, XXX%, XXX%)"
 function getHSLFromString(hslString) {
-	var hue = hslString.split("hsl(")[1].split(",")[0];
-	var sat = hslString.split(",")[1].split("%")[0];
-	var lgh = hslString.split(",")[2].split("%")[0];
+	var hue = Number(hslString.split("hsl(")[1].split(",")[0]);
+	var sat = Number(hslString.split(",")[1].split("%")[0]);
+	var lgh = Number(hslString.split(",")[2].split("%")[0]);
 	return [hue, sat, lgh];
 }
 
