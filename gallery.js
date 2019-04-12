@@ -9,7 +9,7 @@ window.onload = function() {
     var sat = data.val().colorSat;
     var lgh = data.val().colorLgh;
     var hslString = "hsl(" + hue + ", " + sat + "%, " + lgh + "%)";
-    var compCol = getComplimentaryColor(hue, sat, lgh);
+    var compCol = getComplementaryColor(hue, sat, lgh);
     var compColStr = "hsl(" + compCol[0] + ", " + compCol[1] + "%, " + compCol[2] + "%)";
     var textCol = "black";
     if (isDarkColor(hue, sat, lgh)) {
