@@ -17,7 +17,11 @@ window.onload = function() {
     		if (isDarkColor(hue, sat, lgh)) {
       			textCol = "white";
     		}
-		$("#gallery").prepend("<div style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>");
+		$("#gallery").prepend("<div id='" + key + "' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>");
+	}).then(function() {
+		$("#gallery div").click(function() {
+			window.location = window.location + "/experience?id=" + key;
+		});
 	});
 	
 	//Random BG color gen //
@@ -28,4 +32,5 @@ window.onload = function() {
 	var lgh = Math.round(Math.random()*100);
 	
 	setBackgroundColor(hue, sat, lgh);
+	
 };
