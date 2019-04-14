@@ -6,6 +6,8 @@ div.stage {
   left: 0;
   margin: 0;
   padding: 20px;
+  transition: 0.5s ease-out;
+  cursor: pointer;
 }
 div#stage_1 {
   top: 0;
