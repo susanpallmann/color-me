@@ -75,10 +75,10 @@ window.onload = function() {
     $("#stage_2").css("top", 0);
   });
   $("#stage_1 #mug").click(function() {
-    $(this).css("transition", "transform 0.5s ease-in-out");
+    $(this).css("transition", "transform 4s ease-in-out");
     var timer = setInterval(function() {
-      $("#stage_1 #mug").css("transform", "skew(" + Math.random()*45 + "deg, " + Math.random()*45 + "deg)");
-    }, 500);
+      $("#stage_1 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
+    }, 4000);
   });
   $("#stage_2 .nextButton").click(function() {
     $("#stage_2").css("top", "-100vh");
