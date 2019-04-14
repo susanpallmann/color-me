@@ -7,10 +7,15 @@ div.stage {
   margin: 0;
   padding: 20px;
   transition: 0.5s ease-out;
-  cursor: pointer;
+  text-align: center;
 }
 div#stage_1 {
   top: 0;
+}
+div.stage .nextButton {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
 }
 
 
