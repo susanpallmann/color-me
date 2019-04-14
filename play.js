@@ -70,20 +70,20 @@ function loadPerspective(perspID) {
 window.onload = function() {
   var perspID = determinePerspective();
   loadPerspective(perspID);
-  $("#stage_1").click(function() {
-    $(this).css("top", "-100vh");
+  $("#stage_1 .nextButton").click(function() {
+    $("#stage_1").css("top", "-100vh");
     $("#stage_2").css("top", 0);
   });
-  $("#stage_2").click(function() {
-    $(this).css("top", "-100vh");
+  $("#stage_2 .nextButton").click(function() {
+    $("#stage_2").css("top", "-100vh");
     $("#stage_3").css("top", 0);
   });
-  $("#stage_3").click(function() {
-    $(this).css("top", "-100vh");
+  $("#stage_3 .nextButton").click(function() {
+    $("#stage_3").css("top", "-100vh");
     $("#stage_4").css("top", 0);
   });
-  $("#stage_4").click(function() {
-    $(this).css("top", "-100vh");
+  $("#stage_4 .nextButton").click(function() {
+    $("#stage_4").css("top", "-100vh");
     $("#stage_5").css("top", 0);
   });
 };
