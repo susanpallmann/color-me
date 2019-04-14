@@ -74,6 +74,12 @@ window.onload = function() {
     $("#stage_1").css("top", "-100vh");
     $("#stage_2").css("top", 0);
   });
+  $("#stage_1 #mug").click(function() {
+    $(this).css("transition", "transform 0.5s ease-in-out");
+    var timer = setInterval(function() {
+      $("#stage_1 #mug").css("transform", "skew(" + Math.random()*45 + "deg, " + Math.random()*45 + "deg)");
+    }, 500);
+  });
   $("#stage_2 .nextButton").click(function() {
     $("#stage_2").css("top", "-100vh");
     $("#stage_3").css("top", 0);
