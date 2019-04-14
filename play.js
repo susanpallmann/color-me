@@ -77,8 +77,10 @@ window.onload = function() {
   $("#stage_1 #mug").click(function() {
     $(this).css("transition", "transform 4s ease-in");
     var timer = setInterval(function() {
-      $("#stage_1 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
-    }, 3000);
+      if (Math.random() < 0.02) {
+        $("#stage_1 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
+      }
+    }, 10);
   });
   $("#stage_2 .nextButton").click(function() {
     $("#stage_2").css("top", "-100vh");
