@@ -278,118 +278,118 @@ function runEffectA_1(target) {
   $(target).css("filter", "saturate(100%)");
 }
 
-function runEffectA_2() {
+function runEffectA_2(target) {
   $(target).css("filter", "saturate(200%)");
 }
 
-function runEffectA_3() {
+function runEffectA_3(target) {
   $(target).css("filter", "saturate(500%)");
 }
 
-function runEffectB_1() {
+function runEffectB_1(target) {
 }
 
-function runEffectB_2() {
+function runEffectB_2(target) {
 }
 
-function runEffectB_3() {
+function runEffectB_3(target) {
 }
 
-function runEffectC_1() {
+function runEffectC_1(target) {
 }
 
-function runEffectC_2() {
+function runEffectC_2(target) {
 }
 
-function runEffectC_3() {
+function runEffectC_3(target) {
 }
 
-function runEffectD_1() {
+function runEffectD_1(target) {
 }
 
-function runEffectD_2() {
+function runEffectD_2(target) {
 }
 
-function runEffectD_3() {
+function runEffectD_3(target) {
 }
 
-function runEffectE_1() {
+function runEffectE_1(target) {
 }
 
-function runEffectE_2() {
+function runEffectE_2(target) {
 }
 
-function runEffectE_3() {
+function runEffectE_3(target) {
 }
 
-function runEffectF_1() {
+function runEffectF_1(target) {
 }
 
-function runEffectF_2() {
+function runEffectF_2(target) {
 }
 
-function runEffectF_3() {
+function runEffectF_3(target) {
 }
 
-function runEffectG_1() {
+function runEffectG_1(target) {
 }
 
-function runEffectG_2() {
+function runEffectG_2(target) {
 }
 
-function runEffectG_3() {
+function runEffectG_3(target) {
 }
 
-function runEffectH_1() {
+function runEffectH_1(target) {
 }
 
-function runEffectH_2() {
+function runEffectH_2(target) {
 }
 
-function runEffectH_3() {
+function runEffectH_3(target) {
 }
 
-function runEffectI_1() {
+function runEffectI_1(target) {
 }
 
-function runEffectI_2() {
+function runEffectI_2(target) {
 }
 
-function runEffectI_3() {
+function runEffectI_3(target) {
 }
 
-function runEffectJ_1() {
+function runEffectJ_1(target) {
 }
 
-function runEffectJ_2() {
+function runEffectJ_2(target) {
 }
 
-function runEffectJ_3() {
+function runEffectJ_3(target) {
 }
 
-function runEffectK_1() {
+function runEffectK_1(target) {
 }
 
-function runEffectK_2() {
+function runEffectK_2(target) {
 }
 
-function runEffectK_3() {
+function runEffectK_3(target) {
 }
 
-function runEffectL_1() {
+function runEffectL_1(target) {
 }
 
-function runEffectL_2() {
+function runEffectL_2(target) {
 }
 
-function runEffectL_3() {
+function runEffectL_3(target) {
 }
 
-function runEffectM_1() {
+function runEffectM_1(target) {
 }
 
-function runEffectM_2() {
+function runEffectM_2(target) {
 }
 
-function runEffectM_3() {
+function runEffectM_3(target) {
 }
