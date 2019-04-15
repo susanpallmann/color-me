@@ -27,7 +27,10 @@ var currentStage;
 
 function determinePerspective() {
   var perspID = "";
-  currentStage = window.location.href.split("&stage=")[1].split("&")[0];
+  currentStage = window.location.href.split("&stage=")[1];
+  if (currentStage != undefined) {
+    currentStage = currentStage.split("&")[0];
+  }
   currentURL = window.location.href.split("&")[0];
   if (currentURL.includes("?id=")) {
     perspID = currentURL.split("?id=")[1];
