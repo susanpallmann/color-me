@@ -85,19 +85,19 @@ window.onload = function() {
     }, 10);
   });
   $("#stage_2 .nextButton").click(function() {
+    window.history.pushState("object or string", "Stage 3", currentURL + "&stage=3");
     $("#stage_2").css("top", "-100vh");
     $("#stage_3").css("top", 0);
-    window.history.pushState("object or string", "Stage 3", currentURL + "&stage=3");
   });
   $("#stage_3 .nextButton").click(function() {
+    window.history.pushState("object or string", "Stage 4", currentURL + "&stage=4");
     $("#stage_3").css("top", "-100vh");
     $("#stage_4").css("top", 0);
-    window.history.pushState("object or string", "Stage 4", currentURL + "&stage=4");
   });
   $("#stage_4 .nextButton").click(function() {
+    window.history.pushState("object or string", "Stage 5", currentURL + "&stage=5");
     $("#stage_4").css("top", "-100vh");
     $("#stage_5").css("top", 0);
-    window.history.pushState("object or string", "Stage 5", currentURL + "&stage=5");
   });
 };
 
