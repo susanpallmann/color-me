@@ -116,12 +116,15 @@ window.onload = function() {
   });
   
   $(".scene img").on("mousedown", function(e) {
-    $(this).on("mousemove", function(e) {
-        var x = e.pageX - $(this).parent().offset().left;
-        var y = e.pageY - $(this).parent().offset().top;
+    var prevX = e.pageX;
+    var prevY = e.pageY;
+    var target = this;
+    $(body).on("mousemove", function(e) {
+        var x = $(target).offset().left + (e.pageX - prevX);
+        var y = $(target).offset().top + (e.pageY - prevY);
         $(this).offset({top: y, left: x});
     });
-    $(this).on("mouseup", function(e) {
+    $(body).on("mouseup", function(e) {
       $(this).off("mousemove").off("mouseup");
     });
   });
