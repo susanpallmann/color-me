@@ -128,6 +128,7 @@ window.onload = function() {
         prevY = e.pageY;
     });
     $(this).parent().on("mouseup", function(e) {
+      $(target).css("filter", "");
       $(this).off("mousemove").off("mouseup");
     });
   });
