@@ -29,8 +29,15 @@ var currentURL;
 
 function determinePerspective() {
   var perspID = "";
-  stage = window.location.href.split("&stage=")[1];
-  stage = stage.split("&")[0];
+  stage = window.location.href;
+  if (stage.includes("&stage=")) {
+    stage = window.location.href.split("&stage=")[1];
+    if (stage.includes("&")) {
+      stage = stage.split("&")[0];
+    }
+  } else {
+    stage = 0;
+  }
   stage = Math.round(Number(stage));
   if (stage < 0 || stage > 4 || isNaN(stage)) {
     stage = 0;
