@@ -123,6 +123,8 @@ window.onload = function() {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         $(this).offset({top: y, left: x});
+        prevX = e.pageX;
+        prevY = e.pageY;
     });
     $(this).parent().on("mouseup", function(e) {
       $(this).off("mousemove").off("mouseup");
