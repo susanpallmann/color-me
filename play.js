@@ -22,10 +22,12 @@ var effectL;
 var effectM;
 var grows;
 var views;
-var currentURL
+var currentURL;
+var currentStage;
 
 function determinePerspective() {
   var perspID = "";
+  currentStage = window.location.href.split("&stage=")[1].split("&")[0];
   currentURL = window.location.href.split("&")[0];
   if (currentURL.includes("?id=")) {
     perspID = currentURL.split("?id=")[1];
@@ -70,13 +72,8 @@ function loadPerspective(perspID) {
 window.onload = function() {
   var perspID = determinePerspective();
   loadPerspective(perspID);
-  window.history.pushState("object or string", "Stage 1", currentURL + "&stage=1");
-  $("#stage_1 .nextButton").click(function() {
-    $("#stage_1").css("top", "-100vh");
-    $("#stage_2").css("top", 0);
-  });
+  
   $("#stage_1 #mug").click(function() {
-    window.history.pushState("object or string", "Stage 2", currentURL + "&stage=2");
     $(this).css("transition", "transform 1s ease-in");
     var timer = setInterval(function() {
       if (Math.random() < 0.02) {
@@ -84,22 +81,35 @@ window.onload = function() {
       }
     }, 10);
   });
+  
+  if (currentStage != undefined) {
+    goToStage(currentStage);
+  } else {
+    goToStage(1);
+  }
+  window.history.pushState("object or string", "Stage 1", currentURL + "&stage=1");
+  $("#stage_1 .nextButton").click(function() {
+    goToStage(2);
+  });
   $("#stage_2 .nextButton").click(function() {
-    window.history.pushState("object or string", "Stage 3", currentURL + "&stage=3");
-    $("#stage_2").css("top", "-100vh");
-    $("#stage_3").css("top", 0);
+    goToStage(3);
   });
   $("#stage_3 .nextButton").click(function() {
-    window.history.pushState("object or string", "Stage 4", currentURL + "&stage=4");
-    $("#stage_3").css("top", "-100vh");
-    $("#stage_4").css("top", 0);
+    goToStage(4);
   });
   $("#stage_4 .nextButton").click(function() {
-    window.history.pushState("object or string", "Stage 5", currentURL + "&stage=5");
-    $("#stage_4").css("top", "-100vh");
-    $("#stage_5").css("top", 0);
+    goToStage(5);
   });
 };
+
+function goToStage(stageNo) {
+  if (stageNo > 1) {
+    $("#stage_" + (stageNo - 1)).css("top", "-100vh");
+  }
+  currentStage = stageNo;
+  window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
+  $("#stage_" + stageNo).css("top", 0);
+}
 
 
 
