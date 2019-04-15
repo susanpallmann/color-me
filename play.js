@@ -82,18 +82,22 @@ window.onload = function() {
         $("#stage_1 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
       }
     }, 10);
+    window.history.pushState("object or string", "Stage 1", window.location.href + "&stage=2");
   });
   $("#stage_2 .nextButton").click(function() {
     $("#stage_2").css("top", "-100vh");
     $("#stage_3").css("top", 0);
+    window.history.pushState("object or string", "Stage 1", window.location.href + "&stage=3");
   });
   $("#stage_3 .nextButton").click(function() {
     $("#stage_3").css("top", "-100vh");
     $("#stage_4").css("top", 0);
+    window.history.pushState("object or string", "Stage 1", window.location.href + "&stage=4");
   });
   $("#stage_4 .nextButton").click(function() {
     $("#stage_4").css("top", "-100vh");
     $("#stage_5").css("top", 0);
+    window.history.pushState("object or string", "Stage 1", window.location.href + "&stage=5");
   });
 };
 
