@@ -25,4 +25,13 @@ $(document).ready(function() {
 		$("#display_colorComp").css("background-color", "hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%)");
 		$("#display_colorComp").html("H: " + compHue + ", S: " + compSat + ", L: " + compLgh);
 	});
+	
+	//Random BG color gen //
+	// Generate any random color from all possible HSL values
+	var randomNum = Math.random();
+	var hue = Math.round(randomNum * 360);
+	var sat = Math.round(Math.random()*80 + 10);
+	var lgh = Math.round(Math.random()*60 + 20);
+	
+	setBackgroundColor(hue, sat, lgh);
 });
