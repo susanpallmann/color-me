@@ -91,7 +91,6 @@ window.onload = function() {
   } else {
     goToStage(1);
   }
-  window.history.pushState("object or string", "Stage 1", currentURL + "&stage=1");
   $("#stage_1 .nextButton").click(function() {
     goToStage(2);
   });
