@@ -18,6 +18,9 @@ div.stage .nextButton {
 div.stage div.scene .draggable {
   cursor: pointer;
 }
+div.ui {
+  z-index: 5; 
+}
 
 
 
