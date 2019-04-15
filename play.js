@@ -33,8 +33,8 @@ function determinePerspective() {
   currentStage = window.location.href.split("&stage=")[1];
   if (currentStage != undefined) {
     currentStage = currentStage.split("&")[0];
+    currentStage = Number(currentStage);
   }
-  currentStage = Number(currentStage);
   currentURL = window.location.href.split("&")[0];
   if (currentURL.includes("?id=")) {
     perspID = currentURL.split("?id=")[1];
