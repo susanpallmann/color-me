@@ -21,6 +21,20 @@ div.stage div.scene .draggable {
 .ui {
   z-index: 5; 
 }
+.navMarker {
+  background-color: white;
+  margin: 20px;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+}
+.navMarker.markerActive {
+  opacity: 1;
+}
+.navMarker.markerInactive {
+  cursor: pointer;
+  opacity: 0.5;
+}
 
 
 
