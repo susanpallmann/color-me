@@ -135,6 +135,7 @@ window.onload = function() {
   });
   
   $(".navMarker.markerInactive").click(function() {
+    var stageNav = $(this).attr("id").split("-")[1];
     goToStage(stageNav);
   });
 };
