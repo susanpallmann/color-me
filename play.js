@@ -142,9 +142,17 @@ function goToStage(stageNo) {
   }
   stage = stageNo;
   window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
-  $("#stage_" + stageNo).css("top", 0);
   $(".navMarker.markerActive").removeClass("markerActive").addClass("markerInactive");
   $("#navMarker-" + stageNo).removeClass("markerInactive").addClass("markerActive");
+  var i;
+  for (i = 0; i < 5; i++) {
+    if (i == stageNo) {
+      $("#stage_" + i).css("top", 0);
+    } else {
+      $("#stage_" + i).css("top", (100*(i-stageNo)) + "vh");
+    }
+  }
+  $(".stage").css("transition", "top 0.5s");
 }
 
 
