@@ -185,8 +185,10 @@ function setBackgroundColor(hue, sat, lgh) {
 	if (isDarkColor(midHue, midSat, midLgh)) {
 		$("body").css("color", "white");
 		$("#container-hamburger span").css("background-color", "white");
+		$(".navMarker").css("background-color", "white");
 	} else {
 		$("body").css("color", "black");
 		$("#container-hamburger span").css("background-color", "black");
+		$(".navMarker").css("background-color", "black");
 	};
 }
