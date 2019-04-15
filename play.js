@@ -120,16 +120,17 @@ window.onload = function() {
     var prevX = e.pageX;
     var prevY = e.pageY;
     var target = this;
-    $(window).on("mousemove", function(e) {
+    $(this).parent().on("mousemove", function(e) {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         $(target).offset({top: y, left: x});
         prevX = e.pageX;
         prevY = e.pageY;
     });
-    $(window).parent().on("mouseup", function(e) {
+    $(window).on("mouseup", function(e) {
       $(target).css("filter", "");
-      $(window).off("mousemove").off("mouseup");
+      $(target).parent().off("mousemove");
+      $(window).off("mouseup");
     });
   });
 };
