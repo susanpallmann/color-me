@@ -1,6 +1,6 @@
 maxThumbs = 6;
 
-window.onload = function() {
+$(document).ready(function() {
 	firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs).on('child_added', function(data) {
     		if ($("#gallery div").length >= maxThumbs) {
       			$("#gallery div:last-child").remove();
@@ -27,9 +27,9 @@ window.onload = function() {
 	// Generate any random color from all possible HSL values
 	var randomNum = Math.random();
 	var hue = Math.round(randomNum * 360);
-	var sat = Math.round(Math.random()*100);
-	var lgh = Math.round(Math.random()*100);
+	var sat = Math.round(Math.random()*80 + 10);
+	var lgh = Math.round(Math.random()*60 + 20);
 	
 	setBackgroundColor(hue, sat, lgh);
 	
-};
+});
