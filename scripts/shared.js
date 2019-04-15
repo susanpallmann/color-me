@@ -138,7 +138,7 @@ function getComplementaryColor(hue, sat, lgh) {
 	// find a complementary hue
 	// if saturation is low, make the hue difference greater
 	// if lightness is extreme, make the hue difference greater
-	var compHue = Math.round(Number(hue) + Number((50-sat*0.5)) + Number((Math.abs(lgh-50)) + 20));
+	var compHue = Math.round(Number(hue) + Math.round(Number((50-sat*0.5))/2) + Number((Math.abs(lgh-50)) + 10));
 	if (compHue > 360) {
 		compHue = compHue - 360;
 	}
