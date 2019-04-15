@@ -26,10 +26,9 @@ var currentURL
 
 function determinePerspective() {
   var perspID = "";
-  currentURL = window.location.href;
+  currentURL = window.location.href.split("&")[0];
   if (currentURL.includes("?id=")) {
     perspID = currentURL.split("?id=")[1];
-    perspID = perspID.split("&")[0];
   }
   return perspID;
 }
