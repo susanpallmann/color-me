@@ -74,7 +74,8 @@ function loadPerspective(perspID) {
         compHue = compColor[0];
         compSat = compColor[1];
         compLgh = compColor[2];
-        $("div.stage").css("background-image", "linear-gradient(to bottom right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%))");
+        $("div.stage::nth-child(odd)").css("background-image", "linear-gradient(to bottom right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%))");
+        $("div.stage::nth-child(even)").css("background-image", "linear-gradient(to top right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%))");
         $("title").html("Color Me " + title + " by " + creator);
         $("div.textbox").html(description);
         $("#viewCounter").html(newViews);
