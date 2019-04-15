@@ -125,6 +125,16 @@ function goToStage(stageNo) {
   $("#stage_" + stageNo).css("top", 0);
 }
 
+$(".draggable").on("mousedown", function(e) {
+  $(this).on("mousemove", function(e) {
+      var x = e.pageX - $(this).parent().offset().left;
+      var y = e.pageY - $(this).parent().offset().top;
+      $(this).offset({top: top, left: left});
+  });
+  $(this).on("mouseup", function(e) {
+    $(this).off("mousemove").off("mouseup");
+  });
+});
 
 
 
