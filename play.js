@@ -154,7 +154,7 @@ function goToStage(stageNo) {
       $("#stage_" + i).css("top", (100*(i-stageNo)) + "vh");
     }
   }
-  $(".stage").css("transition", "top 0.5s");
+  $(".stage").css("transition", "0.5s ease-in-out");
 }
 
 
