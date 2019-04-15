@@ -70,6 +70,7 @@ function loadPerspective(perspID) {
 window.onload = function() {
   var perspID = determinePerspective();
   loadPerspective(perspID);
+  window.history.pushState("object or string", "Stage 1", window.location.href + "&stage=1");
   $("#stage_1 .nextButton").click(function() {
     $("#stage_1").css("top", "-100vh");
     $("#stage_2").css("top", 0);
