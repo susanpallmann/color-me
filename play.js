@@ -10,33 +10,34 @@ var compHue;
 var compSat;
 var compLgh;
 var backButton;
-var effectA;
-var effectB;
-var effectC;
-var effectD;
-var effectE;
-var effectF;
-var effectG;
-var effectH;
-var effectI;
-var effectJ;
-var effectK;
-var effectL;
-var effectM;
+var effectA = false;
+var effectB = false;
+var effectC = false;
+var effectD = false;
+var effectE = false;
+var effectF = false;
+var effectG = false;
+var effectH = false;
+var effectI = false;
+var effectJ = false;
+var effectK = false;
+var effectL = false;
+var effectM = false;
 var grows;
 var views;
 var currentURL;
-var currentStage;
 
 function determinePerspective() {
   var perspID = "";
-  currentStage = window.location.href.split("&stage=")[1];
-  if (currentStage != undefined) {
-    currentStage = currentStage.split("&")[0];
-    currentStage = Math.round(Number(currentStage));
-    if (currentStage < 1 || currentStage > 5) {
-      currentStage = 1;
+  stage = window.location.href.split("&stage=")[1];
+  if (stage != undefined) {
+    stage = stage.split("&")[0];
+    stage = Math.round(Number(stage));
+    if (stage < 1 || stage > 5) {
+      stage = 1;
     }
+  } else {
+    stage = 1;
   }
   currentURL = window.location.href.split("&")[0];
   if (currentURL.includes("?id=")) {
@@ -97,11 +98,7 @@ window.onload = function() {
     }, 10);
   });
   
-  if (currentStage != undefined) {
-    goToStage(currentStage);
-  } else {
-    goToStage(1);
-  }
+  goToStage(stage);
   $("#stage_1 .nextButton").click(function() {
     goToStage(2);
   });
@@ -115,7 +112,10 @@ window.onload = function() {
     goToStage(5);
   });
   
-  $(".scene img").on("mousedown", function(e) {
+  $(".draggable").on("mousedown", function(e) {
+    effectA = true;
+    $(this).css("transition", "filter 2s");
+    compileEffects(this);
     $(this).attr("draggable", false);
     var prevX = e.pageX;
     var prevY = e.pageY;
@@ -137,146 +137,135 @@ function goToStage(stageNo) {
   if (stageNo > 1) {
     $("#stage_" + (stageNo - 1)).css("top", "-100vh");
   }
-  currentStage = stageNo;
+  stage = stageNo;
   window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
   $("#stage_" + stageNo).css("top", 0);
 }
-
-$(".draggable").on("mousedown", function(e) {
-  $(this).on("mousemove", function(e) {
-      var x = e.pageX - $(this).parent().offset().left;
-      var y = e.pageY - $(this).parent().offset().top;
-      $(this).offset({top: top, left: left});
-  });
-  $(this).on("mouseup", function(e) {
-    $(this).off("mousemove").off("mouseup");
-  });
-});
 
 
 
 
 // EFFECTS COMPILER //
-function compileEffects() {    
+function compileEffects(target) {    
     if (stage == 1) {
         if (effectA) {
-            runEffectA_1();
+            runEffectA_1(target);
         }
         if (effectB) {
-            runEffectB_1();
+            runEffectB_1(target);
         }
         if (effectC) {
-            runEffectC_1();
+            runEffectC_1(target);
         }
         if (effectD) {
-            runEffectD_1();
+            runEffectD_1(target);
         }
         if (effectE) {
-            runEffectE_1();
+            runEffectE_1(target);
         }
         if (effectF) {
-            runEffectF_1();
+            runEffectF_1(target);
         }
         if (effectG) {
-            runEffectG_1();
+            runEffectG_1(target);
         }
         if (effectH) {
-            runEffectH_1();
+            runEffectH_1(target);
         }
         if (effectI) {
-            runEffectI_1();
+            runEffectI_1(target);
         }
         if (effectJ) {
-            runEffectJ_1();
+            runEffectJ_1(target);
         }
         if (effectK) {
-            runEffectK_1();
+            runEffectK_1(target);
         }
         if (effectL) {
-            runEffectL_1();
+            runEffectL_1(target);
         }
         if (effectM) {
-            runEffectM_1();
+            runEffectM_1(target);
         }
     } else if (stage == 2) {
         if (effectA) {
-            runEffectA_2();
+            runEffectA_2(target);
         }
         if (effectB) {
-            runEffectB_2();
+            runEffectB_2(target);
         }
         if (effectC) {
-            runEffectC_2();
+            runEffectC_2(target);
         }
         if (effectD) {
-            runEffectD_2();
+            runEffectD_2(target);
         }
         if (effectE) {
-            runEffectE_2();
+            runEffectE_2(target);
         }
         if (effectF) {
-            runEffectF_2();
+            runEffectF_2(target);
         }
         if (effectG) {
-            runEffectG_2();
+            runEffectG_2(target);
         }
         if (effectH) {
-            runEffectH_2();
+            runEffectH_2(target);
         }
         if (effectI) {
-            runEffectI_2();
+            runEffectI_2(target);
         }
         if (effectJ) {
-            runEffectJ_2();
+            runEffectJ_2(target);
         }
         if (effectK) {
-            runEffectK_2();
+            runEffectK_2(target);
         }
         if (effectL) {
-            runEffectL_2();
+            runEffectL_2(target);
         }
         if (effectM) {
-            runEffectM_2();
+            runEffectM_2(target);
         }
     } else if (stage == 3) {
         if (effectA) {
-            runEffectA_3();
+            runEffectA_3(target);
         }
         if (effectB) {
-            runEffectB_3();
+            runEffectB_3(target);
         }
         if (effectC) {
-            runEffectC_3();
+            runEffectC_3(target);
         }
         if (effectD) {
-            runEffectD_3();
+            runEffectD_3(target);
         }
         if (effectE) {
-            runEffectE_3();
+            runEffectE_3(target);
         }
         if (effectF) {
-            runEffectF_3();
+            runEffectF_3(target);
         }
         if (effectG) {
-            runEffectG_3();
+            runEffectG_3(target);
         }
         if (effectH) {
-            runEffectH_3();
+            runEffectH_3(target);
         }
         if (effectI) {
-            runEffectI_3();
+            runEffectI_3(target);
         }
         if (effectJ) {
-            runEffectJ_3();
+            runEffectJ_3(target);
         }
         if (effectK) {
-            runEffectK_3();
+            runEffectK_3(target);
         }
         if (effectL) {
-            runEffectL_3();
+            runEffectL_3(target);
         }
         if (effectM) {
-            runEffectM_3();
+            runEffectM_3(target);
         }
     }
 }
@@ -285,13 +274,16 @@ function compileEffects() {
 
 
 // EFFECTS CODES //
-function runEffectA_1() {
+function runEffectA_1(target) {
+  $(target).css("filter", "saturate(100%)");
 }
 
 function runEffectA_2() {
+  $(target).css("filter", "saturate(200%)");
 }
 
 function runEffectA_3() {
+  $(target).css("filter", "saturate(500%)");
 }
 
 function runEffectB_1() {
