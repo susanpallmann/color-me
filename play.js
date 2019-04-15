@@ -33,11 +33,11 @@ function determinePerspective() {
   if (stage != undefined) {
     stage = stage.split("&")[0];
     stage = Math.round(Number(stage));
-    if (stage < 1 || stage > 5) {
-      stage = 1;
+    if (stage < 0 || stage > 4) {
+      stage = 0;
     }
   } else {
-    stage = 1;
+    stage = 0;
   }
   currentURL = window.location.href.split("&")[0];
   if (currentURL.includes("?id=")) {
@@ -93,12 +93,15 @@ window.onload = function() {
     $(this).css("transition", "transform 1s ease-in");
     var timer = setInterval(function() {
       if (Math.random() < 0.02) {
-        $("#stage_1 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
+        $("#stage_0 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
       }
     }, 10);
   });
   
   goToStage(stage);
+  $("#stage_0 .nextButton").click(function() {
+    goToStage(1);
+  });
   $("#stage_1 .nextButton").click(function() {
     goToStage(2);
   });
@@ -107,9 +110,6 @@ window.onload = function() {
   });
   $("#stage_3 .nextButton").click(function() {
     goToStage(4);
-  });
-  $("#stage_4 .nextButton").click(function() {
-    goToStage(5);
   });
   
   $(".draggable").on("mousedown", function(e) {
