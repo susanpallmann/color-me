@@ -116,6 +116,7 @@ window.onload = function() {
   });
   
   $(".scene img").on("mousedown", function(e) {
+    $(this).attr("draggable", false);
     var prevX = e.pageX;
     var prevY = e.pageY;
     var target = this;
