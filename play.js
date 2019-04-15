@@ -133,6 +133,13 @@ window.onload = function() {
       $(window).off("mouseup");
     });
   });
+  
+  $(".navMarker.markerInactive").click(function() {
+    $(".navMarker .markerActive").removeClass("markerActive").addClass("markerInactive");
+    $(this).removeClass("markerInactive").addClass("markerActive");
+    var stageNav = $(this).attr("id").split("-")[1];
+    goToStage(stageNav);
+  });
 };
 
 function goToStage(stageNo) {
