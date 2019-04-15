@@ -86,7 +86,6 @@ window.onload = function() {
   loadPerspective(perspID);
   
   $("#stage_1 #mug").click(function() {
-    $(this).css("transition", "transform 1s ease-in");
     var timer = setInterval(function() {
       if (Math.random() < 0.02) {
         $("#stage_0 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
