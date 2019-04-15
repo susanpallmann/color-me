@@ -143,7 +143,7 @@ function goToStage(stageNo) {
   stage = stageNo;
   window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
   $("#stage_" + stageNo).css("top", 0);
-  $(".navMarker .markerActive").removeClass("markerActive").addClass("markerInactive");
+  $(".navMarker.markerActive").removeClass("markerActive").addClass("markerInactive");
   $("#navMarker-" + stageNo).removeClass("markerInactive").addClass("markerActive");
 }
 
