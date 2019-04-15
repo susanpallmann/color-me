@@ -114,6 +114,17 @@ window.onload = function() {
   $("#stage_4 .nextButton").click(function() {
     goToStage(5);
   });
+  
+  $(".scene img").on("mousedown", function(e) {
+    $(this).on("mousemove", function(e) {
+        var x = e.pageX - $(this).parent().offset().left;
+        var y = e.pageY - $(this).parent().offset().top;
+        $(this).offset({top: top, left: left});
+    });
+    $(this).on("mouseup", function(e) {
+      $(this).off("mousemove").off("mouseup");
+    });
+  });
 };
 
 function goToStage(stageNo) {
