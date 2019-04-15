@@ -130,9 +130,11 @@ window.onload = function() {
     });
   });
   
-  $(".navMarker.markerInactive").click(function() {
-    var stageNav = $(this).attr("id").split("-")[1];
-    goToStage(stageNav);
+  $(".navMarker").click(function() {
+    if ($(this).hasClass("markerInactive")) {
+      var stageNav = $(this).attr("id").split("-")[1];
+      goToStage(stageNav);
+    }
   });
 };
 
