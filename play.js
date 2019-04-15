@@ -135,9 +135,6 @@ window.onload = function() {
   });
   
   $(".navMarker.markerInactive").click(function() {
-    $(".navMarker .markerActive").removeClass("markerActive").addClass("markerInactive");
-    $(this).removeClass("markerInactive").addClass("markerActive");
-    var stageNav = $(this).attr("id").split("-")[1];
     goToStage(stageNav);
   });
 };
@@ -149,6 +146,8 @@ function goToStage(stageNo) {
   stage = stageNo;
   window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
   $("#stage_" + stageNo).css("top", 0);
+  $(".navMarker .markerActive").removeClass("markerActive").addClass("markerInactive");
+  $("#navMarker-" + stageNo).removeClass("markerInactive").addClass("markerActive");
 }
 
 
