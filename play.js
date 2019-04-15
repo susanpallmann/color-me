@@ -119,12 +119,12 @@ window.onload = function() {
     var prevX = e.pageX;
     var prevY = e.pageY;
     var target = this;
-    $(body).on("mousemove", function(e) {
+    $(this).parent().on("mousemove", function(e) {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         $(this).offset({top: y, left: x});
     });
-    $(body).on("mouseup", function(e) {
+    $(this).parent().on("mouseup", function(e) {
       $(this).off("mousemove").off("mouseup");
     });
   });
