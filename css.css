@@ -81,7 +81,7 @@ a {
 
 
 /*Nav*/
-nav {
+nav#hamburger-menu {
   font-size: 16px;
   top: 64px;
   padding: 0;
