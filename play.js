@@ -277,7 +277,7 @@ function compileEffects(target) {
 
 // EFFECTS CODES //
 function runEffectA_1(target) {
-  $(target).css("filter", "saturate(100%)");
+  $(target).css("filter", "saturate(120%)");
 }
 
 function runEffectA_2(target) {
