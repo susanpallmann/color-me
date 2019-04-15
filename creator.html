@@ -12,12 +12,35 @@
     <script type="text/javascript" src="scripts/creator.js"></script>
   </head>
   <body>
-    <div id='display_color' style='width: 200px; height: 200px; display: inline-block;'>text</div>
-    <div id='display_colorComp' style='width: 200px; height: 200px; display: inline-block;'>text</div>
     <div>
-      <input class='value_color' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
-      <input class='value_color' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
-      <input class='value_color' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
+      <h2>Details</h2>
+      <b>Title:</b> Color Me <input id='value_title' type='text' minlength='1' maxlength='20'>Anxious</input>
+      <b>Your Name:</b> <input id='value_creator' type='text' minlength='1' maxlength='20'>Johnny</input>
+      <b>Description:</b> <input id='value_description' type='textarea'>description of this experience</input>
+      <b>Back Button Text:</b> <input id='value_backButton' type='text' minlength='1' maxlength='20'>Escape</input>
+      <h2>Color</h2>
+      <div id='display_color' style='width: 200px; height: 200px; display: inline-block;'>text</div>
+      <div id='display_colorComp' style='width: 200px; height: 200px; display: inline-block;'>text</div>
+      <div>
+        <input class='value_color' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
+        <input class='value_color' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
+        <input class='value_color' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
+      </div>
+      <h2>Effects</h2>
+      <input id='value_pulling' type='checkbox' value=''> Pulling
+      <input id='value_melting' type='checkbox' value=''> Melting
+      <input id='value_blackHole' type='checkbox' value=''> Black Hole
+      <input id='value_fading' type='checkbox' value=''> Fading
+      <input id='value_blurring' type='checkbox' value=''> Blurring
+      <input id='value_colorLoss' type='radio' name='colorEffect' value=''> Lose Color
+      <input id='value_colorChange' type='radio' name='colorEffect' value=''> Change Color
+      <input id='value_colorNoEffect' type='radio' name='colorEffect' value=''> No Color Effect
+      <input id='value_popups' type='checkbox' value=''> Pop-ups
+      <input id='value_shaking' type='checkbox' value=''> Shaking
+      <input id='value_movingOutOfReach' type='checkbox' value=''> Moving out of Reach
+      <input id='value_immobility' type='checkbox' value=''> Immobility
+      <input id='value_distortion' type='checkbox' value=''> Distortion
+      <input id='value_rituals' type='checkbox' value=''> Rituals
     </div>
   </body>
 </html>
