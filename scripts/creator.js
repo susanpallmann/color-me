@@ -53,6 +53,7 @@ $(document).ready(function() {
 			timestamp: Date.now(),
 			views: 0
 		}
+		$("body").html("Saving... Do not close this tab.");
 		var experienceID = newPerspective(formValues);
 	});
 	
@@ -74,7 +75,7 @@ function newPerspective(values) {
   var perspRef = firebase.database().ref('perspectives/').push(values);
   perspRef.then(() => {
   	var perspID = perspRef.getKey();
-	$("body").html("<a href='www.susanpallmann.com/experience?id=" + perspID + "'>Play Now</a>");
+	$("body").html("<a href='/experience?id=" + perspID + "'>Play Now</a>");
 	return perspID;
   });
 }
