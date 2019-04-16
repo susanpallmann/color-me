@@ -218,32 +218,21 @@ function compileEffects(target) {
 // EFFECTS CODES //
 function runEffect_pulling(target) {
   if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
+    $(target).css("top", $(target).css("top") + (Math.random()-0.5)*10);
+    $(target).css("left", $(target).css("left") + (Math.random()-0.5)*10);
   } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
+    $(target).css("top", $(target).css("top") + (Math.random()-0.5)*20);
+    $(target).css("left", $(target).css("left") + (Math.random()-0.5)*20);
   } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
+    $(target).css("top", $(target).css("top") + (Math.random()-0.5)*50);
+    $(target).css("left", $(target).css("left") + (Math.random()-0.5)*50);
   }
 }
 
 function runEffect_melting(target) {
-  if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
-  } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
-  } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
-  }
 }
 
 function runEffect_blackHole(target) {
-  if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
-  } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
-  } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
-  }
 }
 
 function runEffect_fading(target) {
@@ -288,32 +277,35 @@ function runEffect_colorChange(target) {
 
 function runEffect_popups(target) {
   if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
+    if (Math.random() < 0.5) {
+      var isConfirmed = confirm("Are you sure about that?");
+    }
   } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
+    var isConfirmed = confirm("Are you sure about that?");
+    if (isConfirmed && Math.random() < 0.5) {
+      var isConfirmed = confirm("Are you really sure?");
+    }
   } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
+    var escaped = false;
+    while(!escaped) {
+      if (Math.random() < 0.3) {
+        var isConfirmed = confirm("Are you sure about that?");
+      } else if (Math.random() < 0.5) {
+        var isConfirmed = confirm("Are you really sure?");
+      } else {
+        var isConfirmed = confirm("I wouldn't be so sure. Are you?");
+      }
+      if (Math.random() < 0.1) {
+        escaped = true;
+      }
+    }
   }
 }
 
 function runEffect_shaking(target) {
-  if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
-  } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
-  } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
-  }
 }
 
 function runEffect_outOfReach(target) {
-  if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
-  } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
-  } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
-  }
 }
 
 function runEffect_immobility(target) {
@@ -342,20 +334,13 @@ function runEffect_immobility(target) {
 
 function runEffect_distortion(target) {
   if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
+    $(target).css("transform", "skew(" + (Math.random()*20-10) + "deg, " + (Math.random()*20-10) + "deg)");
   } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
+    $(target).css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
   } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
+    $(target).css("transform", "skew(" + (Math.random()*180-90) + "deg, " + (Math.random()*180-90) + "deg)");
   }
 }
 
 function runEffect_rituals(target) {
-  if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
-  } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
-  } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
-  }
 }
