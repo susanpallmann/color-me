@@ -54,7 +54,6 @@ $(document).ready(function() {
 			views: 0
 		}
 		var experienceID = newPerspective(formValues);
-		$("body").html("www.susanpallmann.com/experience?id=" + experienceID);
 	});
 	
 	//Random BG color gen //
@@ -75,6 +74,7 @@ function newPerspective(values) {
   var perspRef = firebase.database().ref('perspectives/').push(values);
   perspRef.then(() => {
   	var perspID = perspRef.getKey();
+	$("body").html("<a href='www.susanpallmann.com/experience?id=" + perspID + "'>Play Now</a>");
 	return perspID;
   });
 }
