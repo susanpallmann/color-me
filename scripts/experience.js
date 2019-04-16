@@ -23,7 +23,6 @@ var effect_outOfReach = false;
 var effect_immobility = false;
 var effect_distortion = false;
 var effect_rituals = false;
-var grows;
 var views;
 var currentURL;
 
@@ -131,6 +130,7 @@ window.onload = function() {
     });
     $(window).on("mouseup touchup", function(e) {
       $(target).css("filter", "");
+      $(target).css("transform", "");
       $(target).parent().off("mousemove touchmove");
       $(window).off("mouseup touchup");
     });
@@ -168,6 +168,7 @@ function goToStage(stageNo) {
 
 // EFFECTS COMPILER //
 function compileEffects(target) {
+    
     if (effect_pulling) {
         runEffect_pulling(target);
     }
@@ -245,31 +246,31 @@ function runEffect_blackHole(target) {
 
 function runEffect_fading(target) {
   if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
+    $(target).css("opacity", "0.8");
   } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
+    $(target).css("opacity", "0.5");
   } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
+    $(target).css("opacity", "0");
   }
 }
 
 function runEffect_blurring(target) {
   if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
+    $(target).css("filter", $(target).css("filter") + " blur(2px)");
   } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
+    $(target).css("filter", $(target).css("filter") + " blur(5px)");
   } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
+    $(target).css("filter", $(target).css("filter") + " blur(10px)");
   }
 }
 
 function runEffect_colorLoss(target) {
   if (stage == 1) {
-    $(target).css("filter", "saturate(50%)");
+    $(target).css("filter", $(target).css("filter") + " saturate(50%)");
   } else if (stage == 2) {
-    $(target).css("filter", "saturate(20%)");
+    $(target).css("filter", $(target).css("filter") + " saturate(20%)");
   } else if (stage == 3) {
-    $(target).css("filter", "saturate(0%)");
+    $(target).css("filter", $(target).css("filter") + " saturate(0%)");
   }
 }
 
@@ -303,7 +304,7 @@ function runEffect_shaking(target) {
   }
 }
 
-function runEffect_movingOutOfReach(target) {
+function runEffect_outOfReach(target) {
   if (stage == 1) {
     $(target).css("filter", "saturate(150%)");
   } else if (stage == 2) {
