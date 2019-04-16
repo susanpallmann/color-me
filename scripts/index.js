@@ -1,5 +1,6 @@
 initialMax = 5;
 maxThumbs = initialMax;
+galleryCap = 30;
 queryRef = firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
 
 $(document).ready(function() {
@@ -7,8 +8,11 @@ $(document).ready(function() {
 	loadGallery();
 	
 	$("button#loadMoreToGallery").click(function() {
-		if ($("#gallery > div").length == maxThumbs) {
+		if ($("#gallery > div").length == maxThumbs && maxThumbs < galleryCap) {
 			maxThumbs = maxThumbs + initialMax;
+			if (maxThumbs > galleryCap) {
+				maxThumbs = galleryCap;
+			}
 			$("#gallery").html("");
 			loadGallery();
 		} else {
