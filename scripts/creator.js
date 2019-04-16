@@ -52,8 +52,13 @@ $(document).ready(function() {
 			timestamp: Date.now(),
 			views: 0
 		}
+		if ($("#value_visibleInGallery").is(":checked")) {
+			var visibleInGallery = "visible";
+		} else {
+			var visibleInGallery = "hidden";
+		}
 		$("body").html("<div class='loading'></div>");
-		var experienceID = newPerspective(formValues);
+		var experienceID = newPerspective(formValues, visibleInGallery);
 	});
 	
 	//Random BG color gen //
@@ -70,12 +75,8 @@ $(document).ready(function() {
 });
 
 // Creates a new perspective and returns ID.
-function newPerspective(values) {
-  if ($("#value_visibleInGallery").is(":checked")) {
-    var perspRef = firebase.database().ref('perspectives/visible/').push(values);
-  } else {
-    var perspRef = firebase.database().ref('perspectives/hidden/').push(values);
-  }
+function newPerspective(values, visibleInGallery) {
+  var perspRef = firebase.database().ref('perspectives/' + visibleInGallery).push(values);
   perspRef.then(() => {
   	var perspID = perspRef.getKey();
 	$("body").html("<a href='/experience?id=" + perspID + "'>Play Now</a>");
