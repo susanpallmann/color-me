@@ -1,6 +1,6 @@
 initialMax = 5;
 maxThumbs = initialMax;
-galleryCap = 10;
+galleryCap = 30;
 queryRef = firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
 galleryHTML = "";
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
 			alert("No more gallery items to load");
 			$("button#loadMoreToGallery").remove();
 		} else {
-			alert("Cannot load more than " + galleryCap + "items");
+			alert("Cannot load more than " + galleryCap + " items");
 			$("button#loadMoreToGallery").remove();
 		}
 	});
