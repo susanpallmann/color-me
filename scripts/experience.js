@@ -116,7 +116,7 @@ window.onload = function() {
   $(".draggable").on("mousedown touchdown", function(e) {
     effectA = true;
     $(this).css("transition", "2s");
-    $(target).css("transition-property") + "filter, opacity, transform"
+    $(target).css("transition-property", "filter, opacity, transform");
     compileEffects(this);
     $(this).attr("draggable", false);
     var prevX = e.pageX;
@@ -278,11 +278,11 @@ function runEffect_colorLoss(target) {
 
 function runEffect_colorChange(target) {
   if (stage == 1) {
-    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
+    $(target).css("filter", $(target).css("filter") + " hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
   } else if (stage == 2) {
-    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5) + "turn)");
+    $(target).css("filter", $(target).css("filter") + " hue-rotate(" + (Math.random()-0.5) + "turn)");
   } else if (stage == 3) {
-    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5)*2 + "turn)");
+    $(target).css("filter", $(target).css("filter") + " hue-rotate(" + (Math.random()-0.5)*2 + "turn)");
   }
 }
 
@@ -318,11 +318,25 @@ function runEffect_outOfReach(target) {
 
 function runEffect_immobility(target) {
   if (stage == 1) {
-    $(target).css("filter", "saturate(150%)");
+    $(target).css("transition-property", $(target).css("transition-property") + ", top, left");
   } else if (stage == 2) {
-    $(target).css("filter", "saturate(200%)");
+    $(target).css("transition-property", $(target).css("transition-property") + ", top, left");
+    if (Math.random() < 0.3) {
+      $(target).css("filter", "");
+      $(target).css("transform", "");
+      $(target).css("opacity", "");
+      $(target).parent().off("mousemove touchmove");
+      $(window).off("mouseup touchup");
+    }
   } else if (stage == 3) {
-    $(target).css("filter", "saturate(500%)");
+    $(target).css("transition-property", $(target).css("transition-property") + ", top, left");
+    if (Math.random() < 0.8) {
+      $(target).css("filter", "");
+      $(target).css("transform", "");
+      $(target).css("opacity", "");
+      $(target).parent().off("mousemove touchmove");
+      $(window).off("mouseup touchup");
+    }
   }
 }
 
