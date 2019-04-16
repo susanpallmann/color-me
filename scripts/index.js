@@ -1,4 +1,4 @@
-initialMax = 10;
+initialMax = 5;
 maxThumbs = initialMax;
 queryRef = firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
 
