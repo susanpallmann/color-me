@@ -51,7 +51,7 @@ function loadGallery() {
     		if (isDarkColor(hue, sat, lgh)) {
       			textCol = "white";
     		}
-		galleryHTML = galleryHTML + "<div id='" + key + "' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>";
+		galleryHTML = "<div id='" + key + "' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>" + galleryHTML;
 		$("#gallery").html(galleryHTML);
 		$("#gallery div#" + key).click(function() {
 			window.location.href = "/experience?id=" + key;
