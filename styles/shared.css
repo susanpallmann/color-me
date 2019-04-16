@@ -37,6 +37,8 @@ div.stage div.scene .draggable {
 div.loading {
   background-image: url('/images/loading.png');
   animation: spin 0.5s infinite;
+  height: 200px;
+  width: 200px;
 }
 
 @keyframes spin {
