@@ -47,7 +47,6 @@ function loadGallery() {
     		var sat = data.val().colorSat;
     		var lgh = data.val().colorLgh;
 		var key = data.key;
-		console.log(key);
     		var hslString = "hsl(" + hue + ", " + sat + "%, " + lgh + "%)";
     		var compCol = getComplementaryColor(hue, sat, lgh);
     		var compColStr = "hsl(" + compCol[0] + ", " + compCol[1] + "%, " + compCol[2] + "%)";
@@ -55,7 +54,7 @@ function loadGallery() {
     		if (isDarkColor(hue, sat, lgh)) {
       			textCol = "white";
     		}
-		galleryHTML = "<div id='" + key + "' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>" + galleryHTML;
+		galleryHTML = "<div id='" + key + "+' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>" + galleryHTML;
 		$("#gallery").html(galleryHTML);
 		$("#gallery > div").click(function() {
 			window.location.href = "/experience?id=" + $(this).attr("id");
