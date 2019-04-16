@@ -35,7 +35,7 @@ $(document).ready(function() {
 	var lgh = Math.round(Math.random()*60 + 20);
 	
 	setBackgroundColor(hue, sat, lgh);
-	$("input#value_colorHue").val(colorHue);
-	$("input#value_colorSat").val(colorHue);
-	$("input#value_colorLgh").val(colorHue);
+	$("input#value_colorHue").val(hue);
+	$("input#value_colorSat").val(sat);
+	$("input#value_colorLgh").val(lgh);
 });
