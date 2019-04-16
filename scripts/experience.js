@@ -23,6 +23,7 @@ var effect_outOfReach = false;
 var effect_immobility = false;
 var effect_distortion = false;
 var effect_rituals = false;
+var visibleInGallery = "hidden";
 var views;
 var currentURL;
 
@@ -44,12 +45,16 @@ function determinePerspective() {
   currentURL = window.location.href.split("&")[0];
   if (currentURL.includes("?id=")) {
     perspID = currentURL.split("?id=")[1];
+    if (perspID.includes("+")) {
+      perspID = perspID.split("+")[0];
+      visibleInGallery = "visible";
+    }
   }
   return perspID;
 }
 
 function loadPerspective(perspID) {
-    firebase.database().ref('perspectives/' + perspID).once('value').then(function(snapshot) {
+    firebase.database().ref('perspectives/' + visibleInGallery + '/' + perspID).once('value').then(function(snapshot) {
         title = snapshot.child('title').val();
         creator = snapshot.child('creator').val();
         description = snapshot.child('description').val();
@@ -73,7 +78,7 @@ function loadPerspective(perspID) {
         effect_rituals = snapshot.child('effect_rituals').val();
         views = snapshot.child('views').val();
         var newViews = Number(views + 1);
-        firebase.database().ref('perspectives/' + perspID).child('views').set(newViews);
+        firebase.database().ref('perspectives/' + visibleInGallery + '/' perspID).child('views').set(newViews);
         setBackgroundColor(hue, sat, lgh);
         var compColor = getComplementaryColor(hue, sat, lgh);
         compHue = compColor[0];
