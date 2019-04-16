@@ -15,7 +15,7 @@ $(document).ready(function() {
 				maxThumbs = galleryCap;
 			}
 			galleryHTML = "";
-			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+			var newQueryRef = firebase.database().ref('perspectives/visible').child('colorHue').orderByKey().limitToFirst(maxThumbs);
 			loadGallery(newQueryRef);
 		} else if (maxThumbs < galleryCap) {
 			alert("No more gallery items to load");
@@ -28,7 +28,7 @@ $(document).ready(function() {
 	
 	$("#searchInput").on("input", function() {
 		var searchTerm = $("#searchInput").val();
-		var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('title').startAt(searchTerm).endAt(searchTerm + '\uf8ff');
+		var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('title').startAt(searchTerm).endAt(searchTerm + '\uf8ff');
 		if (searchTerm.length >= 3) {
 			console.log("load " + searchTerm);
 			loadGallery(newQueryRef);
