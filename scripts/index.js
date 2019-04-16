@@ -27,8 +27,8 @@ $(document).ready(function() {
 	});
 	
 	$("#searchButton").click(function() {
-		var searchTerm = $("#searchInput").val();
-		var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('title').startAt(searchTerm.toUpperCase()).endAt(searchTerm.toLowerCase() + '\uf8ff').limitToLast(maxThumbs);
+		var searchTerm = $("#searchInput").val().toLowerCase();
+		var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('titleLower').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToLast(maxThumbs);
 		galleryHTML = "";
 		loadGallery(newQueryRef);
 	});
