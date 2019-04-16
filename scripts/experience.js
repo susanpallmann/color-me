@@ -116,7 +116,7 @@ window.onload = function() {
   $(".draggable").on("mousedown touchdown", function(e) {
     effectA = true;
     $(this).css("transition", "2s");
-    $(target).css("transition-property", "filter, opacity, transform");
+    $(this).css("transition-property", "filter, opacity, transform");
     compileEffects(this);
     $(this).attr("draggable", false);
     var prevX = e.pageX;
