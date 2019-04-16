@@ -20,6 +20,7 @@ $(document).ready(function() {
 			$("#display_color").css("color", "black");
 			$("#display_colorComp").css("color", "black");
 		}
+		setBackgroundColor(colorHue, colorSat, colorLgh);
         	$("#display_color").css("background-color", "hsl(" + colorHue + ", " + colorSat + "%, " + colorLgh + "%)");
 		$("#display_color").html("H: " + colorHue + ", S: " + colorSat + ", L: " + colorLgh);
 		$("#display_colorComp").css("background-color", "hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%)");
