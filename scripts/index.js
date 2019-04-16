@@ -26,13 +26,11 @@ $(document).ready(function() {
 		}
 	});
 	
-	$("#searchInput").on("input", function() {
+	$("#searchButton").click(function() {
 		var searchTerm = $("#searchInput").val();
 		var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('title').startAt(searchTerm.toUpperCase()).endAt(searchTerm.toLowerCase() + '\uf8ff').limitToLast(maxThumbs);
-		if (searchTerm.length >= 3) {
-			galleryHTML = "";
-			loadGallery(newQueryRef);
-		}
+		galleryHTML = "";
+		loadGallery(newQueryRef);
 	});
 	
 	//Random BG color gen //
