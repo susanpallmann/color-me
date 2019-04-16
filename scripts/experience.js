@@ -84,6 +84,7 @@ function loadPerspective(perspID) {
         $("title").html("Color Me " + title + " by " + creator);
         $("div.textbox").html(description);
         $("#viewCounter").html(newViews);
+        $("#backButton").html(backButton);
     });
 }
 
