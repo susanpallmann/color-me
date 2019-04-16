@@ -33,7 +33,6 @@ $(document).ready(function() {
 			creator: $("#value_creator").val(),
 			description: $("#value_description").val(),
 			backButton: $("#value_backButton").val(),
-			visibleInGallery: $("#value_visibleInGallery").is(":checked"),
 			colorHue: Number($("#value_colorHue").val()),
 			colorSat: Number($("#value_colorSat").val()),
 			colorLgh: Number($("#value_colorLgh").val()),
@@ -72,7 +71,11 @@ $(document).ready(function() {
 
 // Creates a new perspective and returns ID.
 function newPerspective(values) {
-  var perspRef = firebase.database().ref('perspectives/').push(values);
+  if ($("#value_visibleInGallery").is(":checked")) {
+    var perspRef = firebase.database().ref('perspectives/visible/').push(values);
+  } else {
+    var perspRef = firebase.database().ref('perspectives/hidden/').push(values);
+  }
   perspRef.then(() => {
   	var perspID = perspRef.getKey();
 	$("body").html("<a href='/experience?id=" + perspID + "'>Play Now</a>");
