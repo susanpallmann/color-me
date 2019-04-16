@@ -15,13 +15,22 @@ $(document).ready(function() {
 				maxThumbs = galleryCap;
 			}
 			galleryHTML = "";
-			loadGallery();
+			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+			loadGallery(newQueryRef);
 		} else if (maxThumbs < galleryCap) {
 			alert("No more gallery items to load");
 			$("button#loadMoreToGallery").remove();
 		} else {
 			alert("Cannot load more than " + galleryCap + " items");
 			$("button#loadMoreToGallery").remove();
+		}
+	});
+	
+	$("#searchTerm").on("input", function() {
+		var searchTerm = $("#searchTerm").val();
+		var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('title').startAt(searchTerm).endAt(searchTerm + 'zzzzzzzzzzzzzzz').limitToFirst(maxThumbs);
+		if (searchTerm.length <= 3) {
+			loadGallery(newQueryRef);
 		}
 	});
 	
@@ -36,9 +45,9 @@ $(document).ready(function() {
 	
 });
 
-function loadGallery() {
+function loadGallery(newQueryRef) {
 	queryRef.off();
-	queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+	queryRef = newQueryRef;
 	queryRef.on('child_added', function(data) {
     		if ($("#gallery div").length >= maxThumbs) {
       			$("#gallery div:last-child").remove();
