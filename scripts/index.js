@@ -27,10 +27,10 @@ $(document).ready(function() {
 	});
 	
 	$("#searchInput").on("input", function() {
-		var searchTerm = $("#searchInput").val();
-		var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('title').startAt(searchTerm).endAt(searchTerm + '\uf8ff');
+		var searchTerm = $("#searchInput").val().toLowerCase();
+		var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('title').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToLast(maxThumbs);
 		if (searchTerm.length >= 3) {
-			console.log("load " + searchTerm);
+			galleryHTML = "";
 			loadGallery(newQueryRef);
 		}
 	});
