@@ -1,6 +1,27 @@
-maxThumbs = 6;
+initialMax = 10;
+maxThumbs = initialMax;
 
 $(document).ready(function() {
+	
+	loadGallery();
+	
+	$("button#loadMoreToGallery").click(function() {
+		maxThumbs = maxThumbs + initialMax;
+		loadGallery();
+	});
+	
+	//Random BG color gen //
+	// Generate any random color from all possible HSL values
+	var randomNum = Math.random();
+	var hue = Math.round(randomNum * 360);
+	var sat = Math.round(Math.random()*80 + 10);
+	var lgh = Math.round(Math.random()*60 + 20);
+	
+	setBackgroundColor(hue, sat, lgh);
+	
+});
+
+function loadGallery() {
 	firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs).on('child_added', function(data) {
     		if ($("#gallery div").length >= maxThumbs) {
       			$("#gallery div:last-child").remove();
@@ -22,14 +43,4 @@ $(document).ready(function() {
 			window.location.href = "/experience?id=" + key;
 		});
 	});
-	
-	//Random BG color gen //
-	// Generate any random color from all possible HSL values
-	var randomNum = Math.random();
-	var hue = Math.round(randomNum * 360);
-	var sat = Math.round(Math.random()*80 + 10);
-	var lgh = Math.round(Math.random()*60 + 20);
-	
-	setBackgroundColor(hue, sat, lgh);
-	
-});
+}
