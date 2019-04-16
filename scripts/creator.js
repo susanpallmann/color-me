@@ -53,7 +53,7 @@ $(document).ready(function() {
 			timestamp: Date.now(),
 			views: 0
 		}
-		$("body").html("Saving... Do not close this tab.");
+		$("body").html("<div class='loading'></div>");
 		var experienceID = newPerspective(formValues);
 	});
 	
