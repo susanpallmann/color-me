@@ -89,6 +89,7 @@ function loadPerspective(perspID) {
 }
 
 window.onload = function() {
+  $("img").attr("draggable", false);
   var perspID = determinePerspective();
   loadPerspective(perspID);
   
@@ -119,7 +120,6 @@ window.onload = function() {
     $(this).css("transition", "2s");
     $(this).css("transition-property", "filter, opacity, transform");
     compileEffects(this);
-    $(this).attr("draggable", false);
     var prevX = e.pageX;
     var prevY = e.pageY;
     var target = this;
