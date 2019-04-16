@@ -3,7 +3,6 @@ maxThumbs = initialMax;
 galleryCap = 30;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
-timeLastLoad = 0;
 
 $(document).ready(function() {
 	
@@ -30,7 +29,7 @@ $(document).ready(function() {
 	$("#searchInput").on("input", function() {
 		var searchTerm = $("#searchInput").val();
 		var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('title').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToFirst(maxThumbs);
-		if (searchTerm.length >= 3 && (Date.now()-timeLastLoad) > 2000) {
+		if (searchTerm.length >= 3) {
 			loadGallery(newQueryRef);
 		}
 	});
@@ -70,5 +69,4 @@ function loadGallery(newQueryRef) {
 			window.location.href = "/experience?id=" + $(this).attr("id");
 		});
 	});
-	timeLastLoad = Date.now();
 }
