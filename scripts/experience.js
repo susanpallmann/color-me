@@ -277,7 +277,7 @@ function runEffect_colorChange(target) {
 
 function runEffect_popups(target) {
   if (stage == 1) {
-    if (Math.random() < 0.5) {
+    if (Math.random() < 0.2) {
       var isConfirmed = confirm("Are you sure about that?");
     }
   } else if (stage == 2) {
