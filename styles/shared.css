@@ -34,6 +34,20 @@ div.stage div.scene .draggable {
   opacity: 0.5;
 }
 
+div.loading {
+  background-image: url('/images/loading.png');
+  animation: spin 0.5s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 
 body {
