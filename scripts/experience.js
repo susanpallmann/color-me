@@ -10,19 +10,19 @@ var compHue;
 var compSat;
 var compLgh;
 var backButton;
-var effectA = false;
-var effectB = false;
-var effectC = false;
-var effectD = false;
-var effectE = false;
-var effectF = false;
-var effectG = false;
-var effectH = false;
-var effectI = false;
-var effectJ = false;
-var effectK = false;
-var effectL = false;
-var effectM = false;
+var effect_pulling = false;
+var effect_melting = false;
+var effect_blackHole = false;
+var effect_fading = false;
+var effect_blurring = false;
+var effect_colorLoss = false;
+var effect_colorChange = false;
+var effect_popups = false;
+var effect_shaking = false;
+var effect_outOfReach = false;
+var effect_immobility = false;
+var effect_distortion = false;
+var effect_rituals = false;
 var grows;
 var views;
 var currentURL;
@@ -168,127 +168,45 @@ function goToStage(stageNo) {
 
 
 // EFFECTS COMPILER //
-function compileEffects(target) {    
-    if (stage == 1) {
-        if (effectA) {
-            runEffectA_1(target);
-        }
-        if (effectB) {
-            runEffectB_1(target);
-        }
-        if (effectC) {
-            runEffectC_1(target);
-        }
-        if (effectD) {
-            runEffectD_1(target);
-        }
-        if (effectE) {
-            runEffectE_1(target);
-        }
-        if (effectF) {
-            runEffectF_1(target);
-        }
-        if (effectG) {
-            runEffectG_1(target);
-        }
-        if (effectH) {
-            runEffectH_1(target);
-        }
-        if (effectI) {
-            runEffectI_1(target);
-        }
-        if (effectJ) {
-            runEffectJ_1(target);
-        }
-        if (effectK) {
-            runEffectK_1(target);
-        }
-        if (effectL) {
-            runEffectL_1(target);
-        }
-        if (effectM) {
-            runEffectM_1(target);
-        }
-    } else if (stage == 2) {
-        if (effectA) {
-            runEffectA_2(target);
-        }
-        if (effectB) {
-            runEffectB_2(target);
-        }
-        if (effectC) {
-            runEffectC_2(target);
-        }
-        if (effectD) {
-            runEffectD_2(target);
-        }
-        if (effectE) {
-            runEffectE_2(target);
-        }
-        if (effectF) {
-            runEffectF_2(target);
-        }
-        if (effectG) {
-            runEffectG_2(target);
-        }
-        if (effectH) {
-            runEffectH_2(target);
-        }
-        if (effectI) {
-            runEffectI_2(target);
-        }
-        if (effectJ) {
-            runEffectJ_2(target);
-        }
-        if (effectK) {
-            runEffectK_2(target);
-        }
-        if (effectL) {
-            runEffectL_2(target);
-        }
-        if (effectM) {
-            runEffectM_2(target);
-        }
-    } else if (stage == 3) {
-        if (effectA) {
-            runEffectA_3(target);
-        }
-        if (effectB) {
-            runEffectB_3(target);
-        }
-        if (effectC) {
-            runEffectC_3(target);
-        }
-        if (effectD) {
-            runEffectD_3(target);
-        }
-        if (effectE) {
-            runEffectE_3(target);
-        }
-        if (effectF) {
-            runEffectF_3(target);
-        }
-        if (effectG) {
-            runEffectG_3(target);
-        }
-        if (effectH) {
-            runEffectH_3(target);
-        }
-        if (effectI) {
-            runEffectI_3(target);
-        }
-        if (effectJ) {
-            runEffectJ_3(target);
-        }
-        if (effectK) {
-            runEffectK_3(target);
-        }
-        if (effectL) {
-            runEffectL_3(target);
-        }
-        if (effectM) {
-            runEffectM_3(target);
-        }
+function compileEffects(target) {
+    if (effect_pulling) {
+        runEffect_pulling(target);
+    }
+    if (effect_melting) {
+        runEffect_melting(target);
+    }
+    if (effect_blackHole) {
+        runEffect_blackHole(target);
+    }
+    if (effect_fading) {
+        runEffect_fading(target);
+    }
+    if (effect_blurring) {
+        runEffect_blurring(target);
+    }
+    if (effect_colorLoss) {
+        runEffect_colorLoss(target);
+    }
+    if (effect_colorChange) {
+        runEffect_colorChange(target);
+    }
+    if (effect_popups) {
+        runEffect_popups(target);
+    }
+    if (effect_shaking) {
+        runEffect_shaking(target);
+    }
+    if (effect_outOfReach) {
+        runEffect_outOfReach(target);
+    }
+    if (effect_immobility) {
+        runEffect_immobility(target);
+    }
+    if (effect_distortion) {
+        runEffect_distortion(target);
+    }
+    if (effect_rituals) {
+        runEffect_rituals(target);
     }
 }
 
@@ -296,122 +214,132 @@ function compileEffects(target) {
 
 
 // EFFECTS CODES //
-function runEffectA_1(target) {
-  $(target).css("filter", "saturate(120%)");
+function runEffect_pulling(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectA_2(target) {
-  $(target).css("filter", "saturate(200%)");
+function runEffect_melting(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectA_3(target) {
-  $(target).css("filter", "saturate(500%)");
+function runEffect_blackHole(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectB_1(target) {
+function runEffect_fading(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectB_2(target) {
+function runEffect_blurring(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectB_3(target) {
+function runEffect_colorLoss(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(50%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(20%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(0%)");
+  }
 }
 
-function runEffectC_1(target) {
+function runEffect_colorChange(target) {
+  if (stage == 1) {
+    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
+  } else if (stage == 2) {
+    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5) + "turn)"");
+  } else if (stage == 3) {
+    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5)*2 + "turn)"");
+  }
 }
 
-function runEffectC_2(target) {
+function runEffect_popups(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectC_3(target) {
+function runEffect_shaking(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectD_1(target) {
+function runEffect_movingOutOfReach(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectD_2(target) {
+function runEffect_immobility(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectD_3(target) {
+function runEffect_distortion(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
 
-function runEffectE_1(target) {
-}
-
-function runEffectE_2(target) {
-}
-
-function runEffectE_3(target) {
-}
-
-function runEffectF_1(target) {
-}
-
-function runEffectF_2(target) {
-}
-
-function runEffectF_3(target) {
-}
-
-function runEffectG_1(target) {
-}
-
-function runEffectG_2(target) {
-}
-
-function runEffectG_3(target) {
-}
-
-function runEffectH_1(target) {
-}
-
-function runEffectH_2(target) {
-}
-
-function runEffectH_3(target) {
-}
-
-function runEffectI_1(target) {
-}
-
-function runEffectI_2(target) {
-}
-
-function runEffectI_3(target) {
-}
-
-function runEffectJ_1(target) {
-}
-
-function runEffectJ_2(target) {
-}
-
-function runEffectJ_3(target) {
-}
-
-function runEffectK_1(target) {
-}
-
-function runEffectK_2(target) {
-}
-
-function runEffectK_3(target) {
-}
-
-function runEffectL_1(target) {
-}
-
-function runEffectL_2(target) {
-}
-
-function runEffectL_3(target) {
-}
-
-function runEffectM_1(target) {
-}
-
-function runEffectM_2(target) {
-}
-
-function runEffectM_3(target) {
+function runEffect_rituals(target) {
+  if (stage == 1) {
+    $(target).css("filter", "saturate(150%)");
+  } else if (stage == 2) {
+    $(target).css("filter", "saturate(200%)");
+  } else if (stage == 3) {
+    $(target).css("filter", "saturate(500%)");
+  }
 }
