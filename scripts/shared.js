@@ -179,7 +179,7 @@ function setBackgroundColor(hue, sat, lgh) {
 	var midLgh = (Number(lgh) + Number(compLgh))/2;
 	
 	// set background to gradient of random color and its complement
-	$("body").css("background-image", "radial-gradient(at bottom right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl("  + compHue + ", " + compSat + "%, " + compLgh + "%)");
+	$("body").css("background-image", "radial-gradient(at bottom right, hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%), hsl("  + hue + ", " + sat + "%, " + lgh + "%)");
 	
 	// set text color to white if colors are dark, or black if colors are light
 	if (isDarkColor(midHue, midSat, midLgh)) {
