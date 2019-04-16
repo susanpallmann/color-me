@@ -28,8 +28,7 @@ $(document).ready(function() {
 	
 	$("#searchInput").on("input", function() {
 		var searchTerm = $("#searchInput").val();
-		var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('title').startAt(searchTerm).endAt(searchTerm + 'zzzzzzzzzzzzzzz').limitToFirst(maxThumbs);
-		alert(searchTerm);
+		var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('title').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToFirst(maxThumbs);
 		if (searchTerm.length >= 3) {
 			loadGallery(newQueryRef);
 		}
