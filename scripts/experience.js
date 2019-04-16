@@ -127,7 +127,7 @@ window.onload = function() {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         $(target).offset({top: y, left: x});
-        $(target).css("z-index", Math.round(y));
+        $(target).css("z-index", Math.round((y+$(target).height())));
         prevX = e.pageX;
         prevY = e.pageY;
     });
