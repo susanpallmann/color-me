@@ -33,7 +33,7 @@ $(document).ready(function() {
 			creator: $("#value_creator").val(),
 			description: $("#value_description").val(),
 			backButton: $("#value_backButton").val(),
-			visibleInGallery: $("#value_visibleInGallery").val(),
+			visibleInGallery: $("#value_visibleInGallery").is(":checked"),
 			colorHue: Number($("#value_colorHue").val()),
 			colorSat: Number($("#value_colorSat").val()),
 			colorLgh: Number($("#value_colorLgh").val()),
