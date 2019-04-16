@@ -30,6 +30,7 @@ $(document).ready(function() {
 	$("button#formSubmit").click(function() {
 		var formValues = {
 			title: $("#value_title").val(),
+			titleLower: $("#value_title").val().toLowerCase(),
 			creator: $("#value_creator").val(),
 			description: $("#value_description").val(),
 			backButton: $("#value_backButton").val(),
