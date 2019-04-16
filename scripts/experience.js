@@ -115,7 +115,7 @@ window.onload = function() {
   
   $(".draggable").on("mousedown touchdown", function(e) {
     effectA = true;
-    $(this).css("transition", "filter 2s");
+    $(this).css("transition", "2s");
     compileEffects(this);
     $(this).attr("draggable", false);
     var prevX = e.pageX;
@@ -131,6 +131,7 @@ window.onload = function() {
     $(window).on("mouseup touchup", function(e) {
       $(target).css("filter", "");
       $(target).css("transform", "");
+      $(target).css("opacity", "");
       $(target).parent().off("mousemove touchmove");
       $(window).off("mouseup touchup");
     });
