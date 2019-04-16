@@ -2,6 +2,7 @@ initialMax = 5;
 maxThumbs = initialMax;
 galleryCap = 30;
 queryRef = firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
+galleryHTML = "";
 
 $(document).ready(function() {
 	
@@ -13,7 +14,7 @@ $(document).ready(function() {
 			if (maxThumbs > galleryCap) {
 				maxThumbs = galleryCap;
 			}
-			$("#gallery").html("");
+			galleryHTML = "";
 			loadGallery();
 		} else {
 			alert("No more gallery items to load");
@@ -50,7 +51,8 @@ function loadGallery() {
     		if (isDarkColor(hue, sat, lgh)) {
       			textCol = "white";
     		}
-		$("#gallery").prepend("<div id='" + key + "' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>");
+		galleryHTML = galleryHTML + "<div id='" + key + "' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>";
+		$("#gallery").html(galleryHTML);
 		$("#gallery div#" + key).click(function() {
 			window.location.href = "/experience?id=" + key;
 		});
