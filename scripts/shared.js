@@ -174,9 +174,9 @@ function setBackgroundColor(hue, sat, lgh) {
 	var compLgh = compCol[2];
 	
 	// Gets intermediate HSL values between two colors
-	var midHue = (hue + compHue)/2;
-	var midSat = (sat + compSat)/2;
-	var midLgh = (lgh + compLgh)/2;
+	var midHue = (Number(hue) + Number(compHue))/2;
+	var midSat = (Number(sat) + Number(compSat))/2;
+	var midLgh = (Number(lgh) + Number(compLgh))/2;
 	
 	// set background to gradient of random color and its complement
 	$("body").css("background-image", "radial-gradient(at bottom right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl("  + compHue + ", " + compSat + "%, " + compLgh + "%)");
