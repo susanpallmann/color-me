@@ -6,7 +6,7 @@ galleryHTML = "";
 
 $(document).ready(function() {
 	
-	loadGallery();
+	loadGallery(queryRef);
 	
 	$("button#loadMoreToGallery").click(function() {
 		if ($("#gallery > div").length == maxThumbs && maxThumbs < galleryCap) {
