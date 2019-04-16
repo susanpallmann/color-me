@@ -115,7 +115,7 @@ window.onload = function() {
     goToStage(4);
   });
   
-  $(".draggable").on("mousedown", function(e) {
+  $(".draggable").on("mousedown touchdown", function(e) {
     effectA = true;
     $(this).css("transition", "filter 2s");
     compileEffects(this);
@@ -123,17 +123,17 @@ window.onload = function() {
     var prevX = e.pageX;
     var prevY = e.pageY;
     var target = this;
-    $(this).parent().on("mousemove", function(e) {
+    $(this).parent().on("mousemove touchmove", function(e) {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         $(target).offset({top: y, left: x});
         prevX = e.pageX;
         prevY = e.pageY;
     });
-    $(window).on("mouseup", function(e) {
+    $(window).on("mouseup touchup", function(e) {
       $(target).css("filter", "");
-      $(target).parent().off("mousemove");
-      $(window).off("mouseup");
+      $(target).parent().off("mousemove touchmove");
+      $(window).off("mouseup touchup");
     });
   });
   
