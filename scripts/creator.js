@@ -76,10 +76,14 @@ $(document).ready(function() {
 
 // Creates a new perspective and returns ID.
 function newPerspective(values, visibleInGallery) {
-  var perspRef = firebase.database().ref('perspectives/' + visibleInGallery).push(values);
-  perspRef.then(() => {
-  	var perspID = perspRef.getKey();
-	$("body").html("<a href='/experience?id=" + perspID + "'>Play Now</a>");
-	return perspID;
-  });
+	var perspRef = firebase.database().ref('perspectives/' + visibleInGallery).push(values);
+	perspRef.then(() => {
+  		var perspID = perspRef.getKey();
+		if (visibleInGallery === "visible") {
+			$("body").html("<a href='/experience?id=" + perspID + "+'>Play Now</a>");
+		} else {
+			$("body").html("<a href='/experience?id=" + perspID + "'>Play Now</a>");
+		}
+		return perspID;
+	});
 }
