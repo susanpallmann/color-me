@@ -72,7 +72,9 @@ $(document).ready(function() {
 
 // Creates a new perspective and returns ID.
 function newPerspective(values) {
-  var perspID = firebase.database().ref('perspectives/').push(values).getKey();
-  loadPerspective(perspID);
-  return perspID;
+  var perspRef = firebase.database().ref('perspectives/').push(values);
+  perspRef.then(function() {
+  	var perspID = perspRef.getKey();
+	return perspID;
+  });
 }
