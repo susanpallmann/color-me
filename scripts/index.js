@@ -27,7 +27,7 @@ $(document).ready(function() {
 	});
 	
 	$("#searchInput").on("input", function() {
-		var searchTerm = $("#searchTerm").val();
+		var searchTerm = $("#searchInput").val();
 		var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('title').startAt(searchTerm).endAt(searchTerm + 'zzzzzzzzzzzzzzz').limitToFirst(maxThumbs);
 		alert(searchTerm);
 		if (searchTerm.length >= 3) {
