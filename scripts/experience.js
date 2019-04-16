@@ -78,7 +78,7 @@ function loadPerspective(perspID) {
         effect_rituals = snapshot.child('effect_rituals').val();
         views = snapshot.child('views').val();
         var newViews = Number(views + 1);
-        firebase.database().ref('perspectives/' + visibleInGallery + '/' perspID).child('views').set(newViews);
+        firebase.database().ref('perspectives/' + visibleInGallery + '/' + perspID).child('views').set(newViews);
         setBackgroundColor(hue, sat, lgh);
         var compColor = getComplementaryColor(hue, sat, lgh);
         compHue = compColor[0];
