@@ -6,8 +6,13 @@ $(document).ready(function() {
 	loadGallery();
 	
 	$("button#loadMoreToGallery").click(function() {
-		maxThumbs = maxThumbs + initialMax;
-		loadGallery();
+		if ($("#gallery > div").length == maxThumbs) {
+			maxThumbs = maxThumbs + initialMax;
+			$("#gallery").html("");
+			loadGallery();
+		} else {
+			alert("No more gallery items to load");
+		}
 	});
 	
 	//Random BG color gen //
