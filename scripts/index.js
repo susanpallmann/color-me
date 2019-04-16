@@ -15,7 +15,7 @@ $(document).ready(function() {
 				maxThumbs = galleryCap;
 			}
 			galleryHTML = "";
-			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue');
 			loadGallery(newQueryRef);
 		} else if (maxThumbs < galleryCap) {
 			alert("No more gallery items to load");
