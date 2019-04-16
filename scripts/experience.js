@@ -278,9 +278,9 @@ function runEffect_colorChange(target) {
   if (stage == 1) {
     $(target).css("filter", "hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
   } else if (stage == 2) {
-    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5) + "turn)"");
+    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5) + "turn)");
   } else if (stage == 3) {
-    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5)*2 + "turn)"");
+    $(target).css("filter", "hue-rotate(" + (Math.random()-0.5)*2 + "turn)");
   }
 }
 
