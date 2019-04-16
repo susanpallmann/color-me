@@ -26,7 +26,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$("#searchTerm").on("input", function() {
+	$("#searchInput").on("input", function() {
 		var searchTerm = $("#searchTerm").val();
 		var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('title').startAt(searchTerm).endAt(searchTerm + 'zzzzzzzzzzzzzzz').limitToFirst(maxThumbs);
 		alert(searchTerm);
