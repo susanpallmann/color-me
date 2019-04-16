@@ -12,8 +12,7 @@
     <script type="text/javascript" src="scripts/creator.js"></script>
   </head>
   <body>
-    <div>
-      <form id='experienceCreator' action='/addToDatabase' method='post'>
+    <div id="experienceCreator">
         <h2>Details</h2>
         <div>
           <b>Title:</b> Color Me <input id='value_title' required name='title' type='text' minlength='1' maxlength='20'>
@@ -80,8 +79,7 @@
         <div>
           <input id='value_rituals' name='rituals' type='checkbox' value='true'> Rituals
         </div>
-      </form>
-      <button type="submit" form="experienceCreator" value="Submit">Submit</button>
+      <button id="formSubmit">Submit</button>
     </div>
   </body>
 </html>
