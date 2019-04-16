@@ -13,7 +13,7 @@
   </head>
   <body>
     <div>
-      <form id='experienceCreator'>
+      <form id='experienceCreator' action='/addToDatabase" method="post">
         <h2>Details</h2>
         <div>
           <b>Title:</b> Color Me <input id='value_title' required name='title' type='text' minlength='1' maxlength='20'>
@@ -27,6 +27,9 @@
         <div>
           <b>Back Button Text:</b> <input required name='backButton' id='value_backButton' type='text' minlength='1' maxlength='20'>
         </div>
+        <div>
+          <input id='value_visibleInGallery' name='visibleInGallery' type='checkbox' value='true'> Visible in Gallery?
+        </div>                                                                                                                         
         <h2>Color</h2>
         <div id='display_color' style='width: 200px; height: 200px; display: none;'>text</div>
         <div id='display_colorComp' style='width: 200px; height: 200px; display: none;'>text</div>
