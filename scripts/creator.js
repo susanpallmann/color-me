@@ -27,6 +27,36 @@ $(document).ready(function() {
 		$("#display_colorComp").html("H: " + compHue + ", S: " + compSat + ", L: " + compLgh);
 	});
 	
+	$("button#formSubmit").click(function() {
+		var formValues = {
+			title: $("#value_title").val(),
+			creator: $("#value_creator").val(),
+			description: $("#value_description").val(),
+			backButton: $("#value_backButton").val(),
+			visibleInGallery: $("#value_visibleInGallery").val(),
+			colorHue: Number($("#value_colorHue").val()),
+			colorSat: Number($("#value_colorSat").val()),
+			colorLgh: Number($("#value_colorLgh").val()),
+			effect_pulling: $("#value_pulling").is(":checked"),
+			effect_melting: $("#value_melting").is(":checked"),
+			effect_blackHole: $("#value_blackHole").is(":checked"),
+			effect_fading: $("#value_fading").is(":checked"),
+			effect_blurring: $("#value_blurring").is(":checked"),
+			effect_colorLoss: $("#value_colorLoss").is(":checked"),
+			effect_colorChange: $("#value_colorChange").is(":checked"),
+			effect_popups: $("#value_popups").is(":checked"),
+			effect_shaking: $("#value_shaking").is(":checked"),
+			effect_outOfReach: $("#value_outOfReach").is(":checked"),
+			effect_immobility: $("#value_immobility").is(":checked"),
+			effect_distortion: $("#value_distortion").is(":checked"),
+			effect_rituals: $("#value_rituals").is(":checked"),
+			timestamp: Date.now(),
+			views: 0
+		}
+		var experienceID = newPerspective(formValues);
+		$("body").html("www.susanpallmann.com/experience?id=" + experienceID);
+	});
+	
 	//Random BG color gen //
 	// Generate any random color from all possible HSL values
 	var randomNum = Math.random();
@@ -39,3 +69,10 @@ $(document).ready(function() {
 	$("input#value_colorSat").val(sat);
 	$("input#value_colorLgh").val(lgh);
 });
+
+// Creates a new perspective and returns ID.
+function newPerspective(values) {
+  var perspID = firebase.database().ref('perspectives/').push(values).getKey();
+  loadPerspective(perspID);
+  return perspID;
+}
