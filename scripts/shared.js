@@ -182,6 +182,7 @@ function setBackgroundColor(hue, sat, lgh) {
 	$("body").css("background-image", "radial-gradient(at bottom right, hsl(" + hue + ", " + sat + "%, " + lgh + "%), hsl("  + compHue + ", " + compSat + "%, " + compLgh + "%)");
 	
 	// set text color to white if colors are dark, or black if colors are light
+	alert(midHue + ", " + midSat + ", " + midLgh);
 	if (isDarkColor(midHue, midSat, midLgh)) {
 		$("body").css("color", "white");
 		$("#container-hamburger span").css("background-color", "white");
