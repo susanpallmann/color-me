@@ -1,7 +1,7 @@
 initialMax = 5;
 maxThumbs = initialMax;
 galleryCap = 30;
-queryRef = firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
+queryRef = firebase.database().ref('perspectives/visible').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
 galleryHTML = "";
 
 $(document).ready(function() {
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 function loadGallery() {
 	queryRef.off();
-	queryRef = firebase.database().ref('perspectives').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
+	queryRef = firebase.database().ref('perspectives/visible').orderByChild('visibleInGallery').equalTo(true).limitToLast(maxThumbs);
 	queryRef.on('child_added', function(data) {
     		if ($("#gallery div").length >= maxThumbs) {
       			$("#gallery div:last-child").remove();
