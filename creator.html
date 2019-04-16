@@ -13,69 +13,72 @@
   </head>
   <body>
     <div>
-      <h2>Details</h2>
-      <div>
-        <b>Title:</b> Color Me <input id='value_title' type='text' minlength='1' maxlength='20'>
-      </div>
-      <div>
-        <b>Your Name:</b> <input id='value_creator' type='text' minlength='1' maxlength='20'>
-      </div>
-      <div>
-        <b>Description:</b> <textarea id='value_description' rows='3' cols='50'>
-      </div>
-      <div>
-        <b>Back Button Text:</b> <input id='value_backButton' type='text' minlength='1' maxlength='20'>
-      </div>
-      <h2>Color</h2>
-      <div id='display_color' style='width: 200px; height: 200px; display: none;'>text</div>
-      <div id='display_colorComp' style='width: 200px; height: 200px; display: none;'>text</div>
-      <div>
-        <b>Hue</b>
-        <input class='value_color' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
-        <b>Saturation</b>
-        <input class='value_color' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
-        <b>Lightness</b>
-        <input class='value_color' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
-      </div>
-      <h2>Effects</h2>
-      <div>
-        <input id='value_pulling' type='checkbox' value=''> Pulling
-      </div>
-      <div>
-        <input id='value_melting' type='checkbox' value=''> Melting
-      </div>
-      <div>
-        <input id='value_blackHole' type='checkbox' value=''> Black Hole
-      </div>
-      <div>
-        <input id='value_fading' type='checkbox' value=''> Fading
-      </div>
-      <div>
-        <input id='value_blurring' type='checkbox' value=''> Blurring
-      </div>
-      <div>
-        <input id='value_colorLoss' type='radio' name='colorEffect' value=''> Lose Color
-        <input id='value_colorChange' type='radio' name='colorEffect' value=''> Change Color
-        <input id='value_colorNoEffect' type='radio' name='colorEffect' checked value=''> No Color Effect
-      </div>
-      <div>
-        <input id='value_popups' type='checkbox' value=''> Pop-ups
-      </div>
-      <div>
-        <input id='value_shaking' type='checkbox' value=''> Shaking
-      </div>
-      <div>
-         <input id='value_movingOutOfReach' type='checkbox' value=''> Moving out of Reach
-      </div>
-      <div>
-        <input id='value_immobility' type='checkbox' value=''> Immobility
-      </div>
-      <div>
-        <input id='value_distortion' type='checkbox' value=''> Distortion
-      </div>
-      <div>
-        <input id='value_rituals' type='checkbox' value=''> Rituals
-      </div>
+      <form id='experienceCreator'>
+        <h2>Details</h2>
+        <div>
+          <b>Title:</b> Color Me <input id='value_title' name='title' type='text' minlength='1' maxlength='20'>
+        </div>
+        <div>
+          <b>Your Name:</b> <input id='value_creator' name='creator' type='text' minlength='1' maxlength='20'>
+        </div>
+        <div>
+          <b>Description:</b> <textarea name='description' id='value_description' rows='3' cols='50'>
+        </div>
+        <div>
+          <b>Back Button Text:</b> name='backButton' <input id='value_backButton' type='text' minlength='1' maxlength='20'>
+        </div>
+        <h2>Color</h2>
+        <div id='display_color' style='width: 200px; height: 200px; display: none;'>text</div>
+        <div id='display_colorComp' style='width: 200px; height: 200px; display: none;'>text</div>
+        <div>
+          <b>Hue</b>
+          <input class='value_color' name='hue' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
+          <b>Saturation</b>
+          <input class='value_color' name='sat' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
+          <b>Lightness</b>
+          <input class='value_color' name='lgh' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
+        </div>
+        <h2>Effects</h2>
+        <div>
+          <input id='value_pulling' name='pulling' type='checkbox' value=''> Pulling
+        </div>
+        <div>
+          <input id='value_melting' name='melting' type='checkbox' value=''> Melting
+        </div>
+        <div>
+          <input id='value_blackHole' name='blackHole' type='checkbox' value=''> Black Hole
+        </div>
+        <div>
+          <input id='value_fading' name='fading' type='checkbox' value=''> Fading
+        </div>
+        <div>
+          <input id='value_blurring' name='blurring' type='checkbox' value=''> Blurring
+        </div>
+        <div>
+          <input id='value_colorLoss' type='radio' name='colorEffect' value=''> Lose Color
+          <input id='value_colorChange' type='radio' name='colorEffect' value=''> Change Color
+          <input id='value_colorNoEffect' type='radio' name='colorEffect' checked value=''> No Color Effect
+        </div>
+        <div>
+          <input id='value_popups' name='popups' type='checkbox' value=''> Pop-ups
+        </div>
+        <div>
+          <input id='value_shaking' name='shaking' type='checkbox' value=''> Shaking
+        </div>
+        <div>
+           <input id='value_outOfReach' name='outOfReach' type='checkbox' value=''> Moving out of Reach
+        </div>
+        <div>
+          <input id='value_immobility' name='immobility' type='checkbox' value=''> Immobility
+        </div>
+        <div>
+          <input id='value_distortion' name='distortion' type='checkbox' value=''> Distortion
+        </div>
+        <div>
+          <input id='value_rituals' name='rituals' type='checkbox' value=''> Rituals
+        </div>
+      </form>
+      <button type="submit" form="experienceCreator" value="Submit">Submit</button>
     </div>
   </body>
 </html>
