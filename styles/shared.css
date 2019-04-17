@@ -359,7 +359,7 @@ span.hamburger-container {
     position: relative;
     width: 100%;
     border-radius: 2px;
-    margin: 2px;
+    margin: 4px;
   }
   #hamburgerTop {
     top: 0;
