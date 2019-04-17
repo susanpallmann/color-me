@@ -79,7 +79,7 @@ function loadGallery(newQueryRef) {
 
 function setGalleryMargins() {
 	console.log("setting");
-	var galleryWidth = $("#gallery").width() + (galleryMinGap*2);
+	var galleryWidth = $("#gallery").width() + (galleryMinGap*4);
 	var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
 	var galleryGap = (galleryWidth - (galleryNoPerRow*(galleryItemSize+galleryMinGap)))/(2*(galleryNoPerRow - 1));
 	$("#gallery > div").css("margin", galleryGap + "px");
