@@ -71,8 +71,16 @@ input, button {
 input {
   width: 240px;
 }
+input#searchInput {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 button {
   width: min-content;
+}
+button#searchButton {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 body {
