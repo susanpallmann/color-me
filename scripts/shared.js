@@ -77,7 +77,7 @@ $(document).ready(function() {
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("open");
 				$("#nav-hamburger").addClass("animcomplete");
-			}, 500);
+			}, 490);
 		}
 	});
 	// End hamburger menu //
