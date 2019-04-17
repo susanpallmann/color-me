@@ -1,7 +1,7 @@
 initialMax = 5;
 maxThumbs = initialMax;
 galleryCap = 30;
-queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToLast(maxThumbs);
 galleryHTML = "";
 
 $(document).ready(function() {
