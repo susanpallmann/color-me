@@ -4,6 +4,7 @@ galleryCap = 100;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
 galleryItemSize = 150;
+galleryMinGap = 20;
 
 $(document).ready(function() {
 	
@@ -64,7 +65,7 @@ function loadGallery(newQueryRef) {
       			textCol = "white";
     		}
 		var galleryWidth = $("#gallery").width();
-		var galleryNoPerRow = Math.floor(galleryWidth/galleryItemSize);
+		var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
 		var galleryGap = (galleryWidth - (galleryNoPerRow*galleryItemSize))/(2*(galleryNoPerRow - 1));
 		galleryHTML = galleryHTML + "<div id='" + key + "+' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>";
 		$("#gallery").html(galleryHTML);
