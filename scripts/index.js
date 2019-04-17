@@ -4,7 +4,7 @@ galleryCap = 100;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
 galleryItemSize = 170;
-galleryMinGap = 10;
+galleryMinGap = 15;
 
 $(document).ready(function() {
 	
@@ -78,7 +78,6 @@ function loadGallery(newQueryRef) {
 }
 
 function setGalleryMargins() {
-	console.log("setting");
 	var galleryWidth = $("#gallery").width();
 	var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
 	var galleryGap = galleryMinGap + (galleryWidth - (galleryNoPerRow*(galleryItemSize) + (galleryNoPerRow-1)*2*galleryMinGap))/(2*(galleryNoPerRow - 1));
