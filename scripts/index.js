@@ -64,16 +64,23 @@ function loadGallery(newQueryRef) {
     		if (isDarkColor(hue, sat, lgh)) {
       			textCol = "white";
     		}
-		var galleryWidth = $("#gallery").width();
-		var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
-		var galleryGap = (galleryWidth - (galleryNoPerRow*(galleryItemSize+galleryMinGap)))/(2*(galleryNoPerRow - 1));
 		galleryHTML = galleryHTML + "<div id='" + key + "+' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>";
 		$("#gallery").html(galleryHTML);
-		$("#gallery > div").css("margin-right", galleryGap + "px").css("margin-left", galleryGap + "px");
-		$("#gallery > div:nth-child(" + galleryNoPerRow + "n + " + galleryNoPerRow).css("margin-right", 0);
-		$("#gallery > div:nth-child(" + galleryNoPerRow + "n + 1").css("margin-left", 0);
+		setGalleryMargins();
+		$("#gallery").resize(function() {
+			setGalleryMargins();
+		});
 		$("#gallery > div").click(function() {
 			window.location.href = "/experience?id=" + $(this).attr("id");
 		});
 	});
+}
+
+function setGalleryMargins() {
+	var galleryWidth = $("#gallery").width();
+	var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
+	var galleryGap = (galleryWidth - (galleryNoPerRow*(galleryItemSize+galleryMinGap)))/(2*(galleryNoPerRow - 1));
+	$("#gallery > div").css("margin-right", galleryGap + "px").css("margin-left", galleryGap + "px");
+	$("#gallery > div:nth-child(" + galleryNoPerRow + "n + " + galleryNoPerRow).css("margin-right", 0);
+	$("#gallery > div:nth-child(" + galleryNoPerRow + "n + 1").css("margin-left", 0);
 }
