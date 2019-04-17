@@ -35,6 +35,10 @@ $(document).ready(function() {
 		loadGallery(newQueryRef);
 	});
 	
+	$("#gallery").resize(function() {
+		setGalleryMargins();
+	});
+	
 	//Random BG color gen //
 	// Generate any random color from all possible HSL values
 	var randomNum = Math.random();
@@ -67,9 +71,6 @@ function loadGallery(newQueryRef) {
 		galleryHTML = galleryHTML + "<div id='" + key + "+' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>";
 		$("#gallery").html(galleryHTML);
 		setGalleryMargins();
-		$("#gallery").resize(function() {
-			setGalleryMargins();
-		});
 		$("#gallery > div").click(function() {
 			window.location.href = "/experience?id=" + $(this).attr("id");
 		});
@@ -77,6 +78,7 @@ function loadGallery(newQueryRef) {
 }
 
 function setGalleryMargins() {
+	console.log("setting");
 	var galleryWidth = $("#gallery").width();
 	var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
 	var galleryGap = (galleryWidth - (galleryNoPerRow*(galleryItemSize+galleryMinGap)))/(2*(galleryNoPerRow - 1));
