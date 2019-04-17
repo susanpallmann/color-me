@@ -3,6 +3,7 @@ maxThumbs = 20;
 galleryCap = 100;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
+galleryItemSize = 150;
 
 $(document).ready(function() {
 	
@@ -62,8 +63,14 @@ function loadGallery(newQueryRef) {
     		if (isDarkColor(hue, sat, lgh)) {
       			textCol = "white";
     		}
+		var galleryWidth = $("#gallery").width();
+		var galleryNoPerRow = Math.floor(galleryWidth/galleryItemSize);
+		var galleryGap = (galleryWidth - (galleryNoPerRow*galleryItemSize))/(2*(galleryNoPerRow - 1));
 		galleryHTML = galleryHTML + "<div id='" + key + "+' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>";
 		$("#gallery").html(galleryHTML);
+		$("#gallery > div").css("margin-right", galleryGap + "px").css("margin-left", galleryGap + "px");
+		$("#gallery > div:nth-child(" + galleryNoPerRow + "n + " + galleryNoPerRow).css("margin-right", 0);
+		$("#gallery > div:nth-child(" + galleryNoPerRow + "n + 1").css("margin-left", 0);
 		$("#gallery > div").click(function() {
 			window.location.href = "/experience?id=" + $(this).attr("id");
 		});
