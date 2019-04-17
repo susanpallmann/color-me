@@ -3,8 +3,8 @@ maxThumbs = 20;
 galleryCap = 100;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
-galleryItemSize = 170;
-galleryMinGap = 10;
+galleryItemSize = 150;
+galleryMinGap = 30;
 
 $(document).ready(function() {
 	
