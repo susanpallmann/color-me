@@ -83,6 +83,19 @@ input#searchInput {
   border-bottom-right-radius: 0;
   float: right;
 }
+input[type="checkbox"], input[type="radio"] {
+  width: 32px;
+  padding: 2px;
+  border-radius: 8px;
+  background-clip: content-box;
+  box-sizing: border-box;
+}
+input[type="checkbox"]:hover, input[type="radio"]:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+  background-color: white;
+}
 button {
   width: min-content;
   cursor: pointer;
