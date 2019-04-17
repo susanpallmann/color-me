@@ -82,7 +82,7 @@ function setGalleryMargins() {
 	var galleryWidth = $("#gallery").width();
 	var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
 	var galleryGap = (galleryWidth - (galleryNoPerRow*(galleryItemSize+galleryMinGap)))/(2*(galleryNoPerRow - 1));
-	$("#gallery > div").css("margin-right", galleryGap + "px").css("margin-left", galleryGap + "px");
+	$("#gallery > div").css("margin", galleryGap + "px");
 	$("#gallery > div:nth-child(" + galleryNoPerRow + "n + " + galleryNoPerRow).css("margin-right", 0);
 	$("#gallery > div:nth-child(" + galleryNoPerRow + "n + 1").css("margin-left", 0);
 }
