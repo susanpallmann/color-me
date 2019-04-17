@@ -62,6 +62,10 @@ $(document).ready(function() {
 		var experienceID = newPerspective(formValues, visibleInGallery);
 	});
 	
+	$("input#value_title").bind("input", function() {
+		$("h1").html("Color Me " + $(this).val());
+	});
+	
 	//Random BG color gen //
 	// Generate any random color from all possible HSL values
 	var randomNum = Math.random();
