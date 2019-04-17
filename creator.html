@@ -12,74 +12,99 @@
     <script type="text/javascript" src="scripts/creator.js"></script>
   </head>
   <body>
-    <div id="experienceCreator">
-        <h2>Details</h2>
-        <div>
-          <b>Title:</b> Color Me <input id='value_title' required name='title' type='text' minlength='1' maxlength='20'>
+    <header>
+      <div id="navbar" class="container">
+        <div class="row">
+          <div class="column span6">
+            <h1>Color Me _</h1>
+          </div>
+          <div id="nav-hamburger" class="column span6 right">
+            <div id="container-hamburger">
+              <span id="hamburgerTop"></span>
+              <span id="hamburgerMid"></span>
+              <span id="hamburgerBottom"></span>
+            </div>
+          </div>
         </div>
-        <div>
-          <b>Your Name:</b> <input id='value_creator' required name='creator' type='text' minlength='1' maxlength='20'>
-        </div>
-        <div>
-          <b>Description:</b> <textarea required name='description' id='value_description' rows='3' cols='50'></textarea>
-        </div>
-        <div>
-          <b>Back Button Text:</b> <input required name='backButton' id='value_backButton' type='text' minlength='1' maxlength='20'>
-        </div>
-        <div>
-          <input id='value_visibleInGallery' name='visibleInGallery' type='checkbox' checked value='true'> Visible in Gallery?
-        </div>                                                                                                                         
-        <h2>Color</h2>
-        <div id='display_color' style='width: 200px; height: 200px; display: none;'>text</div>
-        <div id='display_colorComp' style='width: 200px; height: 200px; display: none;'>text</div>
-        <div>
-          <b>Hue</b>
-          <input class='value_color' required name='hue' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
-          <b>Saturation</b>
-          <input class='value_color' required name='sat' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
-          <b>Lightness</b>
-          <input class='value_color' required name='lgh' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
-        </div>
-        <h2>Effects</h2>
-        <div>
-          <input id='value_pulling' name='pulling' type='checkbox' value='true'> Pulling
-        </div>
-        <div>
-          <input id='value_melting' name='melting' type='checkbox' value='true'> Melting
-        </div>
-        <div>
-          <input id='value_blackHole' name='blackHole' type='checkbox' value='true'> Black Hole
-        </div>
-        <div>
-          <input id='value_fading' name='fading' type='checkbox' value='true'> Fading
-        </div>
-        <div>
-          <input id='value_blurring' name='blurring' type='checkbox' value='true'> Blurring
-        </div>
-        <div>
-          <input id='value_colorLoss' type='radio' name='colorEffect' value='true'> Lose Color
-          <input id='value_colorChange' type='radio' name='colorEffect' value='true'> Change Color
-          <input id='value_colorNoEffect' type='radio' name='colorEffect' checked value='true'> No Color Effect
-        </div>
-        <div>
-          <input id='value_popups' name='popups' type='checkbox' value='true'> Pop-ups
-        </div>
-        <div>
-          <input id='value_shaking' name='shaking' type='checkbox' value='true'> Shaking
-        </div>
-        <div>
-           <input id='value_outOfReach' name='outOfReach' type='checkbox' value='true'> Moving out of Reach
-        </div>
-        <div>
-          <input id='value_immobility' name='immobility' type='checkbox' value='true'> Immobility
-        </div>
-        <div>
-          <input id='value_distortion' name='distortion' type='checkbox' value='true'> Distortion
-        </div>
-        <div>
-          <input id='value_rituals' name='rituals' type='checkbox' value='true'> Rituals
-        </div>
-      <button id="formSubmit">Submit</button>
-    </div>
+      </div>
+    </header>
+    <nav id="hamburger-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/creator">Creator</a></li>
+        <li><a href="/experience">Experience</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="experienceCreator">
+          <h2>Details</h2>
+          <div>
+            <b>Title:</b> Color Me <input id='value_title' required name='title' type='text' minlength='1' maxlength='20'>
+          </div>
+          <div>
+            <b>Your Name:</b> <input id='value_creator' required name='creator' type='text' minlength='1' maxlength='20'>
+          </div>
+          <div>
+            <b>Description:</b> <textarea required name='description' id='value_description' rows='3' cols='50'></textarea>
+          </div>
+          <div>
+            <b>Back Button Text:</b> <input required name='backButton' id='value_backButton' type='text' minlength='1' maxlength='20'>
+          </div>
+          <div>
+            <input id='value_visibleInGallery' name='visibleInGallery' type='checkbox' checked value='true'> Visible in Gallery?
+          </div>                                                                                                                         
+          <h2>Color</h2>
+          <div id='display_color' style='width: 200px; height: 200px; display: none;'>text</div>
+          <div id='display_colorComp' style='width: 200px; height: 200px; display: none;'>text</div>
+          <div>
+            <b>Hue</b>
+            <input class='value_color' required name='hue' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
+            <b>Saturation</b>
+            <input class='value_color' required name='sat' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
+            <b>Lightness</b>
+            <input class='value_color' required name='lgh' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
+          </div>
+          <h2>Effects</h2>
+          <div>
+            <input id='value_pulling' name='pulling' type='checkbox' value='true'> Pulling
+          </div>
+          <div>
+            <input id='value_melting' name='melting' type='checkbox' value='true'> Melting
+          </div>
+          <div>
+            <input id='value_blackHole' name='blackHole' type='checkbox' value='true'> Black Hole
+          </div>
+          <div>
+            <input id='value_fading' name='fading' type='checkbox' value='true'> Fading
+          </div>
+          <div>
+            <input id='value_blurring' name='blurring' type='checkbox' value='true'> Blurring
+          </div>
+          <div>
+            <input id='value_colorLoss' type='radio' name='colorEffect' value='true'> Lose Color
+            <input id='value_colorChange' type='radio' name='colorEffect' value='true'> Change Color
+            <input id='value_colorNoEffect' type='radio' name='colorEffect' checked value='true'> No Color Effect
+          </div>
+          <div>
+            <input id='value_popups' name='popups' type='checkbox' value='true'> Pop-ups
+          </div>
+          <div>
+            <input id='value_shaking' name='shaking' type='checkbox' value='true'> Shaking
+          </div>
+          <div>
+             <input id='value_outOfReach' name='outOfReach' type='checkbox' value='true'> Moving out of Reach
+          </div>
+          <div>
+            <input id='value_immobility' name='immobility' type='checkbox' value='true'> Immobility
+          </div>
+          <div>
+            <input id='value_distortion' name='distortion' type='checkbox' value='true'> Distortion
+          </div>
+          <div>
+            <input id='value_rituals' name='rituals' type='checkbox' value='true'> Rituals
+          </div>
+        <button id="formSubmit">Submit</button>
+      </div>
+    </main>
   </body>
 </html>
