@@ -64,9 +64,13 @@ function loadGallery(newQueryRef) {
     		if (isDarkColor(hue, sat, lgh)) {
       			textCol = "white";
     		}
-		var galleryWidth = $("#gallery").width();
-		var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap));
-		var galleryGap = (galleryWidth - (galleryNoPerRow*galleryItemSize))/(2*(galleryNoPerRow - 1));
+		console.log("start");
+		var galleryWidth = $("#gallery").width(); // 1000
+		console.log(galleryWidth);
+		var galleryNoPerRow = Math.floor(galleryWidth/(galleryItemSize+galleryMinGap)); // 1000/(170) = 5.8 = 5
+		console.log(galleryNoPerRow);
+		var galleryGap = (galleryWidth - (galleryNoPerRow*galleryItemSize))/(2*(galleryNoPerRow - 1));// = (150)/(8) = 18.75
+		console.log(galleryGap);
 		galleryHTML = galleryHTML + "<div id='" + key + "+' style='color: " + textCol + "; background-image: linear-gradient(to bottom right, " + hslString + ", " + compColStr + ");'>Color Me " + data.val().title + "</br><small>by " + data.val().creator + "</small></div>";
 		$("#gallery").html(galleryHTML);
 		$("#gallery > div").css("margin-right", galleryGap + "px").css("margin-left", galleryGap + "px");
