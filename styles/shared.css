@@ -206,13 +206,13 @@ span.hamburger-container {
   animation: hamburgerBottomBar 0.5s ease-in-out 0s infinite alternate forwards;
 }
 .closed #hamburgerTop {
-  animation: hamburgerTopBar 0.5s ease-in-out 0s infinite alternate-reverse forwards;
+  animation: hamburgerTopBar 0.5s ease-in-out 0s infinite alternate-reverse backwards;
 }
 .closed #hamburgerMid {
-  animation: hamburgerMidBar 0.5s ease-in-out 0s infinite alternate-reverse forwards;
+  animation: hamburgerMidBar 0.5s ease-in-out 0s infinite alternate-reverse backwards;
 }
 .closed #hamburgerBottom {
-  animation: hamburgerBottomBar 0.5s ease-in-out 0s infinite alternate-reverse forwards;
+  animation: hamburgerBottomBar 0.5s ease-in-out 0s infinite alternate-reverse backwards;
 }
 
 
