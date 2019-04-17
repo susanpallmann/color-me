@@ -1,6 +1,6 @@
-initialMax = 5;
-maxThumbs = initialMax;
-galleryCap = 30;
+iteration = 10;
+maxThumbs = 20;
+galleryCap = 100;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
 
@@ -10,7 +10,7 @@ $(document).ready(function() {
 	
 	$("button#loadMoreToGallery").click(function() {
 		if ($("#gallery > div").length == maxThumbs && maxThumbs < galleryCap) {
-			maxThumbs = maxThumbs + initialMax;
+			maxThumbs = maxThumbs + iteration;
 			if (maxThumbs > galleryCap) {
 				maxThumbs = galleryCap;
 			}
