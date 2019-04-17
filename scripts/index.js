@@ -35,7 +35,7 @@ $(document).ready(function() {
 		loadGallery(newQueryRef);
 	});
 	
-	$("#gallery").resize(function() {
+	$(window).resize(function() {
 		setGalleryMargins();
 	});
 	
