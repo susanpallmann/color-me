@@ -13,7 +13,28 @@
   </head>
   <body style="overflow: hidden; width: 100vw; height: 100vh;">
     <header>
+      <div id="navbar" class="container">
+        <div class="row">
+          <div class="column span6">
+            <h1>Color Me _</h1>
+          </div>
+          <div id="nav-hamburger" class="column span6 right">
+            <div id="container-hamburger">
+              <span id="hamburgerTop"></span>
+              <span id="hamburgerMid"></span>
+              <span id="hamburgerBottom"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
+    <nav id="hamburger-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/creator">Creator</a></li>
+        <li><a href="" class="selected">Experience</a></li>
+      </ul>
+    </nav>
     <main>
       <nav class="ui" id="stageNav" style="position: absolute; top: 50%; left: 0px; transform: translateY(-50%);">
         <div class="navMarker markerActive" id="navMarker-0"></div>
