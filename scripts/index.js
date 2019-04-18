@@ -37,6 +37,18 @@ $(document).ready(function() {
         		beginSearch();
     		}
 	});
+	$("#searchOrder").click(function() {
+		var prevOrder = $(this).text();
+		if (prevOrder == "sorted by color") {
+			$(this).text("sorted by name");
+			beginSearch();
+		} else {
+			$(this).text("sorted by color");
+			galleryHTML = "";
+			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+			loadGallery(newQueryRef);
+		}
+	});
 	
 	
 	$(window).resize(function() {
