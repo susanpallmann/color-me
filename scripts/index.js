@@ -29,11 +29,15 @@ $(document).ready(function() {
 	});
 	
 	$("#searchButton").click(function() {
-		var searchTerm = $("#searchInput").val().toLowerCase();
-		var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('titleLower').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToLast(maxThumbs);
-		galleryHTML = "";
-		loadGallery(newQueryRef);
+		beginSearch();
 	});
+	$("#searchInput").keypress(function(event){
+    		var keycode = (event.keyCode ? event.keyCode : event.which);
+    		if(keycode == '13'){
+        		beginSearch();
+    		}
+	});
+	
 	
 	$(window).resize(function() {
 		setGalleryMargins();
@@ -85,3 +89,10 @@ function setGalleryMargins() {
 	$("#gallery > div:nth-child(" + galleryNoPerRow + "n + " + galleryNoPerRow).css("margin-right", 0);
 	$("#gallery > div:nth-child(" + galleryNoPerRow + "n + 1").css("margin-left", 0);
 }
+
+function beginSearch() {
+	var searchTerm = $("#searchInput").val().toLowerCase();
+	var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('titleLower').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToLast(maxThumbs);
+	galleryHTML = "";
+	loadGallery(newQueryRef);
+});
