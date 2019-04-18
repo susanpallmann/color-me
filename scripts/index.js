@@ -95,4 +95,4 @@ function beginSearch() {
 	var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('titleLower').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToLast(maxThumbs);
 	galleryHTML = "";
 	loadGallery(newQueryRef);
-});
+}
