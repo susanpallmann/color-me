@@ -1,6 +1,4 @@
-iteration = 10;
 maxThumbs = 20;
-galleryCap = 100;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
 galleryItemSize = 170;
@@ -10,26 +8,15 @@ $(document).ready(function() {
 	
 	loadGallery(queryRef);
 	
-	$("button#loadMoreToGallery").click(function() {
-		if ($("#gallery > div").length == maxThumbs && maxThumbs < galleryCap) {
-			maxThumbs = maxThumbs + iteration;
-			if (maxThumbs > galleryCap) {
-				maxThumbs = galleryCap;
-			}
-			galleryHTML = "";
-			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
-			loadGallery(newQueryRef);
-		} else if (maxThumbs < galleryCap) {
-			alert("No more gallery items to load");
-			$("button#loadMoreToGallery").remove();
-		} else {
-			alert("Cannot load more than " + galleryCap + " items");
-			$("button#loadMoreToGallery").remove();
-		}
-	});
-	
 	$("#searchButton").click(function() {
 		beginSearch();
+	});
+	$("#searchInput").on('input', function() {
+		var prevOrder = $(this).text();
+		if (prevOrder == "sorted by color") {
+			$(this).text("sorted by name");
+			beginSearch();
+		}
 	});
 	$("#searchInput").keypress(function(event){
     		var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -47,6 +34,33 @@ $(document).ready(function() {
 			galleryHTML = "";
 			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 			loadGallery(newQueryRef);
+		}
+	});
+	$("#searchCount").click(function() {
+		switch(maxThumbs) {
+			case 5:
+				$(this).text("load 10");
+				maxThumbs = 10;
+				break;
+			case 10:
+				$(this).text("load 15");
+				maxThumbs = 15;
+				break;
+			case 15:
+				$(this).text("load 20");
+				maxThumbs = 20;
+				break;
+			case 20:
+				$(this).text("load 30");
+				maxThumbs = 30;
+				break;
+			case 30:
+				$(this).text("load 50");
+				maxThumbs = 50;
+				break;
+			default:
+				$(this).text("load 5");
+				maxThumbs = 5;
 		}
 	});
 	
