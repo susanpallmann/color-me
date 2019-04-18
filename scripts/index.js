@@ -62,6 +62,7 @@ $(document).ready(function() {
 				$(this).text("load 5");
 				maxThumbs = 5;
 		}
+		console.log(maxThumbs);
 	});
 	
 	
