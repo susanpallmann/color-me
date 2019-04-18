@@ -67,7 +67,7 @@ $(document).ready(function() {
 			$("nav li").css("height", "0");
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("closed");
-				$("nav").css("display", "none");
+				$("nav#hamburger-menu").css("display", "none");
 			}, 490);
 		} else {
 		$(this).addClass("open");
