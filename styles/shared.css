@@ -126,6 +126,13 @@ button#searchCount {
   border-top-right-radius: 0;
   float: right;
 }
+button#searchButton:disabled, input#searchInput {
+  opacity: 0.5;
+  cursor: default;
+}
+button#searchButton:disabled:hover, input#searchInput:hover {
+  background-color: transparent;
+}
 body {
   font-family: 'Roboto Slab', sans-serif;
   color: #fff;
