@@ -28,14 +28,14 @@ $(document).ready(function() {
 		var prevOrder = $(this).text();
 		if (prevOrder == "sorted by color") {
 			$(this).text("sorted by name");
-			$("#searchButton").attr("disabled", true);
-			$("#searchInput").attr("disabled", true);
+			$("#searchButton").attr("disabled", false);
+			$("#searchInput").attr("disabled", false);
 			beginSearch();
 		} else {
 			$(this).text("sorted by color");
 			galleryHTML = "";
-			$("#searchButton").attr("disabled", false);
-			$("#searchInput").attr("disabled", false);
+			$("#searchButton").attr("disabled", true);
+			$("#searchInput").attr("disabled", true);
 			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 			loadGallery(newQueryRef);
 			
