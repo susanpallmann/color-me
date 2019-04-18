@@ -37,7 +37,7 @@ $(document).ready(function() {
         		beginSearch();
     		}
 	});
-	$("#searchOrder").click(function() {
+	$("#searchSort").click(function() {
 		var prevOrder = $(this).text();
 		if (prevOrder == "sorted by color") {
 			$(this).text("sorted by name");
