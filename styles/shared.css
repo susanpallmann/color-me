@@ -138,6 +138,9 @@ a {
 }
 
 /*Gallery*/
+#gallery {
+  margin-top: 0;
+}
 #gallery div {
   display: inline-block;
   width: 150px;
