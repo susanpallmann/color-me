@@ -4,7 +4,7 @@ galleryCap = 100;
 queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 galleryHTML = "";
 galleryItemSize = 170;
-galleryMinGap = 15;
+galleryMinGap = 20;
 
 $(document).ready(function() {
 	
