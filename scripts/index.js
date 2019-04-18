@@ -12,9 +12,9 @@ $(document).ready(function() {
 		beginSearch();
 	});
 	$("#searchInput").on('input', function() {
-		var prevOrder = $(this).text();
+		var prevOrder = $("#searchSort").text();
 		if (prevOrder == "sorted by color") {
-			$(this).text("sorted by name");
+			$("#searchSort").text("sorted by name");
 			beginSearch();
 		}
 	});
