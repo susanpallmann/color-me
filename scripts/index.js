@@ -15,25 +15,30 @@ $(document).ready(function() {
 		var prevOrder = $("#searchSort").text();
 		if (prevOrder == "sorted by color") {
 			$("#searchSort").text("sorted by name");
-			beginSearch();
+			beginSearch("");
 		}
 	});
 	$("#searchInput").keypress(function(event){
     		var keycode = (event.keyCode ? event.keyCode : event.which);
     		if(keycode == '13'){
-        		beginSearch();
+        		beginSearch($();
     		}
 	});
 	$("#searchSort").click(function() {
 		var prevOrder = $(this).text();
 		if (prevOrder == "sorted by color") {
 			$(this).text("sorted by name");
-			beginSearch();
+			$("#searchButton").attr("disabled", true);
+			$("#searchInput").attr("disabled", true);
+			beginSearch("");
 		} else {
 			$(this).text("sorted by color");
 			galleryHTML = "";
+			$("#searchButton").attr("disabled", false);
+			$("#searchInput").attr("disabled", false);
 			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 			loadGallery(newQueryRef);
+			
 		}
 	});
 	$("#searchCount").click(function() {
