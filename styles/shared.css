@@ -108,7 +108,24 @@ button#searchButton {
   background-image: url('/images/Search Icon.png');
   float: right;
 }
-
+button#searchSort {
+  width: 150px;
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-left: 0;
+  float: right;
+  margin-right: 24px;
+}
+button#searchCount {
+  width: 90px;
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  float: right;
+}
 body {
   font-family: 'Roboto Slab', sans-serif;
   color: #fff;
