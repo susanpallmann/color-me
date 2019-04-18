@@ -126,11 +126,11 @@ button#searchCount {
   border-top-right-radius: 0;
   float: right;
 }
-button#searchButton:disabled, input#searchInput {
+button#searchButton:disabled, input#searchInput:disabled {
   opacity: 0.5;
   cursor: default;
 }
-button#searchButton:disabled:hover, input#searchInput:hover {
+button#searchButton:disabled:hover, input#searchInput:disabled:hover {
   background-color: transparent;
 }
 body {
