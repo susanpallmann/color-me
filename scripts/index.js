@@ -15,13 +15,13 @@ $(document).ready(function() {
 		var prevOrder = $("#searchSort").text();
 		if (prevOrder == "sorted by color") {
 			$("#searchSort").text("sorted by name");
-			beginSearch("");
+			beginSearch();
 		}
 	});
 	$("#searchInput").keypress(function(event){
     		var keycode = (event.keyCode ? event.keyCode : event.which);
     		if(keycode == '13'){
-        		beginSearch($();
+        		beginSearch();
     		}
 	});
 	$("#searchSort").click(function() {
@@ -30,7 +30,7 @@ $(document).ready(function() {
 			$(this).text("sorted by name");
 			$("#searchButton").attr("disabled", true);
 			$("#searchInput").attr("disabled", true);
-			beginSearch("");
+			beginSearch();
 		} else {
 			$(this).text("sorted by color");
 			galleryHTML = "";
