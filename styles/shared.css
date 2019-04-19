@@ -45,6 +45,7 @@ div.loading {
   animation: spin 0.5s linear infinite;
   height: 200px;
   width: 200px;
+  filter: brightness(100%);
 }
 
 @keyframes spin {
@@ -97,6 +98,23 @@ input[type="checkbox"]:hover, input[type="radio"]:hover {
 }
 input[type="checkbox"]:checked, input[type="radio"]:checked {
   background-color: white;
+}
+input[type="range"] {
+  height: 0;
+  background-color: white;
+  border: 3px solid white;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 button {
   cursor: pointer;
