@@ -37,32 +37,77 @@
     </nav>
     <main>
       <div id="experienceCreator">
-          <h2>Details</h2>
-          <div>
-            <b>Title:</b> Color Me <input id='value_title' required name='title' type='text' minlength='1' maxlength='20'>
+          <div class="container">
+            <div class="row">
+              <div class="column span12">
+                <h2>Details</h2>
+              </div>
+              <div class="column span2">
+                <b>Title:</b> Color Me
+              </div>
+              <div class="column span4">
+                <input id='value_title' required name='title' type='text' minlength='1' maxlength='20'>
+              </div>
+              <div class="column span2">
+                <b>Your Name:</b>
+              </div>
+              <div class="column span4">
+                <input id='value_creator' required name='creator' type='text' minlength='1' maxlength='20'>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column span 2">
+                <b>Description:</b>
+              </div>
+              <div class="column span10">
+                <textarea required name='description' id='value_description' rows='3' cols='50'></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column span2">
+                <b>Back Button Text:</b>
+              </div>
+              <div class="column span6">
+                <input required name='backButton' id='value_backButton' type='text' minlength='1' maxlength='20'>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column span 2">
+                <input id='value_visibleInGallery' name='visibleInGallery' type='checkbox' checked value='true'>
+              </div>
+              <div class="column span6">
+                Visible in Gallery?
+              </div>
+            </div>
           </div>
-          <div>
-            <b>Your Name:</b> <input id='value_creator' required name='creator' type='text' minlength='1' maxlength='20'>
-          </div>
-          <div>
-            <b>Description:</b> <textarea required name='description' id='value_description' rows='3' cols='50'></textarea>
-          </div>
-          <div>
-            <b>Back Button Text:</b> <input required name='backButton' id='value_backButton' type='text' minlength='1' maxlength='20'>
-          </div>
-          <div>
-            <input id='value_visibleInGallery' name='visibleInGallery' type='checkbox' checked value='true'> Visible in Gallery?
-          </div>                                                                                                                         
-          <h2>Color</h2>
-          <div id='display_color' style='width: 200px; height: 200px; display: none;'>text</div>
-          <div id='display_colorComp' style='width: 200px; height: 200px; display: none;'>text</div>
-          <div>
-            <b>Hue</b>
-            <input class='value_color' required name='hue' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
-            <b>Saturation</b>
-            <input class='value_color' required name='sat' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
-            <b>Lightness</b>
-            <input class='value_color' required name='lgh' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
+          <div class="container">
+            <div class="row">
+              <div class="column span12">
+                <h2>Color</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column span4">
+                <b>Hue</b>
+              </div>
+              <div class="column span4">
+                <b>Saturation</b>
+              </div>
+              <div class="column span4">
+                <b>Lightness</b>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column span4">
+                <input class='value_color' required name='hue' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
+              </div>
+              <div class="column span4">
+                <input class='value_color' required name='sat' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
+              </div>
+              <div class="column span4">
+                <input class='value_color' required name='lgh' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
+              </div>
+            </div>
           </div>
           <h2>Effects</h2>
           <div>
