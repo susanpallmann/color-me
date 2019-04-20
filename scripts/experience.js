@@ -65,17 +65,16 @@ function determinePerspective() {
             perspID = perspID.split("+")[0];
             visibleInGallery = "visible";
         }
+        return perspID;
     } else {
         // if no ID is provided, get the ID of the most recent experience added to the gallery
         firebase.database().ref('perspectives/visible').orderByChild('timestamp').limitToFirst(1).once('value', function(snapshot) {
             visibleInGallery = "visible";
             perspID = snapshot.key;
+            currentURL = currentURL + "?id=" + perspID + "+";
+            return perspID;
         });
-        currentURL = currentURL + "?id=" + perspID + "+";
     }
-  
-    // returns the ID of the perspective to be played.
-    return perspID;
 }
 
 function loadPerspective(perspID) {
