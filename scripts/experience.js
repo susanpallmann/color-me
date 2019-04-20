@@ -150,7 +150,7 @@ window.onload = function() {
     goToStage(4);
   });
   
-  $(".draggable").on("mousedown touchdown", function(e) {
+  $(".draggable").on("mouseup touchup", function(e) {
     effectA = true;
     $(this).css("transition", "2s");
     $(this).css("transition-property", "filter, opacity, transform");
@@ -166,12 +166,12 @@ window.onload = function() {
         prevX = e.pageX;
         prevY = e.pageY;
     });
-    $(window).on("mouseup touchup", function(e) {
+    $(window).on("mousedown touchdown", function(e) {
       $(target).css("filter", "");
       $(target).css("transform", "");
       $(target).css("opacity", "");
       $(target).parent().off("mousemove touchmove");
-      $(window).off("mouseup touchup");
+      $(window).off("mousedown touchdown");
     });
   });
   
