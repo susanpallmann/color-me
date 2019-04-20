@@ -199,7 +199,12 @@ function goToStage(stageNo) {
 
 
 // EFFECTS COMPILER //
+// checks which of the effects are in use for the given experience and runs the respective function.
+// takes a target element(s) as input (in the form of a string which will be used in a jQuery selector)
+// the target elements are the ones which will be affected by the effects when this function is run.
 function compileEffects(target) {
+  
+    var filterValue = "";
     
     if (effect_pulling) {
         runEffect_pulling(target);
@@ -276,32 +281,35 @@ function runEffect_fading(target) {
 }
 
 function runEffect_blurring(target) {
+  var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
-    $(target).css("filter", $(target).css("filter") + " blur(2px)");
+    $(target).css("filter", newFilter + " blur(2px)");
   } else if (stage == 2) {
-    $(target).css("filter", $(target).css("filter") + " blur(5px)");
+    $(target).css("filter", newFilter + " blur(5px)");
   } else if (stage == 3) {
-    $(target).css("filter", $(target).css("filter") + " blur(10px)");
+    $(target).css("filter", newFilter + " blur(10px)");
   }
 }
 
 function runEffect_colorLoss(target) {
+  var newFilter = partiallyRemoveProperty(target, "filter", "saturate");
   if (stage == 1) {
-    $(target).css("filter", $(target).css("filter") + " saturate(50%)");
+    $(target).css("filter", newFilter + " saturate(50%)");
   } else if (stage == 2) {
-    $(target).css("filter", $(target).css("filter") + " saturate(20%)");
+    $(target).css("filter", newFilter + " saturate(20%)");
   } else if (stage == 3) {
-    $(target).css("filter", $(target).css("filter") + " saturate(0%)");
+    $(target).css("filter", newFilter + " saturate(0%)");
   }
 }
 
 function runEffect_colorChange(target) {
+  var newFilter = partiallyRemoveProperty(target, "filter", "hue-rotate");
   if (stage == 1) {
-    $(target).css("filter", $(target).css("filter") + " hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
+    $(target).css("filter", newFilter + " hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
   } else if (stage == 2) {
-    $(target).css("filter", $(target).css("filter") + " hue-rotate(" + (Math.random()-0.5) + "turn)");
+    $(target).css("filter", newFilter + " hue-rotate(" + (Math.random()-0.5) + "turn)");
   } else if (stage == 3) {
-    $(target).css("filter", $(target).css("filter") + " hue-rotate(" + (Math.random()-0.5)*2 + "turn)");
+    $(target).css("filter", newFilter + " hue-rotate(" + (Math.random()-0.5)*2 + "turn)");
   }
 }
 
@@ -363,14 +371,37 @@ function runEffect_immobility(target) {
 }
 
 function runEffect_distortion(target) {
+  var newTransform = partiallyRemoveProperty(target, "transform", "skew");
   if (stage == 1) {
-    $(target).css("transform", "skew(" + (Math.random()*20-10) + "deg, " + (Math.random()*20-10) + "deg)");
+    $(target).css(newTransform + " skew(" + (Math.random()*20-10) + "deg, " + (Math.random()*20-10) + "deg)");
   } else if (stage == 2) {
-    $(target).css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
+    $(target).css(newTransform + " skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
   } else if (stage == 3) {
-    $(target).css("transform", "skew(" + (Math.random()*180-90) + "deg, " + (Math.random()*180-90) + "deg)");
+    $(target).css(newTransform + " skew(" + (Math.random()*180-90) + "deg, " + (Math.random()*180-90) + "deg)");
   }
 }
 
 function runEffect_rituals(target) {
+  
+}
+
+
+// Returns a string representing the value of a given property following the removal of a single CSS function from its value
+// object: a string representing the element to apply this function to.
+// property: the CSS property to be changed.
+// cssFunction: the CSS funcion to be removed.
+// for example, to get rid of the blur CSS function from the filter property of all divs with class "draggable", do the following:
+// partiallyRemoveProperty("div.draggable", "filter", "blur");
+function partiallyRemoveProperty(object, property, cssFunction) {
+    var propertyValue = $(object).css(property);
+    var newValue = "";
+    if (propertyValue != null && propertyValue.includes(cssFunction)) {
+        var splitValue = propertyValue.split(cssFunction);
+        var firstPart = splitValue[0];
+        var secondPart =splitValue[1].split(")")[1];
+        newValue = firstPart + secondPart;
+    } else if (propertyValue != null) {
+        return propertyValue;
+    }
+    return newValue;
 }
