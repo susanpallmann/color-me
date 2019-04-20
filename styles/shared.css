@@ -205,6 +205,12 @@ a {
 .right {
   text-align: right;
 }
+.column.right span {
+  float: right;
+}
+.column.left {
+  min-width: fit-content;
+}
 h2 {
   margin: 0;
 }
