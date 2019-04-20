@@ -313,6 +313,7 @@ function runEffect_fading(target) {
 }
 
 function runEffect_blurring(target) {
+  console.log("here");
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
     $(target).css("filter", newFilter + " blur(2px)");
