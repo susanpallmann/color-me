@@ -202,6 +202,9 @@ window.onload = function() {
       goToStage(stage + 1);
     }
   });
+  $(window).on('touchmove', function(event) {
+    $(window).trigger('mousewheel');
+  });
   
 };
 
