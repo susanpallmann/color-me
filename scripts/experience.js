@@ -26,6 +26,7 @@ var effect_rituals = false;
 var visibleInGallery = "hidden";
 var views;
 var currentURL;
+var prevScrollTop = 0;
 
 function determinePerspective() {
   var perspID = "";
@@ -149,6 +150,15 @@ window.onload = function() {
     if ($(this).hasClass("markerInactive")) {
       var stageNav = $(this).attr("id").split("-")[1];
       goToStage(stageNav);
+    }
+  });
+  
+  $(window).bind('mousewheel', function(event) {
+    if (event.originalEvent.wheelDelta > 0 && stage > 0) {
+        goToStage(stage - 1);
+    }
+    else if (event.originalEvent.wheelDelta < 0 && stage < 4) {
+        goToStage(stage + 1);
     }
   });
 };
