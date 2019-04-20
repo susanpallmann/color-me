@@ -185,21 +185,21 @@ window.onload = function() {
   $(window).bind('mousewheel', function(event) {
     if (event.originalEvent.wheelDelta > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage + 1);
+      goToStage(stage - 1);
     }
     else if (event.originalEvent.wheelDelta < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage - 1);
+      goToStage(stage + 1);
     }
   });
   $(window).bind('DOMMouseScroll', function(e) {
     if (e.originalEvent.detail > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage + 1);
+      goToStage(stage - 1);
     }
     else if (e.originalEvent.detail < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage - 1);
+      goToStage(stage + 1);
     }
   });
   $(window).on('touchmove', function(event) {
