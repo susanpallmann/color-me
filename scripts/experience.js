@@ -115,6 +115,7 @@ function loadPerspective(perspID) {
         $("div.textbox").html(description);
         $("#viewCounter").html(newViews);
         $("#backButton").html(backButton);
+        $("#pageCover").css("display", "none");
     });
 }
 
