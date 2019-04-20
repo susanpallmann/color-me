@@ -1,4 +1,9 @@
-var stage = 0;
+// Global variables
+var stage = 0;  // keeps track of the current stage: values 0-4 where stage 1-3 are the interactive stages
+var currentURL; // the current page URL
+var lastScrollTime = 0; // the time of last scroll (in milliseconds) to prevent over-scrolling.
+
+// keep the values of the experience, taken from the database
 var title;
 var creator;
 var description;
@@ -25,33 +30,52 @@ var effect_distortion = false;
 var effect_rituals = false;
 var visibleInGallery = "hidden";
 var views;
-var currentURL;
-var lastScrollTime = 0;
 
+// works out the ID of the perspective to load, based on the id present in the URL.
+// if the stage is also set in the URL, this is saved so that the experience can start on the given stage.
 function determinePerspective() {
-  var perspID = "";
-  stage = window.location.href;
-  if (stage.includes("&stage=")) {
-    stage = window.location.href.split("&stage=")[1];
-    if (stage.includes("&")) {
-      stage = stage.split("&")[0];
+    var perspID = "";
+  
+    // works out the current stage, if provided.
+    stage = window.location.href;
+    if (stage.includes("&stage=")) {
+        stage = window.location.href.split("&stage=")[1];
+        if (stage.includes("&")) {
+            stage = stage.split("&")[0];
+        }
+    } else {
+        // sets stage to 0 by default if not provided.
+        stage = 0;
     }
-  } else {
-    stage = 0;
-  }
-  stage = Math.round(Number(stage));
-  if (stage < 0 || stage > 4 || isNaN(stage)) {
-    stage = 0;
-  }
-  currentURL = window.location.href.split("&")[0];
-  if (currentURL.includes("?id=")) {
-    perspID = currentURL.split("?id=")[1];
-    if (perspID.includes("+")) {
-      perspID = perspID.split("+")[0];
-      visibleInGallery = "visible";
+    
+    // ensures the stage is a valid integer from 0-4
+    // otherwise sets to 0 by default
+    stage = Math.round(Number(stage));
+    if (stage < 0 || stage > 4 || isNaN(stage)) {
+        stage = 0;
     }
-  }
-  return perspID;
+  
+    // works out the ID of the perspective, if provided.
+    // if the final character of the ID is '+', search for the ID in the visible folder.
+    // otherwise search for the ID in the hidden folder.
+    currentURL = window.location.href.split("&")[0];
+    if (currentURL.includes("?id=")) {
+        perspID = currentURL.split("?id=")[1];
+        if (perspID.includes("+")) {
+            perspID = perspID.split("+")[0];
+            visibleInGallery = "visible";
+        }
+    } else {
+        // if no ID is provided, get the ID of the most recent experience added to the gallery
+        firebase.database.ref('perspectives/visible').orderByChild('timestamp').limitToFirst(1).once('value', function(snapshot) {
+            visibleInGallery = "visible";
+            perspID = snapshot.key;
+        });
+        currentURL = currentURL + "?id=" + perspID + "+";
+    }
+  
+    // returns the ID of the perspective to be played.
+    return perspID;
 }
 
 function loadPerspective(perspID) {
