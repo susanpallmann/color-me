@@ -164,16 +164,13 @@ window.onload = function() {
     }
   });
   $(window).bind('DOMMouseScroll', function(e) {
-    console.log(Date.now() + ", " + lastScrollTime);
     if (e.originalEvent.detail > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage - 1);
-      console.log("scrolled");
     }
     else if (e.originalEvent.detail < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage + 1);
-      console.log("scrolled");
     }
   });
   
