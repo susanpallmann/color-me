@@ -428,12 +428,12 @@ function partiallyRemoveProperty(object, property, cssFunction) {
     var propertyValue = $(object).css(property);
     var newValue = "";
     console.log(propertyValue, + ", " + newValue);
-    if (propertyValue != null && propertyValue.includes(cssFunction)) {
+    if (propertyValue != "none" && propertyValue.includes(cssFunction)) {
         var splitValue = propertyValue.split(cssFunction);
         var firstPart = splitValue[0];
         var secondPart =splitValue[1].split(")")[1];
         newValue = firstPart + secondPart;
-    } else if (propertyValue != null) {
+    } else if (propertyValue != "none") {
         return propertyValue;
     }
     return newValue;
