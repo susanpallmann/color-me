@@ -64,7 +64,7 @@ div.loading {
 }
 
 
-input, button {
+input, button, textarea {
   -webkit-appearance: none;
   background-color: transparent;
   border: 2px solid white;
@@ -76,11 +76,11 @@ input, button {
   height: 32px;
   transition: background-color 0.2s;
 }
-input:focus, button:focus {
+input:focus, button:focus, textarea:focus {
   outline: none;
   background-color: transparent;
 }
-input:hover, button:hover {
+input:hover, button:hover, textarea:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 input {
