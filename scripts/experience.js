@@ -65,14 +65,15 @@ function determinePerspective() {
             perspID = perspID.split("+")[0];
             visibleInGallery = "visible";
         }
-        return perspID;
+        loadPerspective(perspID);
     } else {
         // if no ID is provided, get the ID of the most recent experience added to the gallery
         firebase.database().ref('perspectives/visible').orderByChild('timestamp').limitToFirst(1).once('value').then(function(snapshot) {
-            perspID = snapshot.child('title').val();
+            perspID = snapshot.key;
+            console.log(perspID);
             currentURL = currentURL + "?id=" + perspID + "+";
             visibleInGallery = "visible";
-            return perspID;
+            loadPerspective(perspID);
         });
     }
 }
@@ -120,8 +121,7 @@ function loadPerspective(perspID) {
 
 window.onload = function() {
   $("img").attr("draggable", false);
-  var perspID = determinePerspective();
-  loadPerspective(perspID);
+  determinePerspective();
   
   $("#stage_1 #mug").click(function() {
     var timer = setInterval(function() {
