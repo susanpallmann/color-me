@@ -68,10 +68,10 @@ function determinePerspective() {
         return perspID;
     } else {
         // if no ID is provided, get the ID of the most recent experience added to the gallery
-        firebase.database().ref('perspectives/visible').orderByChild('timestamp').limitToFirst(1).once('value', function(snapshot) {
-            visibleInGallery = "visible";
+        firebase.database().ref('perspectives/visible').orderByChild('timestamp').limitToFirst(1).once('value').then(function(snapshot) {
             perspID = snapshot.key;
             currentURL = currentURL + "?id=" + perspID + "+";
+            visibleInGallery = "visible";
             return perspID;
         });
     }
