@@ -427,6 +427,7 @@ function runEffect_rituals(target) {
 function partiallyRemoveProperty(object, property, cssFunction) {
     var propertyValue = $(object).css(property);
     var newValue = "";
+    console.log(propertyValue, + ", " + newValue);
     if (propertyValue != null && propertyValue.includes(cssFunction)) {
         var splitValue = propertyValue.split(cssFunction);
         var firstPart = splitValue[0];
