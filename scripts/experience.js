@@ -150,7 +150,7 @@ window.onload = function() {
     goToStage(4);
   });
   
-  $(".draggable").on("mouseup touchup", function(e) {
+  $(".draggable").on("mousedown touchdown", function(e) {
     effectA = true;
     $(this).css("transition", "2s");
     $(this).css("transition-property", "filter, opacity, transform");
@@ -166,12 +166,12 @@ window.onload = function() {
         prevX = e.pageX;
         prevY = e.pageY;
     });
-    $(window).on("mousedown touchdown", function(e) {
+    $(window).on("mouseup touchup", function(e) {
       $(target).css("filter", "");
       $(target).css("transform", "");
       $(target).css("opacity", "");
       $(target).parent().off("mousemove touchmove");
-      $(window).off("mousedown touchdown");
+      $(window).off("mouseup touchup");
     });
   });
   
@@ -185,21 +185,21 @@ window.onload = function() {
   $(window).bind('mousewheel', function(event) {
     if (event.originalEvent.wheelDelta > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage - 1);
+      goToStage(stage + 1);
     }
     else if (event.originalEvent.wheelDelta < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage + 1);
+      goToStage(stage - 1);
     }
   });
   $(window).bind('DOMMouseScroll', function(e) {
     if (e.originalEvent.detail > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage - 1);
+      goToStage(stage + 1);
     }
     else if (e.originalEvent.detail < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      goToStage(stage + 1);
+      goToStage(stage - 1);
     }
   });
   $(window).on('touchmove', function(event) {
