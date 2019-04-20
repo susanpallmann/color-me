@@ -205,10 +205,10 @@ a {
 .right {
   text-align: right;
 }
-.column.right span {
+.column.rightCol span {
   float: right;
 }
-.column.left {
+.column.leftCol {
   min-width: fit-content;
 }
 h2 {
