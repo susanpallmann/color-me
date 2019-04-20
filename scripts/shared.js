@@ -186,12 +186,12 @@ function setBackgroundColor(hue, sat, lgh) {
 		$("body").css("color", "white");
 		$("#container-hamburger span").css("background-color", "white");
 		$(".navMarker").css("background-color", "white");
-		$("input, button").css("filter", "");
+		$("input, button, textarea").css("filter", "");
 	} else {
 		$("body").css("color", "black");
 		$("#container-hamburger span").css("background-color", "black");
 		$(".navMarker").css("background-color", "black");
-		$("input, button").css("filter", "brightness(0%)");
+		$("input, button, textarea").css("filter", "brightness(0%)");
 		
 	};
 }
