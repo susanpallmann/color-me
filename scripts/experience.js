@@ -66,6 +66,7 @@ function determinePerspective() {
             visibleInGallery = "visible";
         }
         loadPerspective(perspID);
+        goToStage(stage);
     } else {
         // if no ID is provided, get the ID of the most recent experience added to the gallery
         var dataRef = firebase.database().ref('perspectives/visible/').orderByChild('timestamp').limitToFirst(1);
@@ -76,6 +77,7 @@ function determinePerspective() {
             currentURL = currentURL + "?id=" + perspID + "+";
             visibleInGallery = "visible";
             loadPerspective(perspID);
+            goToStage(stage);
         });
     }
 }
@@ -134,8 +136,7 @@ window.onload = function() {
       }
     }, 10);
   });
-  
-  goToStage(stage);
+    
   $("#stage_0 .nextButton").click(function() {
     goToStage(1);
   });
