@@ -68,7 +68,7 @@ function determinePerspective() {
         loadPerspective(perspID);
     } else {
         // if no ID is provided, get the ID of the most recent experience added to the gallery
-        firebase.database().ref('perspectives/visible').orderByChild('timestamp').limitToFirst(1).once('value').then(function(snapshot) {
+        firebase.database().ref('perspectives/visible/').orderByChild('timestamp').limitToFirst(1).once('value').then(function(snapshot) {
             perspID = snapshot.key;
             console.log(perspID);
             currentURL = currentURL + "?id=" + perspID + "+";
