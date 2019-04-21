@@ -193,11 +193,11 @@ window.onload = function() {
     }
   });
   $(window).bind('DOMMouseScroll', function(e) {
-    if (e.originalEvent.detail > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
+    if (e.originalEvent.detail < 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage - 1);
     }
-    else if (e.originalEvent.detail < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
+    else if (e.originalEvent.detail > 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage + 1);
     }
