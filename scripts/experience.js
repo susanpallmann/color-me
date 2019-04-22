@@ -167,6 +167,7 @@ window.onload = function() {
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchdown", function(e) {
+    e.preventDefault();
     // set the element transition property
     // this makes the effect smooth, rather than immediate
     $(this).css("transition", "2s");
@@ -186,6 +187,7 @@ window.onload = function() {
     
     // sets function for when a drag occurs
     $(this).parent().on("mousemove touchmove", function(e) {
+        e.preventDefault();
         // calculates the current x and y positions of the mouse/finger
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
@@ -205,6 +207,7 @@ window.onload = function() {
     
     // sets function for when the drag ends/finger is lifted
     $(window).on("mouseup touchup", function(e) {
+      e.preventDefault();
       // sets css properties to none
       $(target).css("filter", "");
       $(target).css("transform", "");
