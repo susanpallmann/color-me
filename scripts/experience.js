@@ -138,7 +138,8 @@ function loadPerspective(perspID) {
         $("#backButton").html(backButton);
         
         // removes the page cover once the experience has fully loaded
-        $("#pageCover").css("display", "none");
+        $("#pageCover").css("opacity", "0");
+        $("#pageCover").css("height", "0");
     });
 }
 
