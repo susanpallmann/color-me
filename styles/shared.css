@@ -13,7 +13,7 @@ div.stage {
 }
 div.stage .nextButton {
   position: absolute;
-  bottom: 0;
+  bottom: 24px;
   cursor: pointer;
   left: 50%;
   margin-left: -100px;
