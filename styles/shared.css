@@ -16,8 +16,9 @@ div.stage .nextButton {
 }
 div.stage div.scene .draggable {
   cursor: pointer;
-  width: min-content;
-  height: min-content;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
 }
 div.scene {
   z-index: 1;
