@@ -8,6 +8,8 @@ div.stage {
   text-align: center;
   overflow: hidden;
   z-index: 1;
+  touch-action: none;
+  user-select: none;
 }
 div.stage .nextButton {
   position: absolute;
@@ -27,6 +29,7 @@ div.scene {
   z-index: 1;
   position: absolute;
   touch-action: none;
+  user-select: none;
 }
 .ui {
   z-index: 5; 
