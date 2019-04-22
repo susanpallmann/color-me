@@ -62,6 +62,7 @@ div.loading {
 
 div#pageCover {
   background-color: white;
+  transition: 0.2s;
 }
 
 div#pageCover::before {
