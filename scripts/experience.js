@@ -65,6 +65,7 @@ function determinePerspective() {
             perspID = perspID.split("+")[0];
             visibleInGallery = "visible";
         }
+        // loads the experience and then moves to the current stage.
         loadPerspective(perspID);
         goToStage(stage);
     } else {
@@ -82,8 +83,12 @@ function determinePerspective() {
     }
 }
 
+// loads all the data from the database and applies it to the page
+// requires the ID of the experience that is to be loaded
 function loadPerspective(perspID) {
+    // calls the reference of the experience, based on its position in the database
     firebase.database().ref('perspectives/' + visibleInGallery + '/' + perspID).once('value').then(function(snapshot) {
+        // sets global variables using the respective data in the database
         title = snapshot.child('title').val();
         creator = snapshot.child('creator').val();
         description = snapshot.child('description').val();
@@ -106,37 +111,46 @@ function loadPerspective(perspID) {
         effect_distortion = snapshot.child('effect_distortion').val();
         effect_rituals = snapshot.child('effect_rituals').val();
         views = snapshot.child('views').val();
+        
+        // increments the "views" value in the database for the loaded experience.
         var newViews = Number(views + 1);
         if (perspID != "") {
             firebase.database().ref('perspectives/' + visibleInGallery + '/' + perspID).child('views').set(newViews);
         }
+        
+        // sets the background color using the hue, saturation and lightness in the database
         setBackgroundColor(hue, sat, lgh);
+        
+        // finds the complementary color
         var compColor = getComplementaryColor(hue, sat, lgh);
         compHue = compColor[0];
         compSat = compColor[1];
         compLgh = compColor[2];
+        
+        // sets the background gradient for each stage, such that the gradient is smooth across all stages.
         $("div.stage:nth-child(odd)").css("background-image", "radial-gradient(at bottom right, hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%), hsl(" + hue + ", " + sat + "%, " + lgh + "%))");
         $("div.stage:nth-child(even)").css("background-image", "radial-gradient(at top right, hsl(" + compHue + ", " + compSat + "%, " + compLgh + "%), hsl(" + hue + ", " + sat + "%, " + lgh + "%))");
+        
+        // sets the text for the title, description, views and back button text on the page
         $("title").html("Color Me " + title + " by " + creator);
         $("div.textbox").html(description);
         $("#viewCounter").html(newViews);
         $("#backButton").html(backButton);
+        
+        // removes the page cover once the experience has fully loaded
         $("#pageCover").css("display", "none");
     });
 }
 
+// all functions to trigger after the page is loaded
+// this is not after the experience has loaded but once all HTML elements have rendered behind the page cover
 window.onload = function() {
-  $("img").attr("draggable", false);
+    
+  // sets up the page by working out the experience to load, loading it and navigating to the required stage
   determinePerspective();
   
-  $("#stage_1 #mug").click(function() {
-    var timer = setInterval(function() {
-      if (Math.random() < 0.02) {
-        $("#stage_0 #mug").css("transform", "skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
-      }
-    }, 10);
-  });
-    
+  // sets click events for all next buttons
+  // when a next button in a given stage is clicked, you are navigated to the next stage
   $("#stage_0 .nextButton").click(function() {
     goToStage(1);
   });
@@ -150,72 +164,123 @@ window.onload = function() {
     goToStage(4);
   });
   
+  // sets function for when a draggable element is first touched
+  // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchdown", function(e) {
-    effectA = true;
+    // set the element transition property
+    // this makes the effect smooth, rather than immediate
     $(this).css("transition", "2s");
+    // ensure that the transition only applies to relevant properties
+    // if "top" and "left" property are listed here, the drag will be very slow
     $(this).css("transition-property", "filter, opacity, transform");
+    
+    // determines which effects are used in the given experience and applies them to the element
     compileEffects(this);
+      
+    // calculates the mouse/touch x and y positions
     var prevX = e.pageX;
     var prevY = e.pageY;
+    
+    // this line is required so that the draggable element can be selected in the following touch event
     var target = this;
+    
+    // sets function for when a drag occurs
     $(this).parent().on("mousemove touchmove", function(e) {
+        // calculates the current x and y positions of the mouse/finger
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
+        
+        // sets the draggable element to be at the new position
         $(target).offset({top: y, left: x});
+        
+        // sets the z-index to be the same as the offset from the top
+        // this ensures that the draggable elements further down the page appear to be in front of those further up
         $(target).css("z-index", Math.round((y+$(target).height())));
+        
+        // updates the previous x and y values
+        // needed for the next time this function is called
         prevX = e.pageX;
         prevY = e.pageY;
     });
+    
+    // sets function for when the drag ends/finger is lifted
     $(window).on("mouseup touchup", function(e) {
+      // sets css properties to none
       $(target).css("filter", "");
       $(target).css("transform", "");
       $(target).css("opacity", "");
+      
+      // detaches the drag functions from this element
+      // if these lines are not used, the next touch will be treated as a continuation of the previous drag
       $(target).parent().off("mousemove touchmove");
       $(window).off("mouseup touchup");
     });
   });
   
+  // sets functions for when the navigation dots are clicked
   $(".navMarker").click(function() {
+    // checks if the dot is NOT a link to the current stage (i.e. is inactive)
+    // if dot is already active, do not do anything as the stage has already been navigated to
     if ($(this).hasClass("markerInactive")) {
+      // gets the respective stage number from the navigation marker's ID.
       var stageNav = $(this).attr("id").split("-")[1];
+      // navigates to the given stage
       goToStage(stageNav);
     }
   });
   
+  // sets functions for when the mouse wheel is scrolled (doesn't work in Firefox)
   $(window).bind('mousewheel', function(event) {
+    // if scrolling up and not already at the first stage, go to the previous stage
+    // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     if (event.originalEvent.wheelDelta > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage - 1);
     }
+    // if scrolling down and not already at the last stage, go to the next stage
+    // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     else if (event.originalEvent.wheelDelta < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage + 1);
     }
   });
+    
+  // sets functions for when the mouse wheel is scrolled in Firefox
   $(window).bind('DOMMouseScroll', function(e) {
+    // if scrolling up and not already at the first stage, go to the previous stage
+    // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     if (e.originalEvent.detail < 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage - 1);
     }
+    // if scrolling down and not already at the last stage, go to the next stage
+    // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     else if (e.originalEvent.detail > 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage + 1);
     }
   });
-  $(window).on('touchmove', function(event) {
-    $(window).trigger('mousewheel');
-  });
+  
+  // HOW TO MAKE SCROLL EVENT WORK ON MOBILE??
   
 };
 
+// navigates to the given stage
+// takes stage number as input (from 0-4)
 function goToStage(stageNo) {
-  if (stageNo > 1) {
-    $("#stage_" + (stageNo - 1)).css("top", "-100vh");
-  }
+  // sets global stage variable to the new stage number
   stage = stageNo;
+  
+  // sets the URL to correspond with the new stage number
   window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
+  
+  // sets all the navigation markers to be inactive
+  // then sets only the navigation marker for the given stage to be active
   $(".navMarker.markerActive").removeClass("markerActive").addClass("markerInactive");
   $("#navMarker-" + stageNo).removeClass("markerInactive").addClass("markerActive");
+    
+  // loops through all the stage numbers
+  // moves each stage above or below the view port based on its 
   var i;
   for (i = 0; i < 5; i++) {
     if (i == stageNo) {
