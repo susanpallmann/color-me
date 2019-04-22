@@ -188,7 +188,9 @@ window.onload = function() {
     
     // sets function for when a drag occurs
     $(this).parent().on("mousemove touchmove", function(e) {
+        // prevents default event functions
         e.preventDefault();
+        
         // calculates the current x and y positions of the mouse/finger
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
