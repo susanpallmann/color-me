@@ -26,6 +26,7 @@ div.stage div.scene .draggable {
 div.scene {
   z-index: 1;
   position: absolute;
+  touch-action: none;
 }
 .ui {
   z-index: 5; 
