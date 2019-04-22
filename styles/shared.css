@@ -19,6 +19,7 @@ div.stage div.scene .draggable {
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 div.scene {
   z-index: 1;
