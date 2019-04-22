@@ -188,6 +188,8 @@ window.onload = function() {
     
     // sets function for when a drag occurs
     $(this).parent().on("mousemove touchmove", function(e) {
+        
+        alert("If this works, then at least it detects the event");
         // prevents default event functions
         e.preventDefault();
         
