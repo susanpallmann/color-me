@@ -164,14 +164,6 @@ window.onload = function() {
   $("#stage_3 .nextButton").click(function() {
     goToStage(4);
   });
-    
-  $(".draggable").on("touchstart", function(e) {
-    alert("test");
-  });
-    
-  $(".draggable").on("click", function(e) {
-    alert("if this is the only pop-up, then fuck me");
-  });
   
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
@@ -197,7 +189,6 @@ window.onload = function() {
     // sets function for when a drag occurs
     $(this).parent().on("mousemove touchmove", function(e) {
         
-        alert("If this works, then at least it detects the event");
         // prevents default event functions
         e.preventDefault();
         
@@ -205,12 +196,8 @@ window.onload = function() {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         
-        alert("If this works, the touch was at position: " + x + ", " + y);
-        
         // sets the draggable element to be at the new position
         $(target).offset({top: y, left: x});
-        
-        alert("If this works, the thing should have moved, otherwise shit's fucked");
         
         // sets the z-index to be the same as the offset from the top
         // this ensures that the draggable elements further down the page appear to be in front of those further up
