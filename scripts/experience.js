@@ -164,6 +164,12 @@ window.onload = function() {
   $("#stage_3 .nextButton").click(function() {
     goToStage(4);
   });
+    
+  $(".draggable").on("touchstart", function(e) {
+    alert("test");
+  });
+    
+  $(".draggable").on("
   
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
@@ -242,7 +248,7 @@ window.onload = function() {
   });
   
   // sets functions for when the mouse wheel is scrolled (doesn't work in Firefox)
-  $(window).bind('mousewheel', function(event) {
+  $(window).on('mousewheel', function(event) {
     // if scrolling up and not already at the first stage, go to the previous stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     if (event.originalEvent.wheelDelta > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
@@ -258,7 +264,7 @@ window.onload = function() {
   });
     
   // sets functions for when the mouse wheel is scrolled in Firefox
-  $(window).bind('DOMMouseScroll', function(e) {
+  $(window).on('DOMMouseScroll', function(e) {
     // if scrolling up and not already at the first stage, go to the previous stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     if (e.originalEvent.detail < 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
@@ -270,6 +276,17 @@ window.onload = function() {
     else if (e.originalEvent.detail > 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage + 1);
+    }
+  });
+    
+  $(window).on('swipedown', function(e) {
+    if (stage < 4) {
+      goToStage(stage + 1);
+    }
+  });
+  $(window).on('swipeup', function(e) {
+    if (stage > 0) {
+      goToStage(stage - 1);
     }
   });
   
