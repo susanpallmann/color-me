@@ -169,7 +169,9 @@ window.onload = function() {
     alert("test");
   });
     
-  $(".draggable").on("
+  $(".draggable").on("click", function(e) {
+    alert("if this is the only pop-up, then fuck me");
+  });
   
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
