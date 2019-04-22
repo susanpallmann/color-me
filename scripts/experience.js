@@ -166,7 +166,7 @@ window.onload = function() {
   
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
-  $(".draggable").on("mousedown touchdown", function(e) {
+  $(".draggable").on("mousedown touchstart", function(e) {
     e.preventDefault();
     // set the element transition property
     // this makes the effect smooth, rather than immediate
@@ -206,7 +206,7 @@ window.onload = function() {
     });
     
     // sets function for when the drag ends/finger is lifted
-    $(window).on("mouseup touchup", function(e) {
+    $(window).on("mouseup touchend", function(e) {
       e.preventDefault();
       // sets css properties to none
       $(target).css("filter", "");
@@ -216,7 +216,7 @@ window.onload = function() {
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
       $(target).parent().off("mousemove touchmove");
-      $(window).off("mouseup touchup");
+      $(window).off("mouseup touchend");
     });
   });
   
