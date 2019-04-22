@@ -197,8 +197,12 @@ window.onload = function() {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         
+        alert("If this works, the touch was at position: " + x + ", " + y);
+        
         // sets the draggable element to be at the new position
         $(target).offset({top: y, left: x});
+        
+        alert("If this works, the thing should have moved, otherwise shit's fucked");
         
         // sets the z-index to be the same as the offset from the top
         // this ensures that the draggable elements further down the page appear to be in front of those further up
