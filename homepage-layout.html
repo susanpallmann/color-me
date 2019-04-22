@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Color Me _</title>
+    <link rel="stylesheet" type="text/css" href="styles/discountbootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/shared.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/shared.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+  </head>
+  <body>
+  <header>
+      <div id="navbar" class="container">
+        <div class="row">
+          <div class="column span6">
+            <h1>Color Me _</h1>
+          </div>
+          <div id="nav-hamburger" class="column span6 right">
+            <div id="container-hamburger">
+              <span id="hamburgerTop"></span>
+              <span id="hamburgerMid"></span>
+              <span id="hamburgerBottom"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav id="hamburger-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/creator">Creator</a></li>
+        <li><a href="/experience">Experience</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="container">
+        <div class="row">
+           <div class="column span12">
+             <p>Some body text just to ensure that body style is working the way it should be. :)</p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="column span2 leftCol">
+            <h2>Gallery</h1>
+          </div>
+          <div class="column span10 rightCol">
+            <span>
+              <button id="searchButton" alt="Search" disabled></button>
+              <input id="searchInput" type="text" disabled>
+            </span>
+            <span>
+              <button id="searchSort" alt="Sort">sorted by color</button>
+              <button id="searchCount" alt="Count">load 20</button>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column span12" id="gallery">
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
