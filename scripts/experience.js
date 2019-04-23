@@ -211,6 +211,7 @@ window.onload = function() {
         }
         
         // sets the draggable element to be at the new position
+        console.log(y + ", " + x);
         $(target).offset({top: y, left: x});
         
         // sets the z-index to be the same as the offset from the top
