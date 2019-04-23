@@ -279,6 +279,7 @@ window.onload = function() {
       $(window).on('mouseup touchend', function(e) {
         var x = e.pageX - startX;
         var y = e.pageY - startY;
+        console.log(x + ", " + y);
         if (!dragging && Math.abs(x) < Math.abs(y)) {
             if (y < 50) {
                 var targetStage = stage + 1;
