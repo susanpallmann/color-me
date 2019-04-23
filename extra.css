@@ -1,6 +1,9 @@
 body#colored {
   background-color: #ddd;
 }
+.still-life-image {
+  position: absolute;
+}
 .still-life-image#alarm-clock {
   background-image: url('images/still-life-alarm-clock.png');
   height: 77px;
