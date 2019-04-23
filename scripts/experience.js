@@ -280,7 +280,7 @@ window.onload = function() {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         if (!dragging && Math.abs(x - startX) < Math.abs(y - startY)) {
-            var iterations = Math.floor(Math.abs(y - startY)/200);var 
+            var iterations = Math.floor(Math.abs(y - startY)/200);
             if (y > startY) {
                 var targetStage = stage + iterations;
                 if (targetStage > 4) {
