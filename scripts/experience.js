@@ -3,6 +3,8 @@ var stage = 0;  // keeps track of the current stage: values 0-4 where stage 1-3 
 var currentURL; // the current page URL
 var lastScrollTime = 0; // the time of last scroll (in milliseconds) to prevent over-scrolling.
 var dragging = false;   // whether or not a draggable item is being dragged
+var prevX;
+var prevY;
 
 // keep the values of the experience, taken from the database
 var title;
@@ -183,13 +185,13 @@ window.onload = function() {
     
     if (e.type === "touchstart") {
         console.log("type registered as a touchstart event");
-        var prevX = e.originalEvent.touches[0].pageX;
-        var prevY = e.originalEvent.touches[0].pageY;
+        prevX = e.originalEvent.touches[0].pageX;
+        prevY = e.originalEvent.touches[0].pageY;
     } else {
         // calculates the mouse/touch x and y positions
         console.log("type registered as a mouse event");
-        var prevX = e.pageX;
-        var prevY = e.pageY;
+        prevX = e.pageX;
+        prevY = e.pageY;
     }
     
     // this line is required so that the draggable element can be selected in the following touch event
@@ -224,12 +226,12 @@ window.onload = function() {
         // updates the previous x and y values
         // needed for the next time this function is called
         if (e.type === "touchmove") {
-            var prevX = e.originalEvent.touches[0].pageX;
-            var prevY = e.originalEvent.touches[0].pageY;
+            prevX = e.originalEvent.changedTouches[0].pageX;
+            prevY = e.originalEvent.changedTouches[0].pageY;
         } else {
             // calculates the mouse/touch x and y positions
-            var prevX = e.pageX;
-            var prevY = e.pageY;
+            prevX = e.pageX;
+            prevY = e.pageY;
         }
     });
     
