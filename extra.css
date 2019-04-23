@@ -6,6 +6,7 @@ div.still-life-frame {
 }
 .still-life-image {
   position: absolute;
+  background-size: contain;
 }
 .still-life-image#alarm-clock {
   background-image: url('images/still-life-alarm-clock.png');
