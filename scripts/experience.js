@@ -203,8 +203,8 @@ window.onload = function() {
         
         // calculates the current x and y positions of the mouse/finger
         if (e.type === "touchmove") {
-            var x = $(target).offset().left + (e.touches[0].pageX - prevX);
-            var y = $(target).offset().top + (e.touches[0].pageY - prevY);
+            var x = $(target).offset().left + (e.originalEvent.touches[0].pageX - prevX);
+            var y = $(target).offset().top + (e.originalEvent.touches[0].pageY - prevY);
         } else {
             var x = $(target).offset().left + (e.pageX - prevX);
             var y = $(target).offset().top + (e.pageY - prevY);
@@ -220,8 +220,8 @@ window.onload = function() {
         // updates the previous x and y values
         // needed for the next time this function is called
         if (e.type === "touchstart") {
-            var prevX = e.touches[0].pageX;
-            var prevY = e.touches[0].pageY;
+            var prevX = e.originalEvent.touches[0].pageX;
+            var prevY = e.originalEvent.touches[0].pageY;
         } else {
             // calculates the mouse/touch x and y positions
             var prevX = e.pageX;
