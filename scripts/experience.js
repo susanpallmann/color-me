@@ -2,6 +2,7 @@
 var stage = 0;  // keeps track of the current stage: values 0-4 where stage 1-3 are the interactive stages
 var currentURL; // the current page URL
 var lastScrollTime = 0; // the time of last scroll (in milliseconds) to prevent over-scrolling.
+var dragging = false;   // whether or not a draggable item is being dragged
 
 // keep the values of the experience, taken from the database
 var title;
@@ -192,6 +193,8 @@ window.onload = function() {
         // prevents default event functions
         e.preventDefault();
         
+        dragging = true;
+        
         // calculates the current x and y positions of the mouse/finger
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
@@ -219,6 +222,7 @@ window.onload = function() {
       
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
+      dragging = false;
       $(target).parent().off("mousemove touchmove");
       $(window).off("mouseup touchend");
     });
@@ -267,16 +271,31 @@ window.onload = function() {
       goToStage(stage + 1);
     }
   });
-    
-  $(window).on('swipedown', function(e) {
-    if (stage < 4) {
-      goToStage(stage + 1);
-    }
-  });
-  $(window).on('swipeup', function(e) {
-    if (stage > 0) {
-      goToStage(stage - 1);
-    }
+  
+  $(window).on('touchstart', function(e) {
+      e.preventDefault();
+      var startX = e.pageX;
+      var startY = e.pageY;
+      $(window).on('touchend', function(e) {
+        var x = $(target).offset().left + (e.pageX - prevX);
+        var y = $(target).offset().top + (e.pageY - prevY);
+        if (!dragging && Math.abs(x - startX) < Math.abs(y - startY)) {
+            var iterations = Math.floor(Math.abs(y - startY)/200);var 
+            if (y > startY) {
+                var targetStage = stage + iterations;
+                if (targetStage > 4) {
+                    targetStage = 4;
+                }
+            } else {
+                var targetStage = stage - iterations;
+                if (targetStage < 0) {
+                    targetStage = 0;
+                }
+            }
+            goToStage(targetStage);
+            $(window).off("touchend");
+        }
+      
   });
   
   // HOW TO MAKE SCROLL EVENT WORK ON MOBILE??
