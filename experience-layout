@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Color Me _</title>
+    <link rel="stylesheet" type="text/css" href="styles/discountbootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/shared.css">
+    <link rel="stylesheet" type="text/css" href="extra.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/shared.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+  </head>
+  <body id="colored">
+  <header>
+      <div id="navbar" class="container">
+        <div class="row">
+          <div class="column span6">
+            <h1>Color Me _</h1>
+          </div>
+          <div id="nav-hamburger" class="column span6 right">
+            <div id="container-hamburger">
+              <span id="hamburgerTop"></span>
+              <span id="hamburgerMid"></span>
+              <span id="hamburgerBottom"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav id="hamburger-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/creator">Creator</a></li>
+        <li><a href="/experience">Experience</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="column span6">
+            <h1>Color Me Anxious</h1>
+          </div>
+          <div class="column span6">
+            <div class="still-life-frame">
+              <div id="alarm-clock" class="still-life-image"></div>
+              <div id="lamp" class="still-life-image"></div>
+              <div id="phone" class="still-life-image"></div>
+              <div id="mug" class="still-life-image" floating-fast></div>
+              <div id="window" class="still-life-image"></div>
+              <div id="triangle" class="still-life-image floating-slow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
