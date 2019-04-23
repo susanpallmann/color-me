@@ -221,7 +221,6 @@ window.onload = function() {
       
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
-      dragging = false;
       console.log("Dragging set to false");
       $(target).parent().off("mousemove touchmove");
       $(window).off("mouseup touchend");
@@ -300,6 +299,7 @@ window.onload = function() {
             }
         }
         lastScrollTime = Date.now();
+        dragging = false;
         $(window).off("mouseup touchend");
       });
       
