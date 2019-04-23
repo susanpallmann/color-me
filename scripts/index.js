@@ -7,7 +7,6 @@ var stage = 0;  // keeps track of the current stage: values 0-4 where stage 1-3 
 var currentURL; // the current page URL
 
 function loadStage() {
-  
     // works out the current stage, if provided.
     stage = window.location.href;
     if (stage.includes("?stage=")) {
@@ -32,6 +31,7 @@ function loadStage() {
 
 $(document).ready(function() {
 	
+	loadStage();
 	loadGallery(queryRef);
 	
 	$("#searchButton").click(function() {
