@@ -277,10 +277,10 @@ window.onload = function() {
       var startX = e.pageX;
       var startY = e.pageY;
       $(window).on('mouseup touchend', function(e) {
-        var x = $(target).offset().left + (e.pageX - prevX);
-        var y = $(target).offset().top + (e.pageY - prevY);
-        if (!dragging && Math.abs(x - startX) < Math.abs(y - startY)) {
-            var iterations = Math.floor(Math.abs(y - startY)/200);
+        var x = e.pageX - startX;
+        var y = e.pageY - startY;
+        if (!dragging && Math.abs(x) < Math.abs(y)) {
+            var iterations = Math.floor(Math.abs(y)/200);
             if (y > startY) {
                 var targetStage = stage + iterations;
                 if (targetStage > 4) {
