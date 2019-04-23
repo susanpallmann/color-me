@@ -48,3 +48,34 @@ div.still-life-frame {
   top: 144px;
   left: 264px;
 }
+@keyframes mug-floating-fast {
+    from {top: 98px;}
+    to {top: 118px;}
+}
+@keyframes triangle-floating-slow {
+    from {top: 0px;}
+    to {top: 20px;}
+}
+.still-life-image#mug.floating-fast {
+  background-image: url('images/still-life-mug.png');
+  height: 103px;
+  width: 100px;
+  top: 98px;
+  left: 29px;
+  animation: mug-floating-fast;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.still-life-image#triangle.floating-slow {
+  background-image: url('images/still-life-triangle.png');
+  height: 211px;
+  width: 200px;
+  left: 210px;
+  animation: triangle-floating-slow;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
