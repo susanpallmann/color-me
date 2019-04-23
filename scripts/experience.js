@@ -269,20 +269,22 @@ window.onload = function() {
     // if scrolling up and not already at the first stage, go to the previous stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     if (scrollAmt > 50 && stage > 0 && Date.now() > lastScrollTime + 500) {
-      if ((stage - iterations) < 0) {
-        iterations = stage;
-      }
       lastScrollTime = Date.now();
-      goToStage(stage - iterations);
+      if ((stage - iterations) < 0) {
+        goToStage(0);
+      } else {
+        goToStage(stage - iterations);
+      }
     }
     // if scrolling down and not already at the last stage, go to the next stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     else if (scrollAmt < -50 && stage < 4 && Date.now() > lastScrollTime + 500) {
-      if ((stage + iterations) > 4) {
-        iterations = 4 - stage;
-      }
       lastScrollTime = Date.now();
-      goToStage(stage + iterations);
+      if ((stage + iterations) > 4) {
+        goToStage(4);
+      } else {
+        goToStage(stage + iterations);
+      }
     }
   });
     
