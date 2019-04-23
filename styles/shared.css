@@ -18,6 +18,7 @@ div.stage .nextButton {
   cursor: pointer;
   left: 50%;
   margin-left: -100px;
+  width: 40px;
 }
 div.stage div.scene .draggable {
   cursor: pointer;
