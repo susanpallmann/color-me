@@ -182,10 +182,12 @@ window.onload = function() {
     compileEffects(this);
     
     if (e.type === "touchstart") {
-        var prevX = e.touches[0].pageX;
-        var prevY = e.touches[0].pageY;
+        console.log("type registered as a touchstart event");
+        var prevX = e.originalEvent.touches[0].pageX;
+        var prevY = e.originalEvent.touches[0].pageY;
     } else {
         // calculates the mouse/touch x and y positions
+        console.log("type registered as a mouse event");
         var prevX = e.pageX;
         var prevY = e.pageY;
     }
