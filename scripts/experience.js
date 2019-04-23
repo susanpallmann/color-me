@@ -299,14 +299,24 @@ window.onload = function() {
       console.log("touchstart triggered by window");
       e.preventDefault();
       e.stopPropagation();
-      var startX = e.pageX;
-      var startY = e.pageY;
+      if (e.type === "touchstart") {
+          var startX = e.originalEvent.touches[0].pageX;
+          var startY = e.originalEvent.touches[0].pageY;
+      } else {
+          var startX = e.pageX;
+          var startY = e.pageY;
+      }
       $(window).on('mouseup touchend', function(e) {
         console.log("touchend triggered by window");
         e.preventDefault();
         e.stopPropagation();
-        var x = e.pageX - startX;
-        var y = e.pageY - startY;
+        if (e.type === "touchend") {
+            var startX = e.originalEvent.changedTouches[0].pageX - startX;
+            var startY = e.originalEvent.changedTouches[0].pageY - startY;
+        } else {
+            var x = e.pageX - startX;
+            var y = e.pageY - startY;
+        }
         if (!dragging && Math.abs(x) < Math.abs(y) && Date.now() > lastScrollTime + 500) {
             if (y < 50) {
                 var targetStage = stage + 1;
