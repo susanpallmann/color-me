@@ -272,11 +272,11 @@ window.onload = function() {
     }
   });
   
-  $(window).on('touchstart', function(e) {
+  $(window).on('mousedown touchstart', function(e) {
       e.preventDefault();
       var startX = e.pageX;
       var startY = e.pageY;
-      $(window).on('touchend', function(e) {
+      $(window).on('mouseup touchend', function(e) {
         var x = $(target).offset().left + (e.pageX - prevX);
         var y = $(target).offset().top + (e.pageY - prevY);
         if (!dragging && Math.abs(x - startX) < Math.abs(y - startY)) {
