@@ -1,8 +1,34 @@
-maxThumbs = 20;
-queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
-galleryHTML = "";
-galleryItemSize = 170;
-galleryMinGap = 20;
+var maxThumbs = 20;
+var queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+var galleryHTML = "";
+var galleryItemSize = 170;
+var galleryMinGap = 20;
+var stage = 0;  // keeps track of the current stage: values 0-4 where stage 1-3 are the interactive stages
+var currentURL; // the current page URL
+
+function loadStage() {
+  
+    // works out the current stage, if provided.
+    stage = window.location.href;
+    if (stage.includes("?stage=")) {
+        stage = window.location.href.split("?stage=")[1];
+        if (stage.includes("&")) {
+            stage = stage.split("&")[0];
+        }
+    } else {
+        // sets stage to 0 by default if not provided.
+        stage = 0;
+    }
+    
+    // ensures the stage is a valid integer from 0-2
+    // otherwise sets to 0 by default
+    stage = Math.round(Number(stage));
+    if (stage < 0 || stage > 2 || isNaN(stage)) {
+        stage = 0;
+    }
+    currentURL = window.location.href.split("&")[0];
+    goToStage(stage);
+}
 
 $(document).ready(function() {
 	
@@ -127,4 +153,29 @@ function beginSearch() {
 	var newQueryRef = firebase.database().ref('perspectives/visible/').orderByChild('titleLower').startAt(searchTerm).endAt(searchTerm + '\uf8ff').limitToLast(maxThumbs);
 	galleryHTML = "";
 	loadGallery(newQueryRef);
+}
+
+function goToStage(stageNo) {
+  // sets global stage variable to the new stage number
+  stage = stageNo;
+  
+  // sets the URL to correspond with the new stage number
+  window.history.pushState("object or string", "Stage " + stageNo, currentURL + "?stage=" + stageNo);
+  
+  // sets all the navigation markers to be inactive
+  // then sets only the navigation marker for the given stage to be active
+  $(".navMarker.markerActive").removeClass("markerActive").addClass("markerInactive");
+  $("#navMarker-" + stageNo).removeClass("markerInactive").addClass("markerActive");
+    
+  // loops through all the stage numbers
+  // moves each stage above or below the view port based on its 
+  var i;
+  for (i = 0; i < 5; i++) {
+    if (i == stageNo) {
+      $("#stage_" + i).css("top", 0);
+    } else {
+      $("#stage_" + i).css("top", (100*(i-stageNo)) + "vh");
+    }
+  }
+  $(".stage").css("transition", "0.5s ease-in-out");
 }
