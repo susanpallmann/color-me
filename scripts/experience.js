@@ -272,12 +272,14 @@ window.onload = function() {
     }
   });
   
-  $(document).on('mousedown touchstart', function(e) {
+  $(window).on('mousedown touchstart', function(e) {
       e.preventDefault();
       e.stopPropagation();
       var startX = e.pageX;
       var startY = e.pageY;
-      $(document).on('mouseup touchend', function(e) {
+      $(window).on('mouseup touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         var x = e.pageX - startX;
         var y = e.pageY - startY;
         console.log(x + ", " + y);
@@ -294,7 +296,7 @@ window.onload = function() {
                 }
             }
             goToStage(targetStage);
-            $(document).off("touchend");
+            $(window).off("touchend");
         }
       });
       
