@@ -75,7 +75,6 @@ function determinePerspective() {
         dataRef.on('child_added', function(data) {
             perspID = data.key;
             dataRef.off();
-            console.log(perspID);
             currentURL = currentURL + "?id=" + perspID + "+";
             visibleInGallery = "visible";
             loadPerspective(perspID);
@@ -169,9 +168,9 @@ window.onload = function() {
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchstart", function(e) {
+    console.log("touchstart triggered by draggable");
     e.preventDefault();
     dragging = true;
-    console.log("Dragging set to true");
     // set the element transition property
     // this makes the effect smooth, rather than immediate
     $(this).css("transition", "2s");
@@ -191,6 +190,7 @@ window.onload = function() {
     
     // sets function for when a drag occurs
     $(this).parent().on("mousemove touchmove", function(e) {
+        console.log("touchmove triggered by draggable's parent");
         // prevents default event functions
         e.preventDefault();
         
@@ -213,6 +213,7 @@ window.onload = function() {
     
     // sets function for when the drag ends/finger is lifted
     $(window).on("mouseup touchend", function(e) {
+      console.log("touchend triggered by window following touch of draggable");
       e.preventDefault();
       // sets css properties to none
       $(target).css("filter", "");
@@ -221,7 +222,6 @@ window.onload = function() {
       
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
-      console.log("Dragging set to false");
       $(target).parent().off("mousemove touchmove");
       $(window).off("mouseup touchend");
     });
@@ -272,18 +272,18 @@ window.onload = function() {
   });
   
   $(window).on('mousedown touchstart', function(e) {
+      console.log("touchstart triggered by window");
       e.preventDefault();
       e.stopPropagation();
       var startX = e.pageX;
       var startY = e.pageY;
       $(window).on('mouseup touchend', function(e) {
+        console.log("touchend triggered by window");
         e.preventDefault();
         e.stopPropagation();
         var x = e.pageX - startX;
         var y = e.pageY - startY;
-        console.log("Checking for dragging, and was: " + dragging);
         if (!dragging && Math.abs(x) < Math.abs(y) && Date.now() > lastScrollTime + 500) {
-            console.log("Dragging was false to pass here");
             if (y < 50) {
                 var targetStage = stage + 1;
                 if (targetStage > 4) {
@@ -422,7 +422,6 @@ function runEffect_fading(target) {
 }
 
 function runEffect_blurring(target) {
-  console.log("here");
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
     $(target).css("filter", newFilter + " blur(2px)");
@@ -537,7 +536,6 @@ function runEffect_rituals(target) {
 function partiallyRemoveProperty(object, property, cssFunction) {
     var propertyValue = $(object).css(property);
     var newValue = "";
-    console.log(propertyValue, + ", " + newValue);
     if (propertyValue != "none" && propertyValue.includes(cssFunction)) {
         var splitValue = propertyValue.split(cssFunction);
         var firstPart = splitValue[0];
