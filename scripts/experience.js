@@ -170,6 +170,7 @@ window.onload = function() {
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchstart", function(e) {
+    e.preventDefault();
     console.log("touchstart triggered by draggable");
     dragging = true;
     // set the element transition property
