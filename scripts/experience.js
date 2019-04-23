@@ -171,6 +171,7 @@ window.onload = function() {
   $(".draggable").on("mousedown touchstart", function(e) {
     e.preventDefault();
     dragging = true;
+    console.log("Dragging set to true");
     // set the element transition property
     // this makes the effect smooth, rather than immediate
     $(this).css("transition", "2s");
@@ -221,6 +222,7 @@ window.onload = function() {
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
       dragging = false;
+      console.log("Dragging set to false");
       $(target).parent().off("mousemove touchmove");
       $(window).off("mouseup touchend");
     });
@@ -280,9 +282,9 @@ window.onload = function() {
         e.stopPropagation();
         var x = e.pageX - startX;
         var y = e.pageY - startY;
-        console.log(x + ", " + y);
-        console.log(dragging);
+        console.log("Checking for dragging, and was: " + dragging);
         if (!dragging && Math.abs(x) < Math.abs(y) && Date.now() > lastScrollTime + 500) {
+            console.log("Dragging was false to pass here");
             if (y < 50) {
                 var targetStage = stage + 1;
                 if (targetStage > 4) {
