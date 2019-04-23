@@ -281,7 +281,7 @@ window.onload = function() {
         var y = e.pageY - startY;
         if (!dragging && Math.abs(x) < Math.abs(y)) {
             var iterations = Math.floor(Math.abs(y)/200);
-            if (y > startY) {
+            if (e.pageY < startY) {
                 var targetStage = stage + iterations;
                 if (targetStage > 4) {
                     targetStage = 4;
