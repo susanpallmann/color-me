@@ -289,13 +289,14 @@ window.onload = function() {
                 if (targetStage > 4) {
                     targetStage = 4;
                 }
+                goToStage(targetStage);
             } else if (y > 50) {
                 var targetStage = stage - 1;
                 if (targetStage < 0) {
                     targetStage = 0;
                 }
+                goToStage(targetStage);
             }
-            goToStage(targetStage);
         }
         lastScrollTime = Date.now();
         $(window).off("mouseup touchend");
