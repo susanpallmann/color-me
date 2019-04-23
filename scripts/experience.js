@@ -263,19 +263,26 @@ window.onload = function() {
   });
   
   // sets functions for when the mouse wheel is scrolled (doesn't work in Firefox)
-  $(window).on('mousewheel', function(event) {
-    console.log(event.originalEvent.wheelDelta);
+  $(window).on('mousewheel', function(e) {
+    var scrollAmt = e.originalEvent.wheelDelta;
+    var iterations = Math.floor(scrollAmt/50);
     // if scrolling up and not already at the first stage, go to the previous stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
-    if (event.originalEvent.wheelDelta > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
+    if (scrollAmt > 50 && stage > 0 && Date.now() > lastScrollTime + 500) {
+      if ((stage - iterations) < 0) {
+        iterations = stage;
+      }
       lastScrollTime = Date.now();
-      goToStage(stage - 1);
+      goToStage(stage - iterations);
     }
     // if scrolling down and not already at the last stage, go to the next stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
-    else if (event.originalEvent.wheelDelta < 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
+    else if (scrollAmt < -50 && stage < 4 && Date.now() > lastScrollTime + 500) {
+      if ((stage + iterations) > 4) {
+        iterations = 4 - stage;
+      }
       lastScrollTime = Date.now();
-      goToStage(stage + 1);
+      goToStage(stage + iterations);
     }
   });
     
