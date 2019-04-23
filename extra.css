@@ -1,6 +1,9 @@
 body#colored {
   background-color: #ddd;
 }
+div.still-life-frame {
+  position: relative;
+}
 .still-life-image {
   position: absolute;
 }
@@ -8,29 +11,40 @@ body#colored {
   background-image: url('images/still-life-alarm-clock.png');
   height: 77px;
   width: 146px;
+  top: 362px;
+  left: 151px;
 }
 .still-life-image#window {
   background-image: url('images/still-life-window.png');
   height: 280px;
   width: 173px;
+  top: 70px;
+  left: 135px;
 }
 .still-life-image#picture {
   background-image: url('images/still-life-picture.png');
   height: 155px;
   width: 116px;
+  top: 230px;
+  left: 9px;
 }
 .still-life-image#mug {
   background-image: url('images/still-life-mug.png');
   height: 103px;
   width: 100px;
+  top: 98px;
+  left: 29px;
 }
 .still-life-image#triangle {
   background-image: url('images/still-life-triangle.png');
-  height: 211;
-  width: 200;
+  height: 211px;
+  width: 200px;
+  left: 210px;
 }
 .still-life-image#lamp {
   background-image: url('images/still-life-lamp.png');
   height: 252px;
   width: 167px;
+  top: 144px;
+  left: 264px;
 }
