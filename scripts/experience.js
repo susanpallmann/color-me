@@ -311,11 +311,11 @@ window.onload = function() {
         e.preventDefault();
         e.stopPropagation();
         if (e.type === "touchend") {
-            var x = e.originalEvent.changedTouches[0].pageX - startX;
-            var y = e.originalEvent.changedTouches[0].pageY - startY;
+            var x = e.originalEvent.changedTouches[0].pageX - prevX;
+            var y = e.originalEvent.changedTouches[0].pageY - prevY;
         } else {
-            var x = e.pageX - startX;
-            var y = e.pageY - startY;
+            var x = e.pageX - prevX;
+            var y = e.pageY - prevY;
         }
         if (!dragging && Math.abs(x) < Math.abs(y) && Date.now() > lastScrollTime + 500) {
             if (y < 50) {
