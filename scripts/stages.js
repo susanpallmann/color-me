@@ -1,5 +1,9 @@
 var stage = 0;  // keeps track of the current stage: values 0-4 where stage 1-3 are the interactive stages
 var currentURL; // the current page URL
+var lastScrollTime = 0; // the time of last scroll (in milliseconds) to prevent over-scrolling.
+var dragging = false;   // whether or not a draggable item is being dragged
+var prevX;
+var prevY;
 
 $(document).ready(function() {
   $("#stage_0 .nextButton").click(function() {
