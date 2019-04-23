@@ -283,7 +283,7 @@ window.onload = function() {
         var x = e.pageX - startX;
         var y = e.pageY - startY;
         console.log(x + ", " + y);
-        if (!dragging && Math.abs(x) < Math.abs(y)) {
+        if (!dragging && Math.abs(x) < Math.abs(y) && Date.now() > lastScrollTime + 500) {
             if (y < 50) {
                 var targetStage = stage + 1;
                 if (targetStage > 4) {
@@ -296,6 +296,7 @@ window.onload = function() {
                 }
             }
             goToStage(targetStage);
+            lastScrollTime = Date.now();
             $(window).off("touchend");
         }
       });
