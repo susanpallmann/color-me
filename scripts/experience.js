@@ -185,8 +185,6 @@ window.onload = function() {
         console.log("type registered as a touchstart event");
         var prevX = e.originalEvent.touches[0].pageX;
         var prevY = e.originalEvent.touches[0].pageY;
-        console.log(prevX);
-        console.log(prevY);
     } else {
         // calculates the mouse/touch x and y positions
         console.log("type registered as a mouse event");
@@ -205,8 +203,12 @@ window.onload = function() {
         
         // calculates the current x and y positions of the mouse/finger
         if (e.type === "touchmove") {
-            var x = $(target).offset().left + (e.originalEvent.touches[0].pageX - prevX);
-            var y = $(target).offset().top + (e.originalEvent.touches[0].pageY - prevY);
+            var thisX = e.originalEvent.changedTouches[0].pageX;
+            var thisY = e.originalEvent.changedTouches[0].pageY;
+            console.log(thisX);
+            console.log(thisY);
+            var x = $(target).offset().left + (thisX - prevX);
+            var y = $(target).offset().top + (thisY - prevY);
         } else {
             var x = $(target).offset().left + (e.pageX - prevX);
             var y = $(target).offset().top + (e.pageY - prevY);
