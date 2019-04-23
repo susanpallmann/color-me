@@ -180,10 +180,15 @@ window.onload = function() {
     
     // determines which effects are used in the given experience and applies them to the element
     compileEffects(this);
-      
-    // calculates the mouse/touch x and y positions
-    var prevX = e.pageX;
-    var prevY = e.pageY;
+    
+    if (e.type === "touchstart") {
+        var prevX = e.touches[0].pageX;
+        var prevY = e.touches[0].pageY;
+    } else {
+        // calculates the mouse/touch x and y positions
+        var prevX = e.pageX;
+        var prevY = e.pageY;
+    }
     
     // this line is required so that the draggable element can be selected in the following touch event
     var target = this;
@@ -195,8 +200,13 @@ window.onload = function() {
         e.preventDefault();
         
         // calculates the current x and y positions of the mouse/finger
-        var x = $(target).offset().left + (e.pageX - prevX);
-        var y = $(target).offset().top + (e.pageY - prevY);
+        if (e.type === "touchmove") {
+            var x = $(target).offset().left + (e.touches[0].pageX - prevX);
+            var y = $(target).offset().top + (e.touches[0].pageY - prevY);
+        } else {
+            var x = $(target).offset().left + (e.pageX - prevX);
+            var y = $(target).offset().top + (e.pageY - prevY);
+        }
         
         // sets the draggable element to be at the new position
         $(target).offset({top: y, left: x});
@@ -207,8 +217,14 @@ window.onload = function() {
         
         // updates the previous x and y values
         // needed for the next time this function is called
-        prevX = e.pageX;
-        prevY = e.pageY;
+        if (e.type === "touchstart") {
+            var prevX = e.touches[0].pageX;
+            var prevY = e.touches[0].pageY;
+        } else {
+            // calculates the mouse/touch x and y positions
+            var prevX = e.pageX;
+            var prevY = e.pageY;
+        }
     });
     
     // sets function for when the drag ends/finger is lifted
