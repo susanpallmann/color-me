@@ -65,7 +65,6 @@ $(document).ready(function() {
 			$(this).addClass("closed");
 			$("nav li").css("opacity", "0");
 			$("nav li").css("height", "0");
-			$(window).unbind("click");
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("closed");
 				$("nav#hamburger-menu").css("display", "none");
@@ -75,9 +74,6 @@ $(document).ready(function() {
 			$("nav").css("display", "block");
 			$("nav li").css("opacity", "1");
 			$("nav li").css("height", "32px");
-			$(window).click(function() {
-				$("#nav-hamburger").trigger("click");
-			});
 			setTimeout(function() {
 				$("#nav-hamburger").removeClass("open");
 				$("#nav-hamburger").addClass("animcomplete");
