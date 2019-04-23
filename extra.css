@@ -2,20 +2,20 @@ body#colored {
   background-color: #ddd;
 }
 still-life-image#alarm-clock {
-  background-image: url('/images/still-life-alarm-clock');
+  background-image: url('/images/still-life-alarm-clock.png');
 }
 still-life-image#window {
-  background-image: url('/images/still-life-window');
+  background-image: url('/images/still-life-window.png');
 }
 still-life-image#picture {
-  background-image: url('/images/still-life-picture');
+  background-image: url('/images/still-life-picture.png');
 }
 still-life-image#mug {
-  background-image: url('/images/still-life-mug');
+  background-image: url('/images/still-life-mug.png');
 }
 still-life-image#triangle {
-  background-image: url('/images/still-life-triangle');
+  background-image: url('/images/still-life-triangle.png');
 }
 still-life-image#lamp {
-  background-image: url('/images/still-life-lamp);
+  background-image: url('/images/still-life-lamp.png);
 }
