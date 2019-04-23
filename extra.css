@@ -3,19 +3,31 @@ body#colored {
 }
 still-life-image#alarm-clock {
   background-image: url('/images/still-life-alarm-clock.png');
+  height: 77px;
+  width: 146px;
 }
 still-life-image#window {
   background-image: url('/images/still-life-window.png');
+  height: 280px;
+  width: 173px;
 }
 still-life-image#picture {
   background-image: url('/images/still-life-picture.png');
+  height: 155px;
+  width: 116px;
 }
 still-life-image#mug {
   background-image: url('/images/still-life-mug.png');
+  height: 103px;
+  width: 100px;
 }
 still-life-image#triangle {
   background-image: url('/images/still-life-triangle.png');
+  height: 211;
+  width: 200;
 }
 still-life-image#lamp {
-  background-image: url('/images/still-life-lamp.png);
+  background-image: url('/images/still-life-lamp.png');
+  height: 252px;
+  width: 167px;
 }
