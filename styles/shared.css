@@ -10,6 +10,7 @@ div.stage {
   z-index: 1;
   touch-action: none;
   user-select: none;
+  will-change: left, top;
 }
 div.stage .nextButton {
   position: absolute;
@@ -26,6 +27,7 @@ div.stage div.scene .draggable {
   position: absolute;
   touch-action: none;
   user-select: none;
+  will-change: left, top;
 }
 div.scene {
   z-index: 1;
