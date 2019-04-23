@@ -171,7 +171,6 @@ window.onload = function() {
   // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchstart", function(e) {
     console.log("touchstart triggered by draggable");
-    e.preventDefault();
     dragging = true;
     // set the element transition property
     // this makes the effect smooth, rather than immediate
@@ -238,7 +237,6 @@ window.onload = function() {
     // sets function for when the drag ends/finger is lifted
     $(window).on("mouseup touchend", function(e) {
       console.log("touchend triggered by window following touch of draggable");
-      e.preventDefault();
       // sets css properties to none
       $(target).css("filter", "");
       $(target).css("transform", "");
@@ -297,8 +295,6 @@ window.onload = function() {
   
   $(window).on('mousedown touchstart', function(e) {
       console.log("touchstart triggered by window");
-      e.preventDefault();
-      e.stopPropagation();
       if (e.type === "touchstart") {
           prevX = e.originalEvent.touches[0].pageX;
           prevY = e.originalEvent.touches[0].pageY;
@@ -308,8 +304,6 @@ window.onload = function() {
       }
       $(window).on('mouseup touchend', function(e) {
         console.log("touchend triggered by window");
-        e.preventDefault();
-        e.stopPropagation();
         if (e.type === "touchend") {
             var x = e.originalEvent.changedTouches[0].pageX - prevX;
             var y = e.originalEvent.changedTouches[0].pageY - prevY;
