@@ -300,19 +300,19 @@ window.onload = function() {
       e.preventDefault();
       e.stopPropagation();
       if (e.type === "touchstart") {
-          var startX = e.originalEvent.touches[0].pageX;
-          var startY = e.originalEvent.touches[0].pageY;
+          prevX = e.originalEvent.touches[0].pageX;
+          prevY = e.originalEvent.touches[0].pageY;
       } else {
-          var startX = e.pageX;
-          var startY = e.pageY;
+          prevX = e.pageX;
+          prevY = e.pageY;
       }
       $(window).on('mouseup touchend', function(e) {
         console.log("touchend triggered by window");
         e.preventDefault();
         e.stopPropagation();
         if (e.type === "touchend") {
-            var startX = e.originalEvent.changedTouches[0].pageX - startX;
-            var startY = e.originalEvent.changedTouches[0].pageY - startY;
+            var x = e.originalEvent.changedTouches[0].pageX - startX;
+            var y = e.originalEvent.changedTouches[0].pageY - startY;
         } else {
             var x = e.pageX - startX;
             var y = e.pageY - startY;
