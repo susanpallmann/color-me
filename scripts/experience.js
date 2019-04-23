@@ -185,6 +185,8 @@ window.onload = function() {
         console.log("type registered as a touchstart event");
         var prevX = e.originalEvent.touches[0].pageX;
         var prevY = e.originalEvent.touches[0].pageY;
+        console.log(prevX);
+        console.log(prevY);
     } else {
         // calculates the mouse/touch x and y positions
         console.log("type registered as a mouse event");
@@ -211,7 +213,6 @@ window.onload = function() {
         }
         
         // sets the draggable element to be at the new position
-        console.log(prevY + ", " + prevX);
         $(target).offset({top: y, left: x});
         
         // sets the z-index to be the same as the offset from the top
