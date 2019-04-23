@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/discountbootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles/shared.css">
+    <link rel="stylesheet" type="text/css" href="extra.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
@@ -37,6 +38,39 @@
       </div>
     </header>
     <main>
+      <nav class="ui" id="stageNav" style="position: absolute; top: 50%; left: 0px; transform: translateY(-50%);">
+        <div class="navMarker markerActive" id="navMarker-0"></div>
+        <div class="navMarker markerInactive" id="navMarker-1"></div>
+        <div class="navMarker markerInactive" id="navMarker-2"></div>
+        <div class="navMarker markerInactive" id="navMarker-3"></div>
+        <div class="navMarker markerInactive" id="navMarker-4"></div>
+      </nav>
+      <div class="stage" id="stage_0">
+        <div class="container">
+        <div class="row">
+          <div class="column span6">
+            <h1>Color Me Title</h1>
+            <p class="author">by User's Name</p>
+            <p>
+              A brief description of sorts here, determined by the form, obviously. Let's say this is a long one, just for the sake of 
+              argument. It's as good a time as any to make sure my line height doesn't suck here.
+            </p>
+            <p>This is where the randomized instructions will go.</p>
+          </div>
+            <div class="column span6">
+              <div class="still-life-frame">
+                <div id="triangle" class="still-life-image floating-slow"></div>
+                <div id="window" class="still-life-image"></div>
+                <div id="mug" class="still-life-image floating-fast"></div>
+                <div id="picture" class="still-life-image"></div>
+                <div id="lamp" class="still-life-image"></div>
+                <div id="alarm-clock" class="still-life-image"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="nextButton ui" src="images/Down Arrow.png" alt="Next">
+      </div>
       <div class="container">
         <div class="row">
            <div class="column span12">
