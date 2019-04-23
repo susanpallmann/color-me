@@ -298,7 +298,7 @@ window.onload = function() {
             goToStage(targetStage);
         }
         lastScrollTime = Date.now();
-        $(window).off("touchend");
+        $(window).off("mouseup touchend");
       });
       
   });
