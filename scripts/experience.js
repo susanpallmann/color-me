@@ -264,6 +264,7 @@ window.onload = function() {
   
   // sets functions for when the mouse wheel is scrolled (doesn't work in Firefox)
   $(window).on('mousewheel', function(event) {
+    console.log(event.originalEvent.wheelDelta);
     // if scrolling up and not already at the first stage, go to the previous stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     if (event.originalEvent.wheelDelta > 0 && stage > 0 && Date.now() > lastScrollTime + 500) {
