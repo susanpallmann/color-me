@@ -205,8 +205,8 @@ window.onload = function() {
         if (e.type === "touchmove") {
             var thisX = e.originalEvent.changedTouches[0].pageX;
             var thisY = e.originalEvent.changedTouches[0].pageY;
-            console.log(thisX);
-            console.log(thisY);
+            console.log(prevX);
+            console.log(prevY);
             var x = $(target).offset().left + (thisX - prevX);
             var y = $(target).offset().top + (thisY - prevY);
         } else {
