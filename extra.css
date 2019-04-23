@@ -1,3 +1,21 @@
 body#colored {
   background-color: #ddd;
 }
+still-life-image#alarm-clock {
+  background-image: url('/images/still-life-alarm-clock');
+}
+still-life-image#window {
+  background-image: url('/images/still-life-window');
+}
+still-life-image#picture {
+  background-image: url('/images/still-life-picture');
+}
+still-life-image#mug {
+  background-image: url('/images/still-life-mug');
+}
+still-life-image#triangle {
+  background-image: url('/images/still-life-triangle');
+}
+still-life-image#lamp {
+  background-image: url('/images/still-life-lamp);
+}
