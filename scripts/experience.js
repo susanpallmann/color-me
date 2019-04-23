@@ -280,12 +280,12 @@ window.onload = function() {
         var x = e.pageX - startX;
         var y = e.pageY - startY;
         if (!dragging && Math.abs(x) < Math.abs(y)) {
-            if (e.pageY < startY) {
+            if (y < 50) {
                 var targetStage = stage + 1;
                 if (targetStage > 4) {
                     targetStage = 4;
                 }
-            } else {
+            } else if (y > 50) {
                 var targetStage = stage - 1;
                 if (targetStage < 0) {
                     targetStage = 0;
