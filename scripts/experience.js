@@ -295,6 +295,7 @@ window.onload = function() {
             goToStage(targetStage);
             $(window).off("touchend");
         }
+      });
       
   });
   
