@@ -34,7 +34,7 @@ div.still-life-frame {
   height: 103px;
   width: 100px;
   top: 98px;
-  left: 5%px;
+  left: 5%;
 }
 .still-life-image#triangle {
   background-image: url('images/still-life-triangle.png');
