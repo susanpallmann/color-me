@@ -456,13 +456,39 @@ function runEffect_pulling(target) {
 
 function runEffect_melting(target) {
   var newFilter = partiallyRemoveProperty(target, "filter", "url");
-  browserCompatibleCSS(target, "filter", newFilter + " url('#melting')");
   if (stage == 1) {
-    $("filter#melting feGaussianBlur").attr("stdDeviation", 2);
+    browserCompatibleCSS("#stage_1 .scene", "filter", newFilter + " url('#melting')");
+    var slowMelt = setInterval(function() {
+        var blurStdDeviation = $("filter#melting feGaussianBlur").attr("stdDeviation");
+        if (blurStdDeviation < 5) {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", blurStdDeviation + 0.02);
+        } else {
+            clearInterval(slowMelt);
+        }
+    }, 20);
+    slowMelt;
   } else if (stage == 2) {
-    $("filter#melting feGaussianBlur").attr("stdDeviation", 10);
+    browserCompatibleCSS("#stage_2 .scene", "filter", newFilter + " url('#melting')");
+    var midMelt = setInterval(function() {
+        var blurStdDeviation = $("filter#melting feGaussianBlur").attr("stdDeviation");
+        if (blurStdDeviation < 10) {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", blurStdDeviation + 0.05);
+        } else {
+            clearInterval(midMelt);
+        }
+    }, 20);
+    midMelt;
   } else if (stage == 3) {
-    $("filter#melting feGaussianBlur").attr("stdDeviation", 15);
+    browserCompatibleCSS("#stage_13.scene", "filter", newFilter + " url('#melting')");
+    var fastMelt = setInterval(function() {
+        var blurStdDeviation = $("filter#melting feGaussianBlur").attr("stdDeviation");
+        if (blurStdDeviation < 20) {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", blurStdDeviation + 0.1);
+        } else {
+            clearInterval(fastMelt);
+        }
+    }, 20);
+    fastMelt;
     $(".ui").css("transition", "filter 20s");
     browserCompatibleCSS(".ui", "filter", "url('#melting')");
     browserCompatibleCSS("header", "filter", "");
