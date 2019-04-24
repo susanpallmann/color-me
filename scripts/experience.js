@@ -459,9 +459,9 @@ function runEffect_melting(target) {
   if (stage == 1) {
     browserCompatibleCSS("#stage_1 .scene", "filter", newFilter + " url('#melting')");
     var slowMelt = setInterval(function() {
-        var blurStdDeviation = $("filter#melting feGaussianBlur").attr("stdDeviation");
+        var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
         if (blurStdDeviation < 5) {
-            $("filter#melting feGaussianBlur").attr("stdDeviation", blurStdDeviation + 0.02);
+            $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.02));
         } else {
             clearInterval(slowMelt);
         }
@@ -470,9 +470,9 @@ function runEffect_melting(target) {
   } else if (stage == 2) {
     browserCompatibleCSS("#stage_2 .scene", "filter", newFilter + " url('#melting')");
     var midMelt = setInterval(function() {
-        var blurStdDeviation = $("filter#melting feGaussianBlur").attr("stdDeviation");
+        var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
         if (blurStdDeviation < 10) {
-            $("filter#melting feGaussianBlur").attr("stdDeviation", blurStdDeviation + 0.05);
+            $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.05));
         } else {
             clearInterval(midMelt);
         }
@@ -481,9 +481,9 @@ function runEffect_melting(target) {
   } else if (stage == 3) {
     browserCompatibleCSS("#stage_13.scene", "filter", newFilter + " url('#melting')");
     var fastMelt = setInterval(function() {
-        var blurStdDeviation = $("filter#melting feGaussianBlur").attr("stdDeviation");
+        var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
         if (blurStdDeviation < 20) {
-            $("filter#melting feGaussianBlur").attr("stdDeviation", blurStdDeviation + 0.1);
+            $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.1));
         } else {
             clearInterval(fastMelt);
         }
