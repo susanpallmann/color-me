@@ -147,9 +147,6 @@ input, button, textarea {
   font-family: 'Roboto Slab', sans-serif;
   height: 32px;
   transition: background-color 0.2s;
-  width: 100%;
-  box-sizing: border-box;
-  height: 80px;
 }
 input:focus, button:focus, textarea:focus {
   outline: none;
@@ -196,6 +193,11 @@ input[type="range"]::-webkit-slider-thumb {
   width: 24px;
   border-radius: 50%;
   cursor: pointer;
+}
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  height: 80px;
 }
 button {
   cursor: pointer;
