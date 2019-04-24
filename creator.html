@@ -47,7 +47,7 @@
                 <br>
                 <b>Your Name:</b>
                 <input id='value_creator' required name='creator' type='text' minlength='1' maxlength='20'>
-                <br>
+                <br><br>
                 <b>Description:</b>
                 <textarea required name='description' id='value_description' rows='3' cols='50'></textarea>
                 <br>
@@ -59,15 +59,15 @@
                 <h2>Color</h2>
                 <b>Hue</b>
                 <input class='value_color' required name='hue' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
-                <br>
+                <br><br>
                 <b>Saturation</b>
                 <input class='value_color' required name='sat' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
-                <br>
+                <br><br>
                 <b>Lightness</b>
                 <input class='value_color' required name='lgh' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
                 <br><br>
                 <h2>Effects</h2>
-                <input id='value_pulling' name='pulling' type='checkbox' value='true'> Pulling<br>
+                <input id='value_pulling' name='pulling' type='checkbox' value='true' style='display:none;'> Pulling<br>
                 <input id='value_melting' name='melting' type='checkbox' value='true'> Melting<br>
                 <input id='value_blackHole' name='blackHole' type='checkbox' value='true'> Black Hole<br>
                 <input id='value_fading' name='fading' type='checkbox' value='true'> Fading<br>
@@ -84,7 +84,7 @@
               </div>
             </div>
           </div>
-        <button id="formSubmit">Submit</button>
+        <button id="formSubmit" class="colored-button accentColor">Submit</button>
       </div>
     </main>
   </body>
