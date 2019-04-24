@@ -174,6 +174,32 @@ $(document).ready(function() {
     goToStage(4);
   });
   
+  $(".stage").on("mousemove touchmove", function(e) {
+      e.preventDefault();
+      console.log('test');
+      // calculates the current x and y positions of the mouse/finger
+      if (e.type === "touchmove") {
+          var thisX = e.originalEvent.changedTouches[0].pageX;
+          var thisY = e.originalEvent.changedTouches[0].pageY;
+          var x = $(target).offset().left + (thisX - prevX);
+          var y = $(target).offset().top + (thisY - prevY);
+      } else {
+          var x = $(target).offset().left + (e.pageX - prevX);
+          var y = $(target).offset().top + (e.pageY - prevY);
+      }
+      
+      $(this).children(".draggable").each(function() {
+          var yDistance = y - ($(this).offset().top + $(this).height()/2);
+          var xDistance = x - ($(this).offset().left + $(this).width()/2);
+          if (Math.abs(yDistance) < 100) {
+            console.log(yDistance + ", " + xDistance);
+            var topValue = $(this).offset().top - 1/yDistance;
+            var leftValue = $(this).offset().left - 1/xDistance;
+            $(this).offset({top: y, left: x});
+          }
+      });
+  });
+  
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchstart", function(e) {
@@ -453,7 +479,7 @@ function compileEffects(target) {
 // EFFECTS CODES //
 function runEffect_pulling(target) {
   if (stage == 1) {
-    $(target).css("top", $(target).css("top") + (Math.random()-0.5)*10);
+    $(target).css("transform", $(target).css("top") + (Math.random()-0.5)*10);
     $(target).css("left", $(target).css("left") + (Math.random()-0.5)*10);
   } else if (stage == 2) {
     $(target).css("top", $(target).css("top") + (Math.random()-0.5)*20);
