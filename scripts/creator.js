@@ -58,7 +58,7 @@ $(document).ready(function() {
 		} else {
 			var visibleInGallery = "hidden";
 		}
-		$("body").html("<div class='loading'></div>");
+		$("body").html("<div class='ui' id='pageCover' style='width: 100vw; height: 100vh; position: absolute; top: 0; left: 0;'></div>");
 		var experienceID = newPerspective(formValues, visibleInGallery);
 	});
 	
@@ -85,9 +85,11 @@ function newPerspective(values, visibleInGallery) {
 	perspRef.then(() => {
   		var perspID = perspRef.getKey();
 		if (visibleInGallery === "visible") {
-			$("body").html("<a href='/experience?id=" + perspID + "+'>Play Now</a>");
+			$("#pageCover").html("<div style='margin: auto; top: 40%'><a href='/experience?id=" + perspID + "+'>Play Now</a><p>Share with others: susanpallmann.com/experience?id=" + perspID + "+</p></div>");
+			$("#pageCover::before").css("display", "none");
 		} else {
-			$("body").html("<a href='/experience?id=" + perspID + "'>Play Now</a>");
+			$("#pageCover").html("<div style='margin: auto; top: 40%'><a href='/experience?id=" + perspID + "'>Play Now</a><p>Share with others: susanpallmann.com/experience?id=" + perspID + "</p></div>");
+			$("#pageCover::before").css("display", "none");
 		}
 		return perspID;
 	});
