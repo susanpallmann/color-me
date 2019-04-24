@@ -198,7 +198,7 @@ window.onload = function() {
     var target = this;
     
     // sets function for when a drag occurs
-    $(this).parent().on("mousemove touchmove", function(e) {
+    $(window).on("mousemove touchmove", function(e) {
         console.log("touchmove triggered by draggable's parent");
         // prevents default event functions
         e.preventDefault();
@@ -245,7 +245,7 @@ window.onload = function() {
       
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
-      $(target).parent().off("mousemove touchmove");
+      $(window).off("mousemove touchmove");
       $(window).off("mouseup touchend");
     });
   });
@@ -535,7 +535,7 @@ function runEffect_immobility(target) {
       $(target).css("filter", "");
       $(target).css("transform", "");
       $(target).css("opacity", "");
-      $(target).parent().off("mousemove touchmove");
+      $(window).off("mousemove touchmove");
       $(window).off("mouseup touchup");
     }
   } else if (stage == 3) {
@@ -544,7 +544,7 @@ function runEffect_immobility(target) {
       $(target).css("filter", "");
       $(target).css("transform", "");
       $(target).css("opacity", "");
-      $(target).parent().off("mousemove touchmove");
+      $(window).off("mousemove touchmove");
       $(window).off("mouseup touchup");
     }
   }
