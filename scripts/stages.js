@@ -159,7 +159,7 @@ function goToStage(stageNo) {
   if (currentURL.includes("experience")) {
     window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
   } else {
-    window.history.pushState("object or string", "Stage " + stageNo, currentURL + stageNo);
+    window.history.pushState("object or string", "Stage " + stageNo, currentURL + "?stage=" + stageNo);
   }
   
   // sets all the navigation markers to be inactive
