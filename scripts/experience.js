@@ -562,7 +562,7 @@ function runEffect_immobility(target) {
 }
 
 function runEffect_distortion(target) {
-  var previousSkew = 
+  var previousSkew = 0;
   var newTransform = partiallyRemoveProperty(target, "transform", "skew");
   if (stage == 1) {
     $(target).css(newTransform + " skew(" + (Math.random()*20-10) + "deg, " + (Math.random()*20-10) + "deg)");
