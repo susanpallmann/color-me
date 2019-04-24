@@ -377,8 +377,8 @@ function goToStage(stageNo) {
   $(".draggable").css("filter", "");
   $(".draggable").css("transform", "");
   $(".draggable").css("opacity", "");
-  $("body").css("transition", "0.2s");
-  $("body").css("filter", "");
+  $(".ui").css("transition", "0.2s");
+  $(".ui").css("filter", "");
   intervals.forEach(clearInterval);
 }
 
