@@ -481,8 +481,9 @@ function runEffect_blurring(target) {
     $(target).css("filter", newFilter + " blur(5px)");
   } else if (stage == 3) {
     $(target).css("filter", newFilter + " blur(10px)");
-    $(".ui").css("transition", "filter 10s");
-    $(".ui").css("filter", "blur(20px)");
+    $(".ui").css("transition", "filter 20s");
+    $(".ui").css("filter", "blur(5px)");
+    $("header").css("filter", "");
   }
 }
 
@@ -620,7 +621,7 @@ function getPartialPropertyValue(object, property, cssFunction) {
 function compileEffectsAtRandom(target) {
     setInterval(function() {
         if (Math.random() < 0.02) {
-            
+            compileEffects(target);
         }
     }, 100);
 }
