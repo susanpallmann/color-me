@@ -70,6 +70,48 @@ div.loading {
   filter: brightness(100%);
 }
 
+.shakingSlow {
+  animation: 0.5s shakeSlow linear infinite;
+}
+
+.shakingMid {
+  animation: 0.2s shakeSlow linear infinite;
+}
+
+.shakingFast {
+  animation: 0.1s shakeFast linear infinite;
+}
+
+@keyframes shakeSlow {
+   0% {
+      transform: rotate(0deg);
+   }
+   25% {
+      transform: rotate(30deg);
+   }
+   75% {
+      transform: rotate(-30deg);
+   }
+   100% {
+      transform: rotate(0deg);
+   }
+}
+
+@keyframes shakeFast {
+   0% {
+      transform: rotate(0deg);
+   }
+   25% {
+      transform: rotate(45deg);
+   }
+   75% {
+      transform: rotate(-45deg);
+   }
+   100% {
+      transform: rotate(0deg);
+   }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
