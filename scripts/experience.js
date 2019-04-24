@@ -559,22 +559,15 @@ function runEffect_colorLoss(target) {
 }
 
 function runEffect_colorChange(target) {
-  var hueRotation = getPartialPropertyValue(target, "filter", "hue-rotate");
-  if (hueRotation == "none") {
-      hueRotation = 0;
-  } else {
-      hueRotation = Number(hueRotation.split("deg")[0]);
-      console.log(hueRotation);
-  }
   var newFilter = partiallyRemoveProperty(target, "filter", "hue-rotate");
   $(target).css("filter", newFilter);
   var newFilter = partiallyRemoveProperty(target, "filter", "sepia");
   if (stage == 1) {
     $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*360) + "deg)");
   } else if (stage == 2) {
-    $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*60 + hueRotation) + "deg)");
+    $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*360) + "deg)");
   } else if (stage == 3) {
-    $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*360 + hueRotation) + "deg)");
+    $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*720) + "deg)");
   }
 }
 
