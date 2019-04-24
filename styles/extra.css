@@ -9,40 +9,40 @@ div.still-life-frame {
   background-size: contain;
 }
 .still-life-image#alarm-clock {
-  background-image: url('images/still-life-alarm-clock.png');
+  background-image: url('/images/still-life-alarm-clock.png');
   height: 77px;
   width: 146px;
   top: 362px;
   left: 40%;
 }
 .still-life-image#window {
-  background-image: url('images/still-life-window.png');
+  background-image: url('/images/still-life-window.png');
   height: 280px;
   width: 173px;
   top: 70px;
   left: 20%;
 }
 .still-life-image#picture {
-  background-image: url('images/still-life-picture.png');
+  background-image: url('/images/still-life-picture.png');
   height: 155px;
   width: 116px;
   top: 230px;
 }
 .still-life-image#mug {
-  background-image: url('images/still-life-mug.png');
+  background-image: url('/images/still-life-mug.png');
   height: 103px;
   width: 100px;
   top: 98px;
   left: 5%;
 }
 .still-life-image#triangle {
-  background-image: url('images/still-life-triangle.png');
+  background-image: url('/images/still-life-triangle.png');
   height: 211px;
   width: 200px;
   right: 20%;
 }
 .still-life-image#lamp {
-  background-image: url('images/still-life-lamp.png');
+  background-image: url('/images/still-life-lamp.png');
   height: 252px;
   width: 167px;
   top: 144px;
@@ -53,7 +53,7 @@ div.still-life-frame {
     to {margin-top: 20px;}
 }
 .still-life-image#mug.floating-fast {
-  background-image: url('images/still-life-mug.png');
+  background-image: url('/images/still-life-mug.png');
   height: 103px;
   width: 100px;
   top: 98px;
@@ -64,7 +64,7 @@ div.still-life-frame {
   animation-timing-function: ease-in-out;
 }
 .still-life-image#triangle.floating-slow {
-  background-image: url('images/still-life-triangle.png');
+  background-image: url('/images/still-life-triangle.png');
   height: 211px;
   width: 200px;
   animation: floating;
