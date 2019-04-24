@@ -72,7 +72,7 @@ $(document).ready(function() {
 				$(this).text("load 6");
 				maxThumbs = 6;
 		}
-		if ($("#searchSort").text() == "sorted by color") {
+		if ($("#searchSort").text() == "sorted by name") {
 			beginSearch();
 		} else {
 			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
