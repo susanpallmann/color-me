@@ -181,5 +181,6 @@ function goToStage(stageNo) {
   $(".draggable").css("filter", "");
   $(".draggable").css("transform", "");
   $(".draggable").css("opacity", "");
+  $("body").css("transition", "");
   $("body").css("filter", "");
 }
