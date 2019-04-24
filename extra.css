@@ -13,21 +13,20 @@ div.still-life-frame {
   height: 77px;
   width: 146px;
   top: 362px;
-  left: 151px;
+  left: 40%;
 }
 .still-life-image#window {
   background-image: url('images/still-life-window.png');
   height: 280px;
   width: 173px;
   top: 70px;
-  left: 135px;
+  left: 20%;
 }
 .still-life-image#picture {
   background-image: url('images/still-life-picture.png');
   height: 155px;
   width: 116px;
   top: 230px;
-  left: 9px;
 }
 .still-life-image#mug {
   background-image: url('images/still-life-mug.png');
@@ -40,7 +39,7 @@ div.still-life-frame {
   background-image: url('images/still-life-triangle.png');
   height: 211px;
   width: 200px;
-  left: 210px;
+  right: 20%;
 }
 .still-life-image#lamp {
   background-image: url('images/still-life-lamp.png');
