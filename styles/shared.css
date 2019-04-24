@@ -147,6 +147,7 @@ input, button, textarea {
   font-family: 'Roboto Slab', sans-serif;
   height: 32px;
   transition: background-color 0.2s;
+  margin: 6px 8px;
 }
 input:focus, button:focus, textarea:focus {
   outline: none;
