@@ -395,6 +395,7 @@ function goToStage(stageNo) {
   var newFilter = partiallyRemoveProperty(".ui.nextButton", "filter", "blur");
   console.log(newFilter);
   browserCompatibleCSS(".ui", "filter", newFilter);
+  browserCompatibleCSS("header", "filter", "");
   var fastMelt = setInterval(function() {
       var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
       if (blurStdDeviation > 0) {
