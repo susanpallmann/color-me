@@ -40,112 +40,42 @@
       <div id="experienceCreator">
           <div class="container">
             <div class="row">
-              <div class="column span12">
+              <div class="column span6">
                 <h2>Details</h2>
-              </div>
-              <div class="column span2">
                 <b>Title:</b> Color Me
-              </div>
-              <div class="column span4">
                 <input id='value_title' required name='title' type='text' minlength='1' maxlength='20'>
-              </div>
-              <div class="column span2">
                 <b>Your Name:</b>
-              </div>
-              <div class="column span4">
                 <input id='value_creator' required name='creator' type='text' minlength='1' maxlength='20'>
-              </div>
-            </div>
-            <div class="row">
-              <div class="column span 2">
                 <b>Description:</b>
-              </div>
-              <div class="column span10">
                 <textarea required name='description' id='value_description' rows='3' cols='50'></textarea>
-              </div>
-            </div>
-            <div class="row">
-              <div class="column span2">
                 <b>Back Button Text:</b>
-              </div>
-              <div class="column span4">
                 <input required name='backButton' id='value_backButton' type='text' minlength='1' maxlength='20'>
-              </div>
-              <div class="column span2">
                 <input id='value_visibleInGallery' name='visibleInGallery' type='checkbox' checked value='true'>
-              </div>
-              <div class="column span4">
                 Visible in Gallery?
-              </div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="column span12">
                 <h2>Color</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="column span4">
                 <b>Hue</b>
-              </div>
-              <div class="column span4">
-                <b>Saturation</b>
-              </div>
-              <div class="column span4">
-                <b>Lightness</b>
-              </div>
-            </div>
-            <div class="row">
-              <div class="column span4">
                 <input class='value_color' required name='hue' id='value_colorHue' type='range' min='0' max='360' value='0'></input>
-              </div>
-              <div class="column span4">
+                <b>Saturation</b>
                 <input class='value_color' required name='sat' id='value_colorSat' type='range' min='0' max='100' value='100'></input>
-              </div>
-              <div class="column span4">
+                <b>Lightness</b>
                 <input class='value_color' required name='lgh' id='value_colorLgh' type='range' min='0' max='100' value='50'></input>
+                <h2>Effects</h2>
+                <input id='value_pulling' name='pulling' type='checkbox' value='true'> Pulling
+                <input id='value_melting' name='melting' type='checkbox' value='true'> Melting
+                <input id='value_blackHole' name='blackHole' type='checkbox' value='true'> Black Hole
+                <input id='value_fading' name='fading' type='checkbox' value='true'> Fading
+                <input id='value_blurring' name='blurring' type='checkbox' value='true'> Blurring
+                <input id='value_colorLoss' type='radio' name='colorEffect' value='true'> Lose Color
+                <input id='value_colorChange' type='radio' name='colorEffect' value='true'> Change Color
+                <input id='value_colorNoEffect' type='radio' name='colorEffect' checked value='true'> No Color Effect
+                <input id='value_popups' name='popups' type='checkbox' value='true'> Pop-ups
+                <input id='value_shaking' name='shaking' type='checkbox' value='true'> Shaking
+                <input id='value_outOfReach' name='outOfReach' type='checkbox' value='true'> Moving out of Reach
+                <input id='value_immobility' name='immobility' type='checkbox' value='true'> Immobility
+                <input id='value_distortion' name='distortion' type='checkbox' value='true'> Distortion
+                <input id='value_rituals' name='rituals' type='checkbox' value='true'> Rituals
               </div>
             </div>
-          </div>
-          <h2>Effects</h2>
-          <div>
-            <input id='value_pulling' name='pulling' type='checkbox' value='true'> Pulling
-          </div>
-          <div>
-            <input id='value_melting' name='melting' type='checkbox' value='true'> Melting
-          </div>
-          <div>
-            <input id='value_blackHole' name='blackHole' type='checkbox' value='true'> Black Hole
-          </div>
-          <div>
-            <input id='value_fading' name='fading' type='checkbox' value='true'> Fading
-          </div>
-          <div>
-            <input id='value_blurring' name='blurring' type='checkbox' value='true'> Blurring
-          </div>
-          <div>
-            <input id='value_colorLoss' type='radio' name='colorEffect' value='true'> Lose Color
-            <input id='value_colorChange' type='radio' name='colorEffect' value='true'> Change Color
-            <input id='value_colorNoEffect' type='radio' name='colorEffect' checked value='true'> No Color Effect
-          </div>
-          <div>
-            <input id='value_popups' name='popups' type='checkbox' value='true'> Pop-ups
-          </div>
-          <div>
-            <input id='value_shaking' name='shaking' type='checkbox' value='true'> Shaking
-          </div>
-          <div>
-             <input id='value_outOfReach' name='outOfReach' type='checkbox' value='true'> Moving out of Reach
-          </div>
-          <div>
-            <input id='value_immobility' name='immobility' type='checkbox' value='true'> Immobility
-          </div>
-          <div>
-            <input id='value_distortion' name='distortion' type='checkbox' value='true'> Distortion
-          </div>
-          <div>
-            <input id='value_rituals' name='rituals' type='checkbox' value='true'> Rituals
           </div>
         <button id="formSubmit">Submit</button>
       </div>
