@@ -82,8 +82,8 @@ div.still-life-frame {
   background-image: url('/images/still-life-block.png');
   width: 120px;
   height: 105px;
-  top: 362px;
-left: 40%;
+  top: 302px;
+  left: 40%;
 }
 .still-life-image#cube {
   background-image: url('/images/still-life-cube.png');
@@ -95,6 +95,8 @@ left: 40%;
   background-image: url('/images/still-life-bottle.png');
   width: 73px;
   height: 160px;
+  top: 238px;
+  left: 40%;
 }
 .still-life-image#glass {
   background-image: url('/images/still-life-glass.png');
@@ -144,7 +146,8 @@ left: 40%;
   background-image: url('/images/still-life-bottle.png');
   width: 73px;
   height: 160px;
-  top: 98px;
+  top: 238px;
+  left: 40%;
   animation: floating;
   animation-duration: 2s;
   animation-direction: alternate;
