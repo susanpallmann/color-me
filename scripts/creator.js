@@ -89,6 +89,7 @@ function newPerspective(values, visibleInGallery) {
 		} else {
 			$("#pageCover").html("<div style='margin: auto; top: 40%; width: fit-content; position: relative; text-align: center;'><a href='/experience?id=" + perspID + "'>Play Now</a><p>Share with others:</p><p>susanpallmann.com/experience?id=" + perspID + "</p></div>");
 		}
+		$("#pageCover").attr("id", "");
 		return perspID;
 	});
 }
