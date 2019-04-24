@@ -192,7 +192,6 @@ function setBackgroundColor(hue, sat, lgh) {
 		$("body").css("color", "black");
 		$("#container-hamburger span").css("background-color", "black");
 		$(".navMarker").css("background-color", "black");
-		$("input, button, textarea, .ui").css("filter", "brightness(0%)");
-		
+		$("input, button, textarea").css("filter", "brightness(0%)");
 	};
 }
