@@ -404,6 +404,9 @@ function goToStage(stageNo) {
   }, 20);
   fastMelt;
   intervals.forEach(clearInterval);
+  $(".shakingSlow").removeClass("shakingSlow");
+  $(".shakingMid").removeClass("shakingMid");
+  $(".shakingFast").removeClass("shakingFast");
 }
 
 
