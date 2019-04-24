@@ -628,3 +628,5 @@ div.accentColor.circles {
 .circles-description {
    text-align: center;
 }
+.stage.gallery input, .stage.gallery button, .stage.gallery textarea {
+   margin: 0px;
