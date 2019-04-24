@@ -382,7 +382,8 @@ function goToStage(stageNo) {
   browserCompatibleCSS(".draggable", "transform", "");
   $(".draggable").css("opacity", "");
   $(".ui").css("transition", "0.2s");
-  browserCompatibleCSS(".ui", "filter", "");
+  var newFilter = partiallyRemoveProperty(".ui", "filter", "blur");
+  browserCompatibleCSS(".ui", "filter", newFilter);
   var fastMelt = setInterval(function() {
       var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
       if (blurStdDeviation > 0) {
