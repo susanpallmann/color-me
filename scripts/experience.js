@@ -480,6 +480,7 @@ function runEffect_blurring(target) {
   } else {
       currentBlurValue = Number(currentBlurValue.split("px")[0]);
   }
+  console.log(currentBlurValue);
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
     browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 1 + "px)");
