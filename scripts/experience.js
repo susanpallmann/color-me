@@ -389,7 +389,6 @@ function goToStage(stageNo) {
       }
   }, 20);
   fastMelt;
-  $("filter#melting feGaussianBlur").attr("stdDeviation", "0")
   intervals.forEach(clearInterval);
 }
 
