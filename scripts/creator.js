@@ -58,7 +58,7 @@ $(document).ready(function() {
 		} else {
 			var visibleInGallery = "hidden";
 		}
-		$("body").html("<div class='ui' id='pageCover' style='width: 100vw; height: 100vh; position: absolute; top: 0; left: 0;'></div>");
+		$("body").html("<div class='ui' id='pageCover' style='width: 100vw; height: 100vh; background-color: transparent; position: absolute; top: 0; left: 0;'></div>");
 		var experienceID = newPerspective(formValues, visibleInGallery);
 	});
 	
@@ -86,10 +86,8 @@ function newPerspective(values, visibleInGallery) {
   		var perspID = perspRef.getKey();
 		if (visibleInGallery === "visible") {
 			$("#pageCover").html("<div style='margin: auto; top: 40%'><a href='/experience?id=" + perspID + "+'>Play Now</a><p>Share with others: susanpallmann.com/experience?id=" + perspID + "+</p></div>");
-			$("#pageCover::before").css("display", "none");
 		} else {
 			$("#pageCover").html("<div style='margin: auto; top: 40%'><a href='/experience?id=" + perspID + "'>Play Now</a><p>Share with others: susanpallmann.com/experience?id=" + perspID + "</p></div>");
-			$("#pageCover::before").css("display", "none");
 		}
 		return perspID;
 	});
