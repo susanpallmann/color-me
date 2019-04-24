@@ -455,6 +455,18 @@ function runEffect_pulling(target) {
 }
 
 function runEffect_melting(target) {
+  var newFilter = partiallyRemoveProperty(target, "filter", "url");
+  browserCompatibleCSS(target, "filter", newFilter + " url('#melting')");
+  if (stage == 1) {
+    $("filter#melting feGaussianBlur").attr("stdDeviation", 2);
+  } else if (stage == 2) {
+    $("filter#melting feGaussianBlur").attr("stdDeviation", 10);
+  } else if (stage == 3) {
+    $("filter#melting feGaussianBlur").attr("stdDeviation", 15);
+    $(".ui").css("transition", "filter 20s");
+    browserCompatibleCSS(".ui", "filter", "url('#melting')");
+    browserCompatibleCSS("header", "filter", "");
+  }
 }
 
 function runEffect_blackHole(target) {
