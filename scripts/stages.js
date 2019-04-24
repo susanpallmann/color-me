@@ -9,6 +9,8 @@ var noOfStages;
 $(document).ready(function() {
   
   noOfStages = $("div.stage").length;
+  determineStage();
+  goToStage(stage);
   
   $("#stage_0 .nextButton").click(function() {
     goToStage(1);
