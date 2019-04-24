@@ -242,6 +242,7 @@ window.onload = function() {
       $(target).css("filter", "");
       $(target).css("transform", "");
       $(target).css("opacity", "");
+      $("body").css("filter", "");
       
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
