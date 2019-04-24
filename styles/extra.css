@@ -82,11 +82,13 @@ div.still-life-frame {
   background-image: url('/images/still-life-block.png');
   width: 120px;
   height: 105px;
+  top: 230px;
 }
 .still-life-image#cube {
   background-image: url('/images/still-life-cube.png');
   width: 163px;
   height: 170px;
+  right: 20%;
 }
 .still-life-image#bottle {
   background-image: url('/images/still-life-bottle.png');
@@ -102,11 +104,13 @@ div.still-life-frame {
   background-image: url('/images/still-life-tv.png');
   width: 203px;
   height: 239px;
+  right: 0%;
 }
 .still-life-image#sp {
   background-image: url('/images/still-life-sp.png');
   width: 157px;
   height: 189px;
+  right: 20%;
 }
 .still-life-image#phone {
   background-image: url('/images/still-life-phone.png');
