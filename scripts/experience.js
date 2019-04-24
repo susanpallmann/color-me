@@ -476,14 +476,14 @@ function runEffect_fading(target) {
 function runEffect_blurring(target) {
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
-    $(target).css("filter", newFilter + " blur(2px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(2px)");
   } else if (stage == 2) {
-    $(target).css("filter", newFilter + " blur(5px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(5px)");
   } else if (stage == 3) {
-    $(target).css("filter", newFilter + " blur(10px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(10px)");
     $(".ui").css("transition", "filter 20s");
-    $(".ui").css("filter", "blur(5px)");
-    $("header").css("filter", "");
+    browserCompatibleCSS(".ui", "filter", "blur(5px)");
+    browserCompatibleCSS("header", "filter", "");
   }
 }
 
@@ -624,4 +624,12 @@ function compileEffectsAtRandom(target) {
             compileEffects(target);
         }
     }, 100);
+}
+
+function browserCompatibleCSS(object, property, value) {
+    $(object).css(property, value);
+    $(object).css("-webkit-" + property, value);
+    $(object).css("-moz-" + property, value);
+    $(object).css("-ms-" + property, value);
+    $(object).css("-o-" + property, value);
 }
