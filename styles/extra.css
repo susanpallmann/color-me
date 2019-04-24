@@ -49,8 +49,8 @@ div.still-life-frame {
   right: 0%;
 }
 @keyframes floating {
-    from {padding-top: 0px;}
-    to {padding-top: 20px;}
+    from {margin-top: 0px;}
+    to {margin-top: 20px;}
 }
 .still-life-image#mug.floating-fast {
   background-image: url('images/still-life-mug.png');
