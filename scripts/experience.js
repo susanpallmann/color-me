@@ -472,6 +472,8 @@ function runEffect_blurring(target) {
     $(target).css("filter", newFilter + " blur(5px)");
   } else if (stage == 3) {
     $(target).css("filter", newFilter + " blur(10px)");
+    $(".ui").css("transition", "filter 10s");
+    $(".ui").css("filter", "blur(20px)");
   }
 }
 
@@ -560,6 +562,7 @@ function runEffect_immobility(target) {
 }
 
 function runEffect_distortion(target) {
+  var previousSkew = 
   var newTransform = partiallyRemoveProperty(target, "transform", "skew");
   if (stage == 1) {
     $(target).css(newTransform + " skew(" + (Math.random()*20-10) + "deg, " + (Math.random()*20-10) + "deg)");
