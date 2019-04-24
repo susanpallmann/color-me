@@ -452,16 +452,6 @@ function compileEffects(target) {
 
 // EFFECTS CODES //
 function runEffect_pulling(target) {
-  if (stage == 1) {
-    $(target).css("transform", $(target).css("top") + (Math.random()-0.5)*10);
-    $(target).css("left", $(target).css("left") + (Math.random()-0.5)*10);
-  } else if (stage == 2) {
-    $(target).css("top", $(target).css("top") + (Math.random()-0.5)*20);
-    $(target).css("left", $(target).css("left") + (Math.random()-0.5)*20);
-  } else if (stage == 3) {
-    $(target).css("top", $(target).css("top") + (Math.random()-0.5)*50);
-    $(target).css("left", $(target).css("left") + (Math.random()-0.5)*50);
-  }
 }
 
 function runEffect_melting(target) {
@@ -566,12 +556,14 @@ function runEffect_colorLoss(target) {
 
 function runEffect_colorChange(target) {
   var newFilter = partiallyRemoveProperty(target, "filter", "hue-rotate");
+  $(target).css("filter", newFilter");
+  var newFilter = partiallyRemoveProperty(target, "filter", "sepia");
   if (stage == 1) {
-    $(target).css("filter", newFilter + " hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
+    $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + (Math.random()-0.5)/2 + "turn)");
   } else if (stage == 2) {
-    $(target).css("filter", newFilter + " hue-rotate(" + (Math.random()-0.5) + "turn)");
+    $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + (Math.random()-0.5) + "turn)");
   } else if (stage == 3) {
-    $(target).css("filter", newFilter + " hue-rotate(" + (Math.random()-0.5)*2 + "turn)");
+    $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + (Math.random()-0.5)*2 + "turn)");
   }
 }
 
