@@ -355,7 +355,7 @@ $(document).ready(function() {
   
   // HOW TO MAKE SCROLL EVENT WORK ON MOBILE??
   
-};
+});
 
 // navigates to the given stage
 // takes stage number as input (from 0-4)
@@ -382,7 +382,7 @@ function goToStage(stageNo) {
     }
   }
   $(".stage").css("transition", "0.5s ease-in-out");
-});
+}
 
 
 
@@ -433,6 +433,9 @@ function compileEffects(target) {
     }
     if (effect_rituals) {
         runEffect_rituals(target);
+    }
+    if (stage == 2) {
+        compileEffectsAtRandom(target);
     }
 }
 
@@ -612,4 +615,12 @@ function getPartialPropertyValue(object, property, cssFunction) {
     } else {
         return "none";
     }
+}
+
+function compileEffectsAtRandom(target) {
+    target.setInterval(function() {
+        if (Math.random() < 0.02) {
+            
+        }
+    }, 100);
 }
