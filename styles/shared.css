@@ -625,3 +625,7 @@ div.accentColor.circles {
 .circles-description {
    text-align: center;
 }
+@media only screen and (min-width: 601px) {
+h2 {
+  margin-top: 120px;
+}
