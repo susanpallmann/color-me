@@ -6,6 +6,8 @@ var prevX;
 var prevY;
 
 $(document).ready(function() {
+  var noOfStages = $("div.stage").length;
+  
   $("#stage_0 .nextButton").click(function() {
     goToStage(1);
   });
@@ -48,8 +50,8 @@ $(document).ready(function() {
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
     else if (scrollAmt < -50 && stage < 4 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
-      if ((stage + iterations) > 4) {
-        goToStage(4);
+      if ((stage + iterations) > noOfStages - 1) {
+        goToStage(noOfStages - 1);
       } else {
         goToStage(stage + iterations);
       }
@@ -93,8 +95,8 @@ $(document).ready(function() {
         if (!dragging && Math.abs(x) < Math.abs(y) && Date.now() > lastScrollTime + 500) {
             if (y < 50) {
                 var targetStage = stage + 1;
-                if (targetStage > 4) {
-                    targetStage = 4;
+                if (targetStage > noOfStages - 1) {
+                    targetStage = noOfStages - 1;
                 }
                 goToStage(targetStage);
             } else if (y > 50) {
@@ -129,7 +131,7 @@ function determineStage() {
     // ensures the stage is a valid integer from 0-4
     // otherwise sets to 0 by default
     stage = Math.round(Number(stage));
-    if (stage < 0 || stage > 4 || isNaN(stage)) {
+    if (stage < 0 || stage > noOfStages - 1 || isNaN(stage)) {
         stage = 0;
     }
   
@@ -157,7 +159,7 @@ function goToStage(stageNo) {
   // loops through all the stage numbers
   // moves each stage above or below the view port based on its 
   var i;
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < noOfStages; i++) {
     if (i == stageNo) {
       $("#stage_" + i).css("top", 0);
     } else {
