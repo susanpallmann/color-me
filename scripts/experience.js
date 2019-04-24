@@ -483,11 +483,11 @@ function runEffect_blurring(target) {
   console.log(currentBlurValue);
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
-    browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 1 + "px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 1) + "px)");
   } else if (stage == 2) {
-    browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 1 + "px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 1) + "px)");
   } else if (stage == 3) {
-    browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 5 + "px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 5) + "px)");
     $(".ui").css("transition", "filter 20s");
     browserCompatibleCSS(".ui", "filter", "blur(5px)");
     browserCompatibleCSS("header", "filter", "");
