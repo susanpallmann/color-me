@@ -575,9 +575,11 @@ function runEffect_colorLoss(target) {
 }
 
 function runEffect_colorChange(target) {
-  var newFilter = partiallyRemoveProperty(target, "filter", "hue-rotate");
-  $(target).css("filter", newFilter);
-  var newFilter = partiallyRemoveProperty(target, "filter", "sepia");
+  var newFilter = $(target).css("filter");
+  if (newFilter.includes("sepia") && newFilter.includes("hue-rotate")) {
+    newFilter = newFilter.split("sepia")[0] + newFilter.split("sepia")[1].split(")")[1];
+    newFilter = newFilter.split("hue-rotate")[0] + newFilter.split("hue-rotate")[1].split(")")[1];
+  }
   if (stage == 1) {
     $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*360) + "deg)");
   } else if (stage == 2) {
@@ -644,17 +646,14 @@ function runEffect_rituals(target) {
 function partiallyRemoveProperty(object, property, cssFunction) {
     var propertyValue = $(object).css(property);
     var newValue = "";
-    console.log(propertyValue);
     if (propertyValue != "none" && propertyValue.includes(cssFunction)) {
         var splitValue = propertyValue.split(cssFunction);
         var firstPart = splitValue[0];
         var secondPart =splitValue[1].split(")")[1];
         newValue = firstPart + secondPart;
     } else if (propertyValue != "none") {
-        console.log("here");
         return propertyValue;
     }
-    console.log("oh no...");
     return newValue;
 }
 
