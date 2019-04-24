@@ -1,4 +1,4 @@
-var maxThumbs = 20;
+var maxThumbs = 12;
 var queryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 var galleryHTML = "";
 var galleryItemSize = 170;
@@ -46,29 +46,29 @@ $(document).ready(function() {
 	});
 	$("#searchCount").click(function() {
 		switch(maxThumbs) {
-			case 5:
-				$(this).text("load 10");
-				maxThumbs = 10;
+			case 6:
+				$(this).text("load 12");
+				maxThumbs = 12;
 				break;
-			case 10:
-				$(this).text("load 15");
-				maxThumbs = 15;
+			case 12:
+				$(this).text("load 18");
+				maxThumbs = 18;
 				break;
-			case 15:
-				$(this).text("load 20");
-				maxThumbs = 20;
+			case 18:
+				$(this).text("load 24");
+				maxThumbs = 24;
 				break;
-			case 20:
+			case 24:
 				$(this).text("load 30");
 				maxThumbs = 30;
 				break;
 			case 30:
-				$(this).text("load 50");
-				maxThumbs = 50;
+				$(this).text("load 36");
+				maxThumbs = 36;
 				break;
 			default:
-				$(this).text("load 5");
-				maxThumbs = 5;
+				$(this).text("load 6");
+				maxThumbs = 6;
 		}
 		console.log(maxThumbs);
 	});
