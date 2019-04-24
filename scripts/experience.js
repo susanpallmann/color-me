@@ -239,10 +239,12 @@ window.onload = function() {
     $(window).on("mouseup touchend", function(e) {
       console.log("touchend triggered by window following touch of draggable");
       // sets css properties to none
-      $(target).css("filter", "");
-      $(target).css("transform", "");
-      $(target).css("opacity", "");
-      $("body").css("filter", "");
+      if (stage != 3) {
+        $(target).css("filter", "");
+        $(target).css("transform", "");
+        $(target).css("opacity", "");
+        $("body").css("filter", "");
+      }
       
       // detaches the drag functions from this element
       // if these lines are not used, the next touch will be treated as a continuation of the previous drag
