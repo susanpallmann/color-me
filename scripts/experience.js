@@ -460,12 +460,12 @@ function runEffect_melting(target) {
     browserCompatibleCSS("#stage_1 .scene", "filter", newFilter + " url('#melting')");
     var slowMelt = setInterval(function() {
         var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
-        if (blurStdDeviation < 5) {
+        if (blurStdDeviation < 8) {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.02));
-        } else if (blurStdDeviation > 5.02)  {
+        } else if (blurStdDeviation > 8.02)  {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation - 0.02));
         } else {
-            $("filter#melting feGaussianBlur").attr("stdDeviation", 5);
+            $("filter#melting feGaussianBlur").attr("stdDeviation", 8);
             clearInterval(slowMelt);
         }
     }, 20);
@@ -474,26 +474,26 @@ function runEffect_melting(target) {
     browserCompatibleCSS("#stage_2 .scene", "filter", newFilter + " url('#melting')");
     var midMelt = setInterval(function() {
         var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
-        if (blurStdDeviation < 10) {
+        if (blurStdDeviation < 15) {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.05));
-        } else if (blurStdDeviation > 10.05)  {
+        } else if (blurStdDeviation > 15.05)  {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation - 0.05));
         } else {
-            $("filter#melting feGaussianBlur").attr("stdDeviation", 10);
+            $("filter#melting feGaussianBlur").attr("stdDeviation", 15);
             clearInterval(midMelt);
         }
     }, 20);
     midMelt;
   } else if (stage == 3) {
-    browserCompatibleCSS("#stage_3.scene", "filter", newFilter + " url('#melting')");
+    browserCompatibleCSS("#stage_3 .scene", "filter", newFilter + " url('#melting')");
     var fastMelt = setInterval(function() {
         var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
-        if (blurStdDeviation < 20) {
+        if (blurStdDeviation < 40) {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.1));
-        } else if (blurStdDeviation > 20.1)  {
+        } else if (blurStdDeviation > 40.1)  {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation - 0.1));
         } else {
-            $("filter#melting feGaussianBlur").attr("stdDeviation", 20);
+            $("filter#melting feGaussianBlur").attr("stdDeviation", 40);
             clearInterval(fastMelt);
         }
     }, 20);
