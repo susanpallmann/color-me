@@ -34,7 +34,7 @@ div.still-life-frame {
   height: 103px;
   width: 100px;
   top: 98px;
-  left: 29px;
+  left: 5%px;
 }
 .still-life-image#triangle {
   background-image: url('images/still-life-triangle.png');
@@ -62,7 +62,6 @@ div.still-life-frame {
   height: 103px;
   width: 100px;
   top: 98px;
-  left: 29px;
   animation: mug-floating-fast;
   animation-duration: 2s;
   animation-direction: alternate;
@@ -73,7 +72,6 @@ div.still-life-frame {
   background-image: url('images/still-life-triangle.png');
   height: 211px;
   width: 200px;
-  left: 210px;
   animation: triangle-floating-slow;
   animation-duration: 3s;
   animation-direction: alternate;
