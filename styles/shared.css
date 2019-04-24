@@ -586,3 +586,11 @@ span.hamburger-container {
 #stage_2.gallery {
   overflow-y: scroll;
 }
+div.gallery#stage_2::-webkit-scrollbar {
+  width: 0!important;
+}
+
+div.gallery#stage_2 {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
