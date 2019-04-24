@@ -618,7 +618,7 @@ function getPartialPropertyValue(object, property, cssFunction) {
 }
 
 function compileEffectsAtRandom(target) {
-    target.setInterval(function() {
+    setInterval(function() {
         if (Math.random() < 0.02) {
             
         }
