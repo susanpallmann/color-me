@@ -147,7 +147,7 @@ function loadPerspective(perspID) {
 
 // all functions to trigger after the page is loaded
 // this is not after the experience has loaded but once all HTML elements have rendered behind the page cover
-window.onload = function() {
+$(document).ready(function() {
     
   var randomNum = Math.random();
   var randHue = Math.round(randomNum * 360);
@@ -382,7 +382,7 @@ function goToStage(stageNo) {
     }
   }
   $(".stage").css("transition", "0.5s ease-in-out");
-}
+});
 
 
 
