@@ -462,7 +462,10 @@ function runEffect_melting(target) {
         var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
         if (blurStdDeviation < 5) {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.02));
+        } else if (blurStdDeviation > 5.02)  {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation - 0.02));
         } else {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", 5);
             clearInterval(slowMelt);
         }
     }, 20);
@@ -473,18 +476,24 @@ function runEffect_melting(target) {
         var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
         if (blurStdDeviation < 10) {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.05));
+        } else if (blurStdDeviation > 10.05)  {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation - 0.05));
         } else {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", 10);
             clearInterval(midMelt);
         }
     }, 20);
     midMelt;
   } else if (stage == 3) {
-    browserCompatibleCSS("#stage_13.scene", "filter", newFilter + " url('#melting')");
+    browserCompatibleCSS("#stage_3.scene", "filter", newFilter + " url('#melting')");
     var fastMelt = setInterval(function() {
         var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
         if (blurStdDeviation < 20) {
             $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation + 0.1));
+        } else if (blurStdDeviation > 20.1)  {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation - 0.1));
         } else {
+            $("filter#melting feGaussianBlur").attr("stdDeviation", 20);
             clearInterval(fastMelt);
         }
     }, 20);
