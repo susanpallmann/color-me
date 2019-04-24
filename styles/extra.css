@@ -135,8 +135,8 @@ div.still-life-frame {
 }
 .still-life-image#bottle.floating-fast {
   background-image: url('/images/still-life-bottle.png');
-  height: 103px;
-  width: 100px;
+  width: 73px;
+  height: 160px;
   top: 98px;
   animation: floating;
   animation-duration: 2s;
@@ -146,8 +146,8 @@ div.still-life-frame {
 }
 .still-life-image#book.floating-fast {
   background-image: url('/images/still-life-book.png');
-  width: 73px;
-  height: 160px;
+  height: 103px;
+  width: 100px;
   top: 98px;
   animation: floating;
   animation-duration: 2s;
