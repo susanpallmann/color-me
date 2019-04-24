@@ -374,11 +374,11 @@ function goToStage(stageNo) {
     }
   }
   $(".stage").css("transition", "0.5s ease-in-out");
-  $(".draggable").css("filter", "");
-  $(".draggable").css("transform", "");
+  browserCompatibleCSS(".draggable", "filter", "");
+  browserCompatibleCSS(".draggable", "transform", "");
   $(".draggable").css("opacity", "");
   $(".ui").css("transition", "0.2s");
-  $(".ui").css("filter", "");
+  browserCompatibleCSS(".ui", "filter", "");
   intervals.forEach(clearInterval);
 }
 
