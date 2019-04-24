@@ -579,7 +579,7 @@ function runEffect_colorChange(target) {
   if (newFilter.includes("sepia") && newFilter.includes("hue-rotate")) {
     newFilter = newFilter.split("sepia")[0] + newFilter.split("sepia")[1].split(")")[1];
     newFilter = newFilter.split("hue-rotate")[0] + newFilter.split("hue-rotate")[1].split(")")[1];
-  } else if (newFilter == "none") {
+  } else if (typeof newFilter === "undefined" || newFilter == "none") {
     newFilter = "";
   }
   console.log(newFilter);
