@@ -174,31 +174,6 @@ $(document).ready(function() {
     goToStage(4);
   });
   
-  $(".stage").on("mousemove touchmove", function(e) {
-      e.preventDefault();
-      console.log('test');
-      // calculates the current x and y positions of the mouse/finger
-      if (e.type === "touchstart") {
-        var x = e.originalEvent.touches[0].pageX;
-        var y = e.originalEvent.touches[0].pageY;
-      } else {
-        // calculates the mouse/touch x and y positions
-        var x = e.pageX;
-        var y = e.pageY;
-      }
-      
-      $(this).children(".draggable").each(function() {
-          var yDistance = y - ($(this).offset().top + $(this).height()/2);
-          var xDistance = x - ($(this).offset().left + $(this).width()/2);
-          if (Math.abs(yDistance) < 100) {
-            console.log(yDistance + ", " + xDistance);
-            var topValue = $(this).offset().top - 1/yDistance;
-            var leftValue = $(this).offset().left - 1/xDistance;
-            $(this).offset({top: y, left: x});
-          }
-      });
-  });
-  
   // sets function for when a draggable element is first touched
   // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchstart", function(e) {
