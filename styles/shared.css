@@ -605,6 +605,7 @@ div.accentColor.circles {
   border-radius: 50%;
   width: 150px;
   height: 150px;
+  margin: auto;
 }
 .front-img {
    position: relative;
