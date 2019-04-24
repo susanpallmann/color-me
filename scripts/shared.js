@@ -187,11 +187,11 @@ function setBackgroundColor(hue, sat, lgh) {
 		$("body").css("color", "white");
 		$("#container-hamburger span").css("background-color", "white");
 		$(".navMarker").css("background-color", "white");
-		$("input, button, textarea, .ui").css("filter", "");
+		$("input, button, textarea, .nextButton").css("filter", "");
 	} else {
 		$("body").css("color", "black");
 		$("#container-hamburger span").css("background-color", "black");
 		$(".navMarker").css("background-color", "black");
-		$("input, button, textarea").css("filter", "brightness(0%)");
+		$("input, button, textarea, .nextButton").css("filter", "brightness(0%)");
 	};
 }
