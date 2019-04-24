@@ -72,7 +72,13 @@ $(document).ready(function() {
 				$(this).text("load 6");
 				maxThumbs = 6;
 		}
-		beginSearch();
+		if ($("#searchSort").text() == "sorted by color") {
+			beginSearch();
+		} else {
+			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
+			galleryHTML = "";
+			loadGallery(newQueryRef);
+		}
 	});
 	
 	
