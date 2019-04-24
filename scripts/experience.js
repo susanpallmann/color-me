@@ -389,6 +389,7 @@ function goToStage(stageNo) {
   browserCompatibleCSS(".draggable", "transform", "");
   $(".draggable").css("opacity", "");
   $(".ui").css("transition", "0.2s");
+  $("body").css("filter", "");
   var newFilter = partiallyRemoveProperty(".ui", "filter", "blur");
   browserCompatibleCSS(".ui", "filter", newFilter);
   var fastMelt = setInterval(function() {
@@ -551,7 +552,7 @@ function runEffect_blurring(target) {
 }
 
 function runEffect_colorLoss(target) {
-  var newFilter = partiallyRemoveProperty("body", "filter", "grayscale");
+  var newFilter = partiallyRemoveProperty("body", "filter", "saturate");
   $("body").css("transition", "filter 2s");
   var currentOpacity = $(target).css("opacity");
   if (stage == 1) {
