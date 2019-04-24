@@ -42,7 +42,8 @@ div.scene {
   user-select: none;
 }
 .ui {
-  z-index: 5; 
+  z-index: 2;
+  position: relative;
 }
 .navMarker {
   background-color: white;
