@@ -586,12 +586,9 @@ span.hamburger-container {
   }
 #stage_2.gallery {
   overflow-y: scroll;
-}
-  scrollbar-width: none;
+   scrollbar-width: none;
   -ms-overflow-style: none; 
 }
 div.gallery#stage_2::-webkit-scrollbar {
   width: 0!important;
 }
-div.gallery#stage_2::scrollbar {
-  width: 0!important;
