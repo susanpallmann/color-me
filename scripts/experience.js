@@ -178,14 +178,13 @@ $(document).ready(function() {
       e.preventDefault();
       console.log('test');
       // calculates the current x and y positions of the mouse/finger
-      if (e.type === "touchmove") {
-          var thisX = e.originalEvent.changedTouches[0].pageX;
-          var thisY = e.originalEvent.changedTouches[0].pageY;
-          var x = $(target).offset().left + (thisX - prevX);
-          var y = $(target).offset().top + (thisY - prevY);
+      if (e.type === "touchstart") {
+        var x = e.originalEvent.touches[0].pageX;
+        var y = e.originalEvent.touches[0].pageY;
       } else {
-          var x = $(target).offset().left + (e.pageX - prevX);
-          var y = $(target).offset().top + (e.pageY - prevY);
+        // calculates the mouse/touch x and y positions
+        var x = e.pageX;
+        var y = e.pageY;
       }
       
       $(this).children(".draggable").each(function() {
