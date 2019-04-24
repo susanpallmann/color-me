@@ -677,3 +677,11 @@ span.color-button {
    border-radius: 16px;
    padding: 5px 15px;
 }
+@media only screen and (min-width: 601px) {
+  .home-first {
+     margin-top: 100px;
+  }
+   .home-first h2 {
+      margin-top: 100px;
+   }
+}
