@@ -149,6 +149,12 @@ function loadPerspective(perspID) {
 // this is not after the experience has loaded but once all HTML elements have rendered behind the page cover
 window.onload = function() {
     
+  var randomNum = Math.random();
+  var randHue = Math.round(randomNum * 360);
+  var randSat = Math.round(Math.random()*80 + 10);
+  var randLgh = Math.round(Math.random()*60 + 20);
+  setBackgroundColor(randHue, randSat, randLgh);
+    
   // sets up the page by working out the experience to load, loading it and navigating to the required stage
   determinePerspective();
   
