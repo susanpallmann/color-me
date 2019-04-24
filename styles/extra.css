@@ -82,7 +82,8 @@ div.still-life-frame {
   background-image: url('/images/still-life-block.png');
   width: 120px;
   height: 105px;
-  top: 230px;
+  top: 362px;
+left: 40%;
 }
 .still-life-image#cube {
   background-image: url('/images/still-life-cube.png');
