@@ -583,3 +583,6 @@ span.hamburger-container {
       transform: translate(0, -6px) rotate(-45deg);
     }
   }
+#stage2.gallery {
+  overflow-y: scroll;
+}
