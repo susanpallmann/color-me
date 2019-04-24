@@ -6,6 +6,7 @@ var dragging = false;   // whether or not a draggable item is being dragged
 var prevX;
 var prevY;
 var intervals = [];
+var shakeTimer;
 
 // keep the values of the experience, taken from the database
 var title;
@@ -248,6 +249,12 @@ $(document).ready(function() {
         $(target).css("transform", "");
         $(target).css("opacity", "");
         $("body").css("filter", "");
+      }
+        
+      if (effect_shaking && stage == 1) {
+          $(target).removeClass("shakingSlow");
+      } else if (effect_shaking && stage == 2) {
+          $(target).removeClass("shakingMid");
       }
       
       // detaches the drag functions from this element
@@ -600,6 +607,13 @@ function runEffect_popups(target) {
 }
 
 function runEffect_shaking(target) {
+    if (stage == 1) {
+        $(target).addClass("shakingSlow");
+    } else if (stage == 2) {
+        $(target).addClass("shakingMid");
+    } else {
+        $(target).addClass("shakingFast");
+    }
 }
 
 function runEffect_outOfReach(target) {
@@ -630,15 +644,6 @@ function runEffect_immobility(target) {
 }
 
 function runEffect_distortion(target) {
-  var previousSkew = 0;
-  var newTransform = partiallyRemoveProperty(target, "transform", "skew");
-  if (stage == 1) {
-    $(target).css(newTransform + " skew(" + (Math.random()*20-10) + "deg, " + (Math.random()*20-10) + "deg)");
-  } else if (stage == 2) {
-    $(target).css(newTransform + " skew(" + (Math.random()*90-45) + "deg, " + (Math.random()*90-45) + "deg)");
-  } else if (stage == 3) {
-    $(target).css(newTransform + " skew(" + (Math.random()*180-90) + "deg, " + (Math.random()*180-90) + "deg)");
-  }
 }
 
 function runEffect_rituals(target) {
