@@ -48,20 +48,16 @@ div.still-life-frame {
   top: 144px;
   right: 0%;
 }
-@keyframes mug-floating-fast {
-    from {top: 98px;}
-    to {top: 118px;}
-}
-@keyframes triangle-floating-slow {
-    from {top: 0px;}
-    to {top: 20px;}
+@keyframes floating {
+    from {padding-top: 0px;}
+    to {padding-top: 20px;}
 }
 .still-life-image#mug.floating-fast {
   background-image: url('images/still-life-mug.png');
   height: 103px;
   width: 100px;
   top: 98px;
-  animation: mug-floating-fast;
+  animation: floating;
   animation-duration: 2s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -71,7 +67,7 @@ div.still-life-frame {
   background-image: url('images/still-life-triangle.png');
   height: 211px;
   width: 200px;
-  animation: triangle-floating-slow;
+  animation: floating;
   animation-duration: 3s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
