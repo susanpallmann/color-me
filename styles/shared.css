@@ -172,6 +172,7 @@ input[type="checkbox"], input[type="radio"] {
   background-clip: content-box;
   box-sizing: border-box;
   cursor: pointer;
+  vertical-align: middle;
 }
 input[type="checkbox"]:hover, input[type="radio"]:hover {
   background-color: rgba(255, 255, 255, 0.2);
