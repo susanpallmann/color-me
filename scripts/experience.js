@@ -379,6 +379,17 @@ function goToStage(stageNo) {
   $(".draggable").css("opacity", "");
   $(".ui").css("transition", "0.2s");
   browserCompatibleCSS(".ui", "filter", "");
+  var fastMelt = setInterval(function() {
+      var blurStdDeviation = Number($("filter#melting feGaussianBlur").attr("stdDeviation"));
+      if (blurStdDeviation > 0) {
+          $("filter#melting feGaussianBlur").attr("stdDeviation", Number(blurStdDeviation - 0.3));
+      } else {
+          $("filter#melting feGaussianBlur").attr("stdDeviation", 0);
+          clearInterval(fastMelt);
+      }
+  }, 20);
+  fastMelt;
+  $("filter#melting feGaussianBlur").attr("stdDeviation", "0")
   intervals.forEach(clearInterval);
 }
 
