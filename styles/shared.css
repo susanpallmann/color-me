@@ -410,7 +410,7 @@ span.hamburger-container {
   }
   header {
     font-size: 16px;
-    shadow: 0px 1px 10px rgba(0, 0, 0, 0.2)
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2)
   }
   header {
     height: 64px; 
