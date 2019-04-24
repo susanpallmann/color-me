@@ -118,8 +118,8 @@ $(document).ready(function() {
 function determineStage() {
     // works out the current stage, if provided.
     stage = window.location.href;
-    if (stage.includes("&stage=")) {
-        stage = window.location.href.split("&stage=")[1];
+    if (stage.includes("stage=")) {
+        stage = window.location.href.split("stage=")[1];
         if (stage.includes("&")) {
             stage = stage.split("&")[0];
         }
@@ -139,6 +139,9 @@ function determineStage() {
     // if the final character of the ID is '+', search for the ID in the visible folder.
     // otherwise search for the ID in the hidden folder.
     currentURL = window.location.href.split("&")[0];
+    if (!currentURL.includes("experience")) {
+      currentURL = currentURL.split("?")[0];
+    }
 }
 
 
@@ -149,7 +152,11 @@ function goToStage(stageNo) {
   stage = stageNo;
   
   // sets the URL to correspond with the new stage number
-  window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
+  if (currentURL.includes("experience")) {
+    window.history.pushState("object or string", "Stage " + stageNo, currentURL + "&stage=" + stageNo);
+  } else {
+    window.history.pushState("object or string", "Stage " + stageNo, currentURL + "?stage=" + stageNo);
+  }
   
   // sets all the navigation markers to be inactive
   // then sets only the navigation marker for the given stage to be active
