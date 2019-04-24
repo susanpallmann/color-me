@@ -183,4 +183,5 @@ function goToStage(stageNo) {
   $(".draggable").css("opacity", "");
   $("body").css("transition", "0.2s");
   $("body").css("filter", "");
+  intervals.forEach(clearInterval);
 }
