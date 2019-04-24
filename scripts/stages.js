@@ -72,7 +72,7 @@ $(document).ready(function() {
     }
     // if scrolling down and not already at the last stage, go to the next stage
     // the current time must be 0.5s before the last time this event was triggered, to prevent scrolling through too many stages
-    else if (e.originalEvent.detail > 0 && stage < 4 && Date.now() > lastScrollTime + 500) {
+    else if (e.originalEvent.detail > 0 && stage < noOfStages - 1 && Date.now() > lastScrollTime + 500) {
       lastScrollTime = Date.now();
       goToStage(stage + 1);
     }
