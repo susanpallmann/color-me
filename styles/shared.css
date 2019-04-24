@@ -298,6 +298,7 @@ nav#hamburger-menu {
   text-align: right;
   float: right;
   display: none;
+  padding-right: 10px;
 }
 nav ul {
   text-decoration: none;
