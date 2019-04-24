@@ -143,6 +143,10 @@ function loadPerspective(perspID) {
         // removes the page cover once the experience has fully loaded
         $("#pageCover").css("opacity", "0");
         $("#pageCover").css("height", "0");
+        
+        if (effect_melting) {
+            $(".scene").css("filter", "url('#melting')");
+        }
     });
 }
 
