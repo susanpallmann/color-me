@@ -474,7 +474,12 @@ function runEffect_fading(target) {
 }
 
 function runEffect_blurring(target) {
-  var currentBlurValue = getPartialPropertyValue(target, "filter", "blur").split("px")[0];
+  var currentBlurValue = getPartialPropertyValue(target, "filter", "blur");
+  if (currentBlurValue == "none") {
+      currentBlurValue = 0;
+  } else {
+      currentBlurValue = Number(currentBlurValue.split("px")[0]);
+  }
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
     browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 1 + "px)");
