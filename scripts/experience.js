@@ -553,7 +553,7 @@ function runEffect_blurring(target) {
   } else if (stage == 3) {
     browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 5) + "px)");
     $(".ui").css("transition", "filter 20s");
-    browserCompatibleCSS(".ui:not(.nextArrow)", "filter", "blur(5px)");
+    browserCompatibleCSS(".ui:not(.nextButton)", "filter", "blur(5px)");
     browserCompatibleCSS("header", "filter", "");
   }
 }
