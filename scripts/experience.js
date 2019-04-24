@@ -580,30 +580,6 @@ function runEffect_colorChange(target) {
 }
 
 function runEffect_popups(target) {
-  if (stage == 1) {
-    if (Math.random() < 0.2) {
-      var isConfirmed = confirm("Are you sure about that?");
-    }
-  } else if (stage == 2) {
-    var isConfirmed = confirm("Are you sure about that?");
-    if (isConfirmed && Math.random() < 0.5) {
-      var isConfirmed = confirm("Are you really sure?");
-    }
-  } else if (stage == 3) {
-    var escaped = false;
-    while(!escaped) {
-      if (Math.random() < 0.3) {
-        var isConfirmed = confirm("Are you sure about that?");
-      } else if (Math.random() < 0.5) {
-        var isConfirmed = confirm("Are you really sure?");
-      } else {
-        var isConfirmed = confirm("I wouldn't be so sure. Are you?");
-      }
-      if (Math.random() < 0.1) {
-        escaped = true;
-      }
-    }
-  }
 }
 
 function runEffect_shaking(target) {
