@@ -85,9 +85,9 @@ function newPerspective(values, visibleInGallery) {
 	perspRef.then(() => {
   		var perspID = perspRef.getKey();
 		if (visibleInGallery === "visible") {
-			$("#pageCover").html("<div style='margin: auto; top: 40%'><a href='/experience?id=" + perspID + "+'>Play Now</a><p>Share with others: susanpallmann.com/experience?id=" + perspID + "+</p></div>");
+			$("#pageCover").html("<div style='margin: auto; top: 40%; width: fit-content; position: relative; text-align: center;'><a href='/experience?id=" + perspID + "+'>Play Now</a><p>Share with others:</p><p>susanpallmann.com/experience?id=" + perspID + "+</p></div>");
 		} else {
-			$("#pageCover").html("<div style='margin: auto; top: 40%'><a href='/experience?id=" + perspID + "'>Play Now</a><p>Share with others: susanpallmann.com/experience?id=" + perspID + "</p></div>");
+			$("#pageCover").html("<div style='margin: auto; top: 40%; width: fit-content; position: relative; text-align: center;'><a href='/experience?id=" + perspID + "'>Play Now</a><p>Share with others:</p><p>susanpallmann.com/experience?id=" + perspID + "</p></div>");
 		}
 		return perspID;
 	});
