@@ -591,3 +591,6 @@ span.hamburger-container {
 div.gallery#stage_2::-webkit-scrollbar {
   width: 0!important;
 }
+div.gallery#stage_2::scrollbar {
+  width: 0!important;
+}
