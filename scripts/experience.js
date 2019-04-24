@@ -137,6 +137,8 @@ function loadPerspective(perspID) {
         
         // sets the text for the title, description, views and back button text on the page
         $("title").html("Color Me " + title + " by " + creator);
+        $("h1").html("Color Me " + title);
+        $("h2").html("Color Me " + title + " by " + creator);
         $("div.textbox").html(description);
         $("#viewCounter").html(newViews);
         $("#backButton").html(backButton);
