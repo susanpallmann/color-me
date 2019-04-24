@@ -472,13 +472,18 @@ function runEffect_blurring(target) {
 }
 
 function runEffect_colorLoss(target) {
-  var newFilter = partiallyRemoveProperty(target, "filter", "saturate");
+  var newFilter = partiallyRemoveProperty("body", "filter", "grayscale");
+  $("body").css("transition", "filter 2s");
+  var currentOpacity = $(target).css("opacity");
   if (stage == 1) {
-    $(target).css("filter", newFilter + " saturate(50%)");
+    $("body").css("filter", newFilter + " saturate(80%)");
+    $(target).css("opacity", currentOpacity - 0.1);
   } else if (stage == 2) {
-    $(target).css("filter", newFilter + " saturate(20%)");
+    $("body").css("filter", newFilter + " saturate(40%)");
+    $(target).css("opacity", currentOpacity - 0.2);
   } else if (stage == 3) {
-    $(target).css("filter", newFilter + " saturate(0%)");
+    $("body").css("filter", newFilter + " saturate(10%)");
+    $(target).css("opacity", currentOpacity - 0.3);
   }
 }
 
