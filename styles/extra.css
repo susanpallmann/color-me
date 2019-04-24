@@ -73,3 +73,85 @@ div.still-life-frame {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
+.still-life-image#book {
+  background-image: url('/images/still-life-book.png');
+  width: 166px;
+  height: 105px;
+}
+.still-life-image#block {
+  background-image: url('/images/still-life-block.png');
+  width: 120px;
+  height: 105px;
+}
+.still-life-image#cube {
+  background-image: url('/images/still-life-cube.png');
+  width: 163px;
+  height: 170px;
+}
+.still-life-image#bottle {
+  background-image: url('/images/still-life-bottle.png');
+  width: 73px;
+  height: 160px;
+}
+.still-life-image#glass {
+  background-image: url('/images/still-life-glass.png');
+  width: 46px;
+  height: 116px;
+}
+.still-life-image#tv {
+  background-image: url('/images/still-life-tv.png');
+  width: 203px;
+  height: 239px;
+}
+.still-life-image#sp {
+  background-image: url('/images/still-life-sp.png');
+  width: 157px;
+  height: 189px;
+}
+.still-life-image#phone {
+  background-image: url('/images/still-life-phone.png');
+  width: 173px;
+  height: 280px;
+}
+.still-life-image#sp.floating-slow {
+  background-image: url('/images/still-life-sp.png');
+  width: 157px;
+  height: 189px;
+  animation: floating;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.still-life-image#cube.floating-slow {
+  background-image: url('/images/still-life-cube.png');
+  width: 163px;
+  height: 170px;
+  animation: floating;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.still-life-image#bottle.floating-fast {
+  background-image: url('/images/still-life-bottle.png');
+  height: 103px;
+  width: 100px;
+  top: 98px;
+  animation: floating;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.still-life-image#book.floating-fast {
+  background-image: url('/images/still-life-book.png');
+  width: 73px;
+  height: 160px;
+  top: 98px;
+  animation: floating;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
