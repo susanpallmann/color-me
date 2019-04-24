@@ -392,7 +392,7 @@ function goToStage(stageNo) {
   $(".draggable").css("opacity", "");
   $(".ui").css("transition", "0.2s");
   browserCompatibleCSS("body", "filter", "");
-  var newFilter = partiallyRemoveProperty(".ui", "filter", "blur");
+  var newFilter = partiallyRemoveProperty(".ui.nextButton", "filter", "blur");
   console.log(newFilter);
   browserCompatibleCSS(".ui", "filter", newFilter);
   var fastMelt = setInterval(function() {
