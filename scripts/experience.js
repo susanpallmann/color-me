@@ -178,7 +178,6 @@ $(document).ready(function() {
   // to make an element draggable, give it the "draggable" class
   $(".draggable").on("mousedown touchstart", function(e) {
     e.preventDefault();
-    console.log("touchstart triggered by draggable");
     dragging = true;
     // set the element transition property
     // this makes the effect smooth, rather than immediate
@@ -191,12 +190,10 @@ $(document).ready(function() {
     compileEffects(this);
     
     if (e.type === "touchstart") {
-        console.log("type registered as a touchstart event");
         prevX = e.originalEvent.touches[0].pageX;
         prevY = e.originalEvent.touches[0].pageY;
     } else {
         // calculates the mouse/touch x and y positions
-        console.log("type registered as a mouse event");
         prevX = e.pageX;
         prevY = e.pageY;
     }
@@ -206,7 +203,6 @@ $(document).ready(function() {
     
     // sets function for when a drag occurs
     $(window).on("mousemove touchmove", function(e) {
-        console.log("touchmove triggered by draggable's parent");
         // prevents default event functions
         e.preventDefault();
         
@@ -214,8 +210,6 @@ $(document).ready(function() {
         if (e.type === "touchmove") {
             var thisX = e.originalEvent.changedTouches[0].pageX;
             var thisY = e.originalEvent.changedTouches[0].pageY;
-            console.log(prevX);
-            console.log(prevY);
             var x = $(target).offset().left + (thisX - prevX);
             var y = $(target).offset().top + (thisY - prevY);
         } else {
@@ -244,7 +238,6 @@ $(document).ready(function() {
     
     // sets function for when the drag ends/finger is lifted
     $(window).on("mouseup touchend", function(e) {
-      console.log("touchend triggered by window following touch of draggable");
       // sets css properties to none
       if (stage != 3) {
         $(target).css("filter", "");
@@ -315,7 +308,6 @@ $(document).ready(function() {
   });
   
   $(window).on('mousedown touchstart', function(e) {
-      console.log("touchstart triggered by window");
       if (e.type === "touchstart") {
           prevX = e.originalEvent.touches[0].pageX;
           prevY = e.originalEvent.touches[0].pageY;
@@ -324,7 +316,6 @@ $(document).ready(function() {
           prevY = e.pageY;
       }
       $(window).on('mouseup touchend', function(e) {
-        console.log("touchend triggered by window");
         if (e.type === "touchend") {
             var x = e.originalEvent.changedTouches[0].pageX - prevX;
             var y = e.originalEvent.changedTouches[0].pageY - prevY;
@@ -481,7 +472,6 @@ function runEffect_blurring(target) {
   } else {
       currentBlurValue = Number(currentBlurValue.split("px")[0]);
   }
-  console.log(currentBlurValue);
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
     browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 1) + "px)");
