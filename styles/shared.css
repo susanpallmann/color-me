@@ -603,4 +603,21 @@ div.gallery#stage_2::-webkit-scrollbar {
 }
 div.accentColor.circles {
   border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.front-img {
+   position: relative;
+}
+.front-img.front-clock {
+  top: 60px;
+  left: 20px;
+}
+.front-img.front-phone {
+  top: 70px;
+  left: 20px;
+}
+.front-img.front-bottle {
+  left: 45px;
+  top: -10px;
 }
