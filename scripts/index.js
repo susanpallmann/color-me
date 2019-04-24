@@ -32,12 +32,14 @@ $(document).ready(function() {
 		if (prevOrder == "sorted by color") {
 			$(this).text("sorted by name");
 			$("#searchButton").attr("disabled", false);
+			$("#searchInput").attr("value", "");
 			$("#searchInput").attr("disabled", false);
 			beginSearch();
 		} else {
 			$(this).text("sorted by color");
 			galleryHTML = "";
 			$("#searchButton").attr("disabled", true);
+			$("#searchInput").attr("value", "must sort by name");
 			$("#searchInput").attr("disabled", true);
 			var newQueryRef = firebase.database().ref('perspectives/visible').orderByChild('colorHue').limitToFirst(maxThumbs);
 			loadGallery(newQueryRef);
@@ -70,7 +72,7 @@ $(document).ready(function() {
 				$(this).text("load 6");
 				maxThumbs = 6;
 		}
-		console.log(maxThumbs);
+		beginSearch();
 	});
 	
 	
