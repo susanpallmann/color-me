@@ -562,7 +562,7 @@ function runEffect_colorChange(target) {
       hueRotation = Number(hueRotation.split("deg")[0]);
   }
   var newFilter = partiallyRemoveProperty(target, "filter", "hue-rotate");
-  $(target).css("filter", newFilter");
+  $(target).css("filter", newFilter);
   var newFilter = partiallyRemoveProperty(target, "filter", "sepia");
   if (stage == 1) {
     $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*30) + "deg)");
