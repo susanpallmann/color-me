@@ -12,7 +12,15 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-database.js"></script>
     <script type="text/javascript" src="scripts/shared.js"></script>
     <script type="text/javascript" src="scripts/experience.js"></script>
-    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="melting">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="melting" />
+          <feBlend in="SourceGraphic" in2="melting" />
+        </filter>
+      </defs>
+    </svg>
   </head>
   <body style="overflow: hidden; width: 100vw; height: 100vh;">
     <header class="ui">
