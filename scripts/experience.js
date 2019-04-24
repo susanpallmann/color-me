@@ -474,13 +474,14 @@ function runEffect_fading(target) {
 }
 
 function runEffect_blurring(target) {
+  var currentBlurValue = getPartialPropertyValue(target, "filter", "blur").split("px")[0];
   var newFilter = partiallyRemoveProperty(target, "filter", "blur");
   if (stage == 1) {
-    browserCompatibleCSS(target, "filter", newFilter + " blur(2px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 1 + "px)");
   } else if (stage == 2) {
-    browserCompatibleCSS(target, "filter", newFilter + " blur(5px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 1 + "px)");
   } else if (stage == 3) {
-    browserCompatibleCSS(target, "filter", newFilter + " blur(10px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(" + currentBlurValue + 5 + "px)");
     $(".ui").css("transition", "filter 20s");
     browserCompatibleCSS(".ui", "filter", "blur(5px)");
     browserCompatibleCSS("header", "filter", "");
