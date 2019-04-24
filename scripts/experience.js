@@ -5,6 +5,7 @@ var lastScrollTime = 0; // the time of last scroll (in milliseconds) to prevent 
 var dragging = false;   // whether or not a draggable item is being dragged
 var prevX;
 var prevY;
+var intervals = [];
 
 // keep the values of the experience, taken from the database
 var title;
@@ -626,11 +627,12 @@ function getPartialPropertyValue(object, property, cssFunction) {
 }
 
 function compileEffectsAtRandom(target) {
-    setInterval(function() {
+    var newInterval = setInterval(function() {
         if (Math.random() < 0.02) {
             compileEffects(target);
         }
     }, 100);
+    intervals.push(newInterval);
 }
 
 function browserCompatibleCSS(object, property, value) {
