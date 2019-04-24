@@ -46,7 +46,7 @@ div.still-life-frame {
   height: 252px;
   width: 167px;
   top: 144px;
-  left: 264px;
+  right: 0%;
 }
 @keyframes mug-floating-fast {
     from {top: 98px;}
