@@ -580,6 +580,7 @@ function runEffect_colorChange(target) {
     newFilter = newFilter.split("sepia")[0] + newFilter.split("sepia")[1].split(")")[1];
     newFilter = newFilter.split("hue-rotate")[0] + newFilter.split("hue-rotate")[1].split(")")[1];
   }
+  console.log(newFilter);
   if (stage == 1) {
     $(target).css("filter", newFilter + " sepia(100%) hue-rotate(" + Math.round(Math.random()*360) + "deg)");
   } else if (stage == 2) {
