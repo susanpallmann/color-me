@@ -454,12 +454,13 @@ function runEffect_blackHole(target) {
 }
 
 function runEffect_fading(target) {
+  var prevOpacity = $(target).css("opacity");
   if (stage == 1) {
-    $(target).css("opacity", "0.8");
+    $(target).css("opacity", prevOpacity - 0.2);
   } else if (stage == 2) {
-    $(target).css("opacity", "0.5");
+    $(target).css("opacity", prevOpacity - 0.3);
   } else if (stage == 3) {
-    $(target).css("opacity", "0");
+    $(target).css("opacity", prevOpacity - 0.5);
   }
 }
 
@@ -480,13 +481,13 @@ function runEffect_colorLoss(target) {
   var currentOpacity = $(target).css("opacity");
   if (stage == 1) {
     $("body").css("filter", newFilter + " saturate(80%)");
-    $(target).css("opacity", currentOpacity - 0.1);
+    $(target).css("opacity", currentOpacity - 0.05);
   } else if (stage == 2) {
     $("body").css("filter", newFilter + " saturate(40%)");
-    $(target).css("opacity", currentOpacity - 0.2);
+    $(target).css("opacity", currentOpacity - 0.1);
   } else if (stage == 3) {
     $("body").css("filter", newFilter + " saturate(10%)");
-    $(target).css("opacity", currentOpacity - 0.3);
+    $(target).css("opacity", currentOpacity - 0.1);
   }
 }
 
@@ -592,4 +593,14 @@ function partiallyRemoveProperty(object, property, cssFunction) {
         return propertyValue;
     }
     return newValue;
+}
+
+function getPartialPropertyValue(object, property, cssFunction) {
+    var propertyValue = $(object).css(property);
+    if (propertyValue != "none" && propertyValue.includes(cssFunction)) {
+        propertyValue = propertyValue.split(cssFunction + "(")[1].split(")")[0];
+        return propertyValue;
+    } else {
+        return "none";
+    }
 }
