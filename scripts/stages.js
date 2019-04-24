@@ -4,9 +4,11 @@ var lastScrollTime = 0; // the time of last scroll (in milliseconds) to prevent 
 var dragging = false;   // whether or not a draggable item is being dragged
 var prevX;
 var prevY;
-var noOfStages = $("div.stage").length;
+var noOfStages;
 
 $(document).ready(function() {
+  
+  noOfStages = $("div.stage").length;
   
   $("#stage_0 .nextButton").click(function() {
     goToStage(1);
