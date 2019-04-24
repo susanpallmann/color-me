@@ -178,4 +178,8 @@ function goToStage(stageNo) {
     }
   }
   $(".stage").css("transition", "0.5s ease-in-out");
+  $(".draggable").css("filter", "");
+  $(".draggable").css("transform", "");
+  $(".draggable").css("opacity", "");
+  $("body").css("filter", "");
 }
