@@ -463,11 +463,11 @@ function runEffect_blackHole(target) {
 function runEffect_fading(target) {
   var prevOpacity = $(target).css("opacity");
   if (stage == 1) {
-    $(target).css("opacity", prevOpacity - 0.2);
+    $(target).css("opacity", prevOpacity - 0.1);
   } else if (stage == 2) {
-    $(target).css("opacity", prevOpacity - 0.3);
+    $(target).css("opacity", Math.random());
   } else if (stage == 3) {
-    $(target).css("opacity", prevOpacity - 0.5);
+    $(target).css("opacity", prevOpacity / 2);
   }
 }
 
@@ -496,13 +496,13 @@ function runEffect_colorLoss(target) {
   $("body").css("transition", "filter 2s");
   var currentOpacity = $(target).css("opacity");
   if (stage == 1) {
-    $("body").css("filter", newFilter + " saturate(80%)");
+    browserCompatibleCSS("body", "filter", newFilter + " saturate(80%)");
     $(target).css("opacity", currentOpacity - 0.05);
   } else if (stage == 2) {
-    $("body").css("filter", newFilter + " saturate(40%)");
+    browserCompatibleCSS("body", "filter", newFilter + " saturate(40%)");
     $(target).css("opacity", currentOpacity - 0.1);
   } else if (stage == 3) {
-    $("body").css("filter", newFilter + " saturate(10%)");
+    browserCompatibleCSS("body", "filter", newFilter + " saturate(0%)");
     $(target).css("opacity", currentOpacity - 0.1);
   }
 }
