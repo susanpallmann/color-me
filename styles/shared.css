@@ -601,6 +601,6 @@ span.hamburger-container {
 div.gallery#stage_2::-webkit-scrollbar {
   width: 0!important;
 }
-.circles {
-   border-radius: 50%;
+div.accentColor.circles {
+  border-radius: 50%;
 }
