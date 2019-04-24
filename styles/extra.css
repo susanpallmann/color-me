@@ -105,6 +105,7 @@ div.still-life-frame {
   width: 203px;
   height: 239px;
   right: 0%;
+  top: 144px;
 }
 .still-life-image#sp {
   background-image: url('/images/still-life-sp.png');
