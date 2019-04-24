@@ -672,3 +672,8 @@ div.accentColor.circles {
 }
 .stage.gallery input, .stage.gallery button, .stage.gallery textarea {
    margin: 0px;
+}
+span.color-button {
+   border-radius: 50%;
+   padding: 5px;
+}
