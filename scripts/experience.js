@@ -485,7 +485,7 @@ function runEffect_blurring(target) {
   if (stage == 1) {
     browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 1) + "px)");
   } else if (stage == 2) {
-    browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 1) + "px)");
+    browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(Math.random()*5) + "px)");
   } else if (stage == 3) {
     browserCompatibleCSS(target, "filter", newFilter + " blur(" + Number(currentBlurValue + 5) + "px)");
     $(".ui").css("transition", "filter 20s");
